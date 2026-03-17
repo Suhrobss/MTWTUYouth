@@ -3,42 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MTWTU Youth — Презентація</title>
-  <meta name="description" content="Інтерактивна презентація Молодіжної ради ПРМТУ для GitHub Pages" />
+  <title>MTWTU Youth — WOW Presentation</title>
+  <meta name="description" content="Сучасна інтерактивна презентація Молодіжної ради ПРМТУ для GitHub Pages" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #05111f;
-      --bg-soft: rgba(9, 25, 42, 0.72);
-      --card: rgba(8, 27, 46, 0.58);
-      --card-2: rgba(16, 44, 74, 0.58);
-      --line: rgba(255,255,255,0.11);
-      --text: #edf6ff;
-      --muted: #b5cce4;
-      --gold: #f0c66a;
-      --aqua: #5dd9d5;
-      --blue: #2a6df5;
-      --mint: #8ff5d7;
-      --glow: 0 18px 60px rgba(19, 91, 174, 0.35);
-      --radius: 26px;
+      --bg-0: #031221;
+      --bg-1: #071d32;
+      --bg-2: #0a314c;
+      --bg-3: #0d4662;
+      --card: rgba(9, 28, 46, 0.68);
+      --card-strong: rgba(9, 32, 51, 0.84);
+      --line: rgba(255,255,255,0.12);
+      --text: #eef8ff;
+      --muted: #b7cfe1;
+      --teal: #4fe1d4;
+      --gold: #f2c46b;
+      --blue: #5ab0ff;
+      --wave: #0f6a89;
+      --glow: 0 24px 80px rgba(2, 12, 25, 0.42);
+      --radius: 28px;
       --max: 1320px;
-      --section-pad: clamp(84px, 10vw, 120px);
+      --topbar-h: 78px;
+      --section-py: clamp(92px, 11vh, 128px);
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
     body {
       margin: 0;
       font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(50, 122, 255, 0.16), transparent 0 32%),
-        radial-gradient(circle at 85% 18%, rgba(93, 217, 213, 0.12), transparent 0 28%),
-        radial-gradient(circle at 70% 80%, rgba(240, 198, 106, 0.10), transparent 0 26%),
-        linear-gradient(180deg, #04101d 0%, #061528 36%, #071a31 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at 15% 18%, rgba(79,225,212,.14), transparent 0 24%),
+        radial-gradient(circle at 88% 12%, rgba(90,176,255,.12), transparent 0 20%),
+        radial-gradient(circle at 50% 110%, rgba(13,70,98,.45), transparent 0 35%),
+        linear-gradient(180deg, #02101c 0%, #041729 22%, #051c2e 45%, #06243a 72%, #041a2d 100%);
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
     body::before {
@@ -46,129 +55,352 @@
       position: fixed;
       inset: 0;
       background:
-        linear-gradient(115deg, rgba(255,255,255,0.03), transparent 35%),
-        linear-gradient(180deg, rgba(255,255,255,0.01), transparent 30%, rgba(255,255,255,0.015));
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 92px 92px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.75));
+      opacity: .22;
       pointer-events: none;
-      z-index: -2;
+      z-index: -5;
     }
 
-    canvas#particles {
+    .cursor-glow {
+      position: fixed;
+      width: 34vw;
+      aspect-ratio: 1;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(79,225,212,.12), rgba(90,176,255,.08) 30%, transparent 68%);
+      pointer-events: none;
+      filter: blur(18px);
+      z-index: -4;
+      transition: left .18s ease-out, top .18s ease-out;
+      mix-blend-mode: screen;
+      opacity: .72;
+    }
+
+    .ocean-bg {
       position: fixed;
       inset: 0;
-      width: 100%;
+      pointer-events: none;
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .sonar {
+      position: absolute;
+      width: min(64vw, 780px);
+      aspect-ratio: 1;
+      right: -12vw;
+      top: -16vw;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, transparent 0 19%, rgba(79,225,212,.10) 19.5% 20%, transparent 20.5% 32%, rgba(79,225,212,.08) 32.5% 33%, transparent 33.5% 45%, rgba(79,225,212,.06) 45.5% 46%, transparent 46.5%),
+        conic-gradient(from 210deg, rgba(79,225,212,.22), transparent 16%, transparent 72%, rgba(79,225,212,.14) 88%, transparent 94%);
+      filter: blur(.2px);
+      opacity: .62;
+      animation: spinSlow 22s linear infinite;
+    }
+
+    .sonar::after {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border: 1px solid rgba(79,225,212,.12);
+      border-radius: 50%;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .wave-stack {
+      position: absolute;
+      inset: auto 0 -2px 0;
+      height: 46vh;
+    }
+
+    .wave {
+      position: absolute;
+      inset: auto -10% 0 -10%;
       height: 100%;
-      z-index: -1;
-      opacity: 0.85;
-      pointer-events: none;
+      background-repeat: repeat-x;
+      background-size: 1200px 100%;
+      transform-origin: center bottom;
     }
 
-    .noise {
+    .wave-1 {
+      opacity: .42;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 420' preserveAspectRatio='none'%3E%3Cpath fill='%230a4a67' d='M0,260L48,244.7C96,229,192,197,288,181.3C384,165,480,165,576,186.7C672,208,768,250,864,261.3C960,272,1056,250,1152,218.7C1248,187,1344,144,1392,122.7L1440,101L1440,421L1392,421C1344,421,1248,421,1152,421C1056,421,960,421,864,421C768,421,672,421,576,421C480,421,384,421,288,421C192,421,96,421,48,421L0,421Z'/%3E%3C/svg%3E");
+      animation: waveMove 20s linear infinite;
+    }
+
+    .wave-2 {
+      opacity: .36;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 420' preserveAspectRatio='none'%3E%3Cpath fill='%230c607d' d='M0,190L48,184.7C96,179,192,169,288,184.7C384,200,480,242,576,242.7C672,243,768,201,864,174.7C960,149,1056,141,1152,157.3C1248,173,1344,213,1392,232.7L1440,253L1440,421L1392,421C1344,421,1248,421,1152,421C1056,421,960,421,864,421C768,421,672,421,576,421C480,421,384,421,288,421C192,421,96,421,48,421L0,421Z'/%3E%3C/svg%3E");
+      animation: waveMoveReverse 28s linear infinite;
+    }
+
+    .wave-3 {
+      opacity: .28;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 420' preserveAspectRatio='none'%3E%3Cpath fill='%23107c98' d='M0,260L60,266.7C120,273,240,287,360,260C480,233,600,167,720,149.3C840,131,960,163,1080,176.7C1200,191,1320,191,1380,191L1440,191L1440,421L1380,421C1320,421,1200,421,1080,421C960,421,840,421,720,421C600,421,480,421,360,421C240,421,120,421,60,421L0,421Z'/%3E%3C/svg%3E");
+      animation: waveMove 36s linear infinite;
+    }
+
+    @keyframes waveMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-600px); }
+    }
+
+    @keyframes waveMoveReverse {
+      from { transform: translateX(-600px); }
+      to { transform: translateX(0); }
+    }
+
+    .header-shell {
       position: fixed;
-      inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.035) 0.8px, transparent 0.8px);
-      background-size: 6px 6px;
-      opacity: 0.05;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(calc(100% - 26px), 1320px);
+      z-index: 80;
       pointer-events: none;
-      z-index: -1;
-      mix-blend-mode: soft-light;
     }
 
     .topbar {
-      position: fixed;
-      top: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(calc(100% - 28px), 1200px);
-      display: flex;
+      pointer-events: auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 16px;
-      background: rgba(5, 19, 34, 0.52);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(16px);
+      gap: 18px;
+      min-height: var(--topbar-h);
+      padding: 14px 18px;
       border-radius: 999px;
-      z-index: 40;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.16);
+      background: linear-gradient(180deg, rgba(8, 24, 39, 0.78), rgba(6, 20, 32, 0.62));
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 18px 36px rgba(3, 11, 21, 0.24);
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       min-width: 0;
     }
 
-    .brand-badge {
-      width: 40px;
-      height: 40px;
+    .brand-mark {
+      position: relative;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-weight: 800;
-      color: #04101d;
-      background: linear-gradient(135deg, var(--gold), #fff1c6);
-      box-shadow: 0 10px 24px rgba(240, 198, 106, 0.35);
-      flex-shrink: 0;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.9), rgba(255,255,255,.25) 20%, transparent 21%),
+        conic-gradient(from 0deg, var(--gold), #ffe9b4, var(--teal), #b4fff5, var(--gold));
+      box-shadow: 0 0 0 2px rgba(255,255,255,.08), 0 12px 24px rgba(79,225,212,.18);
+      isolation: isolate;
     }
 
-    .brand-title {
-      font-size: 13px;
-      line-height: 1.2;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--muted);
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
     }
 
-    .brand-title strong {
+    .brand-mark::before {
+      inset: 5px;
+      background: linear-gradient(180deg, rgba(5, 18, 31, 1), rgba(7, 32, 47, .98));
+      border: 1px solid rgba(255,255,255,.08);
+      z-index: -1;
+    }
+
+    .brand-mark::after {
+      width: 14px;
+      height: 14px;
+      background: var(--gold);
+      box-shadow: 0 0 14px rgba(242,196,107,.52);
+    }
+
+    .brand-copy {
+      min-width: 0;
+      line-height: 1.15;
+    }
+
+    .brand-copy small {
       display: block;
-      font-size: 14px;
-      color: var(--text);
-      letter-spacing: .03em;
-      text-transform: none;
-      margin-top: 2px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav {
       display: flex;
+      justify-content: center;
       gap: 8px;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      min-width: 0;
     }
 
     .nav a {
+      position: relative;
       color: var(--muted);
       text-decoration: none;
       font-size: 13px;
-      padding: 10px 12px;
+      font-weight: 600;
+      padding: 11px 14px;
       border-radius: 999px;
-      transition: 0.25s ease;
+      transition: .28s ease;
       white-space: nowrap;
     }
 
     .nav a:hover,
     .nav a.active {
-      color: #061528;
-      background: linear-gradient(135deg, var(--aqua), #dffffe);
-      box-shadow: 0 8px 20px rgba(93, 217, 213, 0.24);
+      color: #041421;
+      background: linear-gradient(135deg, var(--teal), #d9fff9 65%, #fff3cf);
+      box-shadow: 0 10px 24px rgba(79,225,212,.22);
+    }
+
+    .deck-chip {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      white-space: nowrap;
+    }
+
+    .deck-chip .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 14px var(--teal);
+    }
+
+    .progress-track {
+      margin: 10px auto 0;
+      height: 4px;
+      width: min(calc(100% - 60px), 1200px);
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold), #ffffff);
+      box-shadow: 0 0 18px rgba(79,225,212,.4);
+      transition: width .18s linear;
+    }
+
+    .side-dots {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: grid;
+      gap: 12px;
+    }
+
+    .side-dots a {
+      position: relative;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.06);
+      box-shadow: inset 0 0 0 0 rgba(255,255,255,.45);
+      transition: .28s ease;
+    }
+
+    .side-dots a::after {
+      content: attr(data-label);
+      position: absolute;
+      right: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(3, 15, 26, .88);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: .22s ease;
+    }
+
+    .side-dots a:hover::after,
+    .side-dots a.active::after {
+      opacity: 1;
+    }
+
+    .side-dots a.active {
+      background: linear-gradient(135deg, var(--teal), #efffff);
+      border-color: rgba(255,255,255,.72);
+      transform: scale(1.2);
+      box-shadow: 0 0 0 6px rgba(79,225,212,.12);
     }
 
     main { position: relative; }
 
     .section {
+      position: relative;
       min-height: 100vh;
-      padding: var(--section-pad) 22px;
+      padding: calc(var(--topbar-h) + 36px) 24px var(--section-py);
       display: flex;
       align-items: center;
-      position: relative;
+      scroll-snap-align: start;
+      overflow: clip;
     }
 
     .section::before {
       content: "";
       position: absolute;
-      inset: 16px;
-      border-radius: 34px;
-      border: 1px solid rgba(255,255,255,0.04);
+      inset: 18px;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,.06);
+      pointer-events: none;
+      opacity: .95;
+    }
+
+    .section::after {
+      content: "";
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
       pointer-events: none;
     }
 
@@ -176,22 +408,24 @@
       width: min(100%, var(--max));
       margin: 0 auto;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
+      padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
       color: var(--muted);
       font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .18em;
+      letter-spacing: .20em;
       margin-bottom: 16px;
+      box-shadow: inset 0 0 0 1px rgba(79,225,212,.06);
     }
 
     .eyebrow::before {
@@ -199,44 +433,118 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--aqua);
-      box-shadow: 0 0 18px var(--aqua);
+      background: linear-gradient(135deg, var(--teal), #f2fffd);
+      box-shadow: 0 0 18px rgba(79,225,212,.56);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(46px, 8vw, 106px);
+      line-height: .94;
+      letter-spacing: -.055em;
+      max-width: 11ch;
+    }
+
+    h1 .gradient,
+    h2 .gradient {
+      background: linear-gradient(135deg, #ffffff 4%, #d3fff8 36%, #f2c46b 72%, #fff0cc 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: .98;
+      letter-spacing: -.045em;
+      max-width: 13ch;
+    }
+
+    .lead {
+      margin-top: 18px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.72;
+    }
+
+    .glass {
+      position: relative;
+      background: linear-gradient(180deg, rgba(10, 28, 45, 0.78), rgba(5, 18, 31, 0.76));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--glow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(110deg, rgba(255,255,255,.08), transparent 18%, transparent 82%, rgba(255,255,255,.04)),
+        radial-gradient(circle at 12% 14%, rgba(79,225,212,.10), transparent 22%),
+        radial-gradient(circle at 88% 18%, rgba(242,196,107,.08), transparent 20%);
+      pointer-events: none;
     }
 
     .hero-grid,
-    .two-col {
+    .identity-grid,
+    .impact-grid,
+    .partner-grid,
+    .final-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
       gap: 28px;
       align-items: center;
     }
 
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(40px, 8vw, 92px);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      max-width: 10ch;
+    .hero-grid { grid-template-columns: 1.1fr .9fr; }
+    .identity-grid { grid-template-columns: 1fr 1fr; }
+    .impact-grid { grid-template-columns: 1.05fr .95fr; align-items: start; }
+    .partner-grid { grid-template-columns: 1.06fr .94fr; align-items: stretch; }
+    .final-grid { grid-template-columns: 1.1fr .9fr; }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
     }
 
-    .hero h1 span {
-      color: var(--gold);
-      text-shadow: 0 0 26px rgba(240,198,106,0.18);
+    .hero-subline {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .hero p {
-      max-width: 700px;
-      margin: 22px 0 0;
-      font-size: clamp(16px, 2vw, 22px);
-      line-height: 1.55;
+    .hero-subline span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
       color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-subline span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px rgba(242,196,107,.65);
     }
 
     .hero-actions {
-      margin-top: 34px;
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      margin-top: 34px;
     }
 
     .btn {
@@ -244,684 +552,943 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 18px;
+      padding: 15px 20px;
       border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
       font-size: 14px;
-      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      font-weight: 800;
+      text-decoration: none;
+      transition: .28s ease;
       border: 1px solid transparent;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover { transform: translateY(-2px) scale(1.01); }
 
     .btn-primary {
-      color: #04101d;
-      background: linear-gradient(135deg, var(--gold), #fff0c4);
-      box-shadow: 0 14px 30px rgba(240, 198, 106, 0.25);
+      color: #031221;
+      background: linear-gradient(135deg, var(--gold), #fff1cb 60%, #ffffff);
+      box-shadow: 0 16px 32px rgba(242,196,107,.24);
     }
 
     .btn-secondary {
       color: var(--text);
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.10);
     }
 
-    .glass-card {
-      background: linear-gradient(180deg, rgba(15, 36, 58, 0.65), rgba(7, 20, 36, 0.68));
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: var(--radius);
-      box-shadow: var(--glow);
-      backdrop-filter: blur(18px);
-    }
-
-    .hero-panel {
+    .hero-stage {
+      position: relative;
+      min-height: 610px;
       padding: 26px;
-      position: relative;
-      overflow: hidden;
-      min-height: 500px;
-    }
-
-    .hero-panel::before,
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(12px);
-    }
-
-    .hero-panel::before {
-      width: 280px;
-      height: 280px;
-      top: -80px;
-      right: -60px;
-      background: radial-gradient(circle, rgba(93,217,213,.34), transparent 65%);
-    }
-
-    .hero-panel::after {
-      width: 220px;
-      height: 220px;
-      bottom: -70px;
-      left: -20px;
-      background: radial-gradient(circle, rgba(240,198,106,.22), transparent 70%);
-    }
-
-    .panel-wave {
-      position: absolute;
-      inset: auto -10% -15% -10%;
-      height: 52%;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(93,217,213,.22), transparent 0 26%),
-        radial-gradient(circle at 75% 20%, rgba(42,109,245,.20), transparent 0 22%),
-        linear-gradient(180deg, rgba(8,30,48,.2), rgba(9,39,65,.55));
-      border-top-left-radius: 40% 30%;
-      border-top-right-radius: 50% 24%;
-      transform: rotate(-3deg);
-      animation: floatWave 8s ease-in-out infinite;
-    }
-
-    @keyframes floatWave {
-      0%, 100% { transform: rotate(-3deg) translateY(0); }
-      50% { transform: rotate(-1.5deg) translateY(-10px); }
-    }
-
-    .spotlight-grid {
-      position: relative;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      z-index: 1;
-    }
-
-    .mini {
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 130px;
-    }
-
-    .mini strong {
-      display: block;
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    .mini span {
-      color: var(--muted);
-      line-height: 1.45;
-      font-size: 14px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(34px, 5vw, 64px);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      max-width: 12ch;
-    }
-
-    .lead {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: clamp(16px, 1.8vw, 20px);
-      line-height: 1.7;
-      max-width: 760px;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 30px;
-    }
-
-    .metric {
-      padding: 20px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .metric .num {
-      font-size: clamp(30px, 4vw, 52px);
-      font-weight: 800;
-      display: block;
-      margin-bottom: 8px;
-      color: var(--gold);
-    }
-
-    .metric .label {
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 15px;
-    }
-
-    .side-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .quote,
-    .info-card,
-    .timeline-card,
-    .gallery-card,
-    .partner-card,
-    .cta-card {
-      padding: 24px;
-    }
-
-    .quote {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quote::before {
-      content: "“";
-      position: absolute;
-      top: -26px;
-      right: 18px;
-      font-size: 120px;
-      color: rgba(255,255,255,0.05);
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .quote p,
-    .info-card p,
-    .timeline-card p,
-    .partner-card p,
-    .cta-card p,
-    .gallery-note {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    .quote strong,
-    .info-card strong,
-    .timeline-card strong,
-    .partner-card strong,
-    .cta-card strong {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 34px;
-    }
-
-    .feature-card {
-      position: relative;
-      padding: 22px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(16, 40, 65, 0.68), rgba(8, 21, 37, 0.74));
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 240px;
-      cursor: pointer;
-      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
-      overflow: hidden;
-    }
-
-    .feature-card:hover,
-    .feature-card.active {
-      transform: translateY(-6px);
-      border-color: rgba(93,217,213,0.35);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-    }
-
-    .feature-card .icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      font-size: 22px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .feature-card h3 {
-      margin: 0 0 12px;
-      font-size: 18px;
-      line-height: 1.25;
-    }
-
-    .feature-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
-    }
-
-    .feature-card .line {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 20px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--aqua), transparent 72%);
-      opacity: 0.5;
-    }
-
-    .tabs-panel {
-      margin-top: 18px;
-      padding: 24px;
-      min-height: 170px;
-    }
-
-    .tabs-panel-title {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .tabs-panel small {
-      display: block;
-      color: var(--aqua);
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .flagships {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 20px;
-      margin-top: 34px;
-      align-items: start;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 22px 22px 22px 62px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
-    }
-
-    .timeline-item:hover {
-      transform: translateX(4px);
-      border-color: rgba(240,198,106,.35);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .timeline-item::before {
-      content: attr(data-step);
-      position: absolute;
-      left: 18px;
-      top: 18px;
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--aqua), #d7fffd);
-      color: #05111f;
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    .timeline-item h3 {
-      margin: 0 0 10px;
-      font-size: 19px;
-    }
-
-    .timeline-item p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 32px;
-    }
-
-    .impact-card {
-      padding: 24px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(10,29,48,.72), rgba(7,20,36,.74));
-      border: 1px solid rgba(255,255,255,0.07);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .impact-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -10% -45% -10%;
-      height: 60%;
-      background: radial-gradient(circle at center, rgba(93,217,213,.13), transparent 66%);
-      pointer-events: none;
-    }
-
-    .impact-card strong {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .impact-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .mosaic {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: 1.1fr .8fr .8fr;
-      grid-template-rows: 220px 220px;
-      gap: 16px;
-    }
-
-    .tile {
-      position: relative;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        linear-gradient(135deg, rgba(42,109,245,.15), rgba(93,217,213,.05)),
-        linear-gradient(180deg, rgba(12,32,54,.92), rgba(7,20,35,.96));
-      padding: 22px;
-      display: flex;
-      align-items: flex-end;
-      min-height: 180px;
+      align-items: end;
       isolation: isolate;
     }
 
-    .tile::before {
+    .hero-stage::after {
       content: "";
       position: absolute;
-      inset: 0;
+      inset: auto 6% 14px 6%;
+      height: 150px;
       background:
-        radial-gradient(circle at 20% 18%, rgba(93,217,213,.18), transparent 24%),
-        radial-gradient(circle at 82% 15%, rgba(240,198,106,.18), transparent 20%),
-        linear-gradient(180deg, transparent, rgba(0,0,0,.25));
-      z-index: -1;
+        radial-gradient(circle at 14% 26%, rgba(79,225,212,.35), transparent 24%),
+        radial-gradient(circle at 82% 34%, rgba(242,196,107,.22), transparent 20%),
+        linear-gradient(180deg, rgba(6,16,29,0), rgba(6,16,29,.65));
+      filter: blur(12px);
+      z-index: 0;
+      pointer-events: none;
     }
 
-    .tile.large { grid-row: 1 / span 2; }
-    .tile h3 {
-      margin: 0;
-      font-size: clamp(20px, 2vw, 30px);
-      max-width: 13ch;
-    }
-
-    .tile p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      line-height: 1.55;
-      max-width: 28ch;
-      font-size: 14px;
-    }
-
-    .map-wrap {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .map-card {
-      padding: 24px;
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
-    }
-
-    .world {
+    .compass {
       position: absolute;
-      inset: 22px;
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at 15% 30%, rgba(93,217,213,.12), transparent 20%),
-        radial-gradient(circle at 70% 26%, rgba(240,198,106,.10), transparent 20%),
-        linear-gradient(180deg, rgba(8,30,49,.96), rgba(7,20,35,.98));
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .world svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.22;
-    }
-
-    .map-dot {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: none;
-      background: linear-gradient(135deg, var(--gold), #fff0c5);
-      box-shadow: 0 0 0 0 rgba(240,198,106,.6);
-      cursor: pointer;
-      z-index: 2;
-      animation: pulse 2.2s infinite;
-    }
-
-    .map-dot.international {
-      background: linear-gradient(135deg, var(--aqua), #e5ffff);
-      box-shadow: 0 0 0 0 rgba(93,217,213,.6);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      70% { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
-      100% { transform: scale(1); }
-    }
-
-    .tooltip {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      right: 24px;
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: rgba(4,16,29,.86);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
-      z-index: 3;
-    }
-
-    .tooltip strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 18px;
-    }
-
-    .tooltip p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
-    }
-
-    .partner-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .partner-card {
-      border-radius: 24px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .partner-card strong span {
-      color: var(--aqua);
-    }
-
-    .quote-band {
-      margin-top: 30px;
-      padding: 28px;
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(240,198,106,.12), rgba(93,217,213,.08)),
-        rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: grid;
-      gap: 14px;
-    }
-
-    .quote-band h3 {
-      margin: 0;
-      font-size: clamp(22px, 3vw, 38px);
-      line-height: 1.15;
-    }
-
-    .quote-band p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 800px;
-    }
-
-    .cta-card {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 20px;
-      align-items: end;
-      margin-top: 30px;
-      border-radius: 30px;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(240,198,106,.16), transparent 18%),
-        radial-gradient(circle at 20% 15%, rgba(93,217,213,.16), transparent 18%),
-        linear-gradient(180deg, rgba(12,33,53,.88), rgba(7,20,35,.98));
-      border: 1px solid rgba(255,255,255,.09);
-      overflow: hidden;
-    }
-
-    .cta-card h2 { max-width: 13ch; }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .link-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-      padding: 12px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: .25s ease;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .link-chip:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.1);
-    }
-
-    .orb {
-      width: min(360px, 100%);
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      width: min(34vw, 410px);
       aspect-ratio: 1;
-      margin-left: auto;
       border-radius: 50%;
+      opacity: .95;
       background:
-        radial-gradient(circle at 32% 30%, rgba(255,255,255,.9), rgba(255,255,255,.2) 14%, transparent 15%),
-        radial-gradient(circle at 55% 48%, rgba(93,217,213,.22), transparent 50%),
-        radial-gradient(circle at 48% 54%, rgba(42,109,245,.34), transparent 62%),
-        linear-gradient(180deg, rgba(240,198,106,.24), rgba(93,217,213,.14));
-      border: 1px solid rgba(255,255,255,.1);
-      box-shadow: 0 30px 80px rgba(8,18,30,.38), inset 0 0 50px rgba(255,255,255,.06);
-      position: relative;
-      animation: orbit 8.5s ease-in-out infinite;
+        radial-gradient(circle, transparent 0 35%, rgba(79,225,212,.10) 35.5% 36%, transparent 36.5% 49%, rgba(255,255,255,.11) 49.5% 50%, transparent 50.5%),
+        repeating-conic-gradient(from 0deg, rgba(255,255,255,.14) 0deg 2deg, transparent 2deg 14deg),
+        radial-gradient(circle at center, rgba(79,225,212,.10), transparent 62%);
+      filter: drop-shadow(0 10px 30px rgba(79,225,212,.14));
+      animation: spinCompass 24s linear infinite;
     }
 
-    .orb::before,
-    .orb::after {
+    .compass::before,
+    .compass::after {
       content: "";
       position: absolute;
-      inset: 14%;
+      inset: 10%;
       border-radius: 50%;
       border: 1px solid rgba(255,255,255,.09);
     }
 
-    .orb::after {
-      inset: 28%;
-      border-color: rgba(93,217,213,.2);
+    .compass::after {
+      inset: 22%;
+      border-color: rgba(79,225,212,.18);
     }
 
-    @keyframes orbit {
-      0%,100% { transform: translateY(0) rotate(0.001deg); }
-      50% { transform: translateY(-12px) rotate(0.001deg); }
+    .compass-needle {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 14px;
+      height: min(18vw, 220px);
+      transform: translate(-50%, -52%) rotate(12deg);
+      transform-origin: center 82%;
+      z-index: 1;
     }
 
-    .scroll-hint {
+    .compass-needle::before,
+    .compass-needle::after {
+      content: "";
       position: absolute;
       left: 50%;
-      bottom: 26px;
       transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      width: 100%;
+    }
+
+    .compass-needle::before {
+      top: 0;
+      height: 56%;
+      background: linear-gradient(180deg, #ffffff, var(--gold));
+      filter: drop-shadow(0 0 16px rgba(242,196,107,.3));
+    }
+
+    .compass-needle::after {
+      bottom: 0;
+      height: 56%;
+      transform: translateX(-50%) rotate(180deg);
+      background: linear-gradient(180deg, #d5fff9, var(--teal));
+      filter: drop-shadow(0 0 16px rgba(79,225,212,.34));
+    }
+
+    @keyframes spinCompass {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .port-silhouette {
+      position: absolute;
+      inset: auto 24px 18px 24px;
+      height: 190px;
+      z-index: 1;
+      opacity: .95;
+    }
+
+    .hero-stack {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .hero-tile {
+      position: relative;
+      padding: 18px 18px 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.11);
+      backdrop-filter: blur(10px);
+      min-height: 122px;
+    }
+
+    .hero-tile strong {
+      display: block;
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .hero-tile span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    .hero-deck-line {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      top: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(79,225,212,.7), rgba(242,196,107,.8), transparent);
+      opacity: .8;
+      z-index: 2;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      display: grid;
+      justify-items: center;
       gap: 10px;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: .22em;
     }
 
-    .scroll-hint .mouse {
-      width: 28px;
-      height: 44px;
+    .wheel {
+      width: 30px;
+      height: 48px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,.18);
       display: flex;
       justify-content: center;
       padding-top: 7px;
+      background: rgba(255,255,255,.02);
     }
 
-    .scroll-hint .mouse span {
+    .wheel span {
       width: 4px;
       height: 10px;
-      border-radius: 99px;
-      background: var(--aqua);
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--teal), #ffffff);
       animation: wheel 1.6s ease-in-out infinite;
     }
 
     @keyframes wheel {
       0% { transform: translateY(0); opacity: 0; }
-      35% { opacity: 1; }
-      100% { transform: translateY(12px); opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: translateY(14px); opacity: 0; }
     }
+
+    .identity-left {
+      position: relative;
+    }
+
+    .identity-bands {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .identity-bands span {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .identity-right {
+      display: grid;
+      gap: 16px;
+    }
+
+    .statement-card,
+    .quote-card,
+    .detail-panel,
+    .flagship-panel,
+    .result-card,
+    .route-card,
+    .map-card,
+    .partner-card,
+    .cta-card,
+    .gallery-card {
+      padding: 24px;
+    }
+
+    .statement-card strong,
+    .quote-card strong,
+    .detail-panel strong,
+    .flagship-panel strong,
+    .result-card strong,
+    .route-card strong,
+    .map-card strong,
+    .partner-card strong,
+    .cta-card strong,
+    .gallery-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .statement-card p,
+    .quote-card p,
+    .detail-panel p,
+    .flagship-panel p,
+    .result-card p,
+    .route-card p,
+    .map-card p,
+    .partner-card p,
+    .cta-card p,
+    .gallery-card p {
+      color: var(--muted);
+      line-height: 1.68;
+      font-size: 15px;
+    }
+
+    .identity-grid .statement-card:nth-child(1) {
+      transform: translateX(-12px);
+    }
+
+    .identity-grid .statement-card:nth-child(2) {
+      transform: translateX(8px);
+    }
+
+    .identity-grid .statement-card:nth-child(3) {
+      transform: translateX(-4px);
+    }
+
+    .section-decor {
+      position: absolute;
+      right: -100px;
+      bottom: -80px;
+      width: min(42vw, 520px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(79,225,212,.16), transparent 46%),
+        radial-gradient(circle, rgba(242,196,107,.08), transparent 62%);
+      filter: blur(22px);
+      pointer-events: none;
+      opacity: .7;
+    }
+
+    .direction-layout,
+    .flagship-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      margin-top: 32px;
+      align-items: start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      position: relative;
+      min-height: 208px;
+      padding: 22px;
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(12,35,55,.76), rgba(6,17,29,.82));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 30px rgba(0,0,0,.14);
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform .26s ease, border-color .26s ease, box-shadow .26s ease, background .26s ease;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(79,225,212,.18), transparent 36%),
+        linear-gradient(120deg, transparent, rgba(255,255,255,.06), transparent 72%);
+      z-index: -1;
+      opacity: .95;
+      transition: opacity .26s ease;
+    }
+
+    .feature-card:hover,
+    .feature-card.active {
+      transform: translateY(-6px);
+      border-color: rgba(79,225,212,.36);
+      box-shadow: 0 20px 40px rgba(0,0,0,.22), 0 0 0 1px rgba(79,225,212,.04);
+      background: linear-gradient(180deg, rgba(14,43,66,.82), rgba(7,19,33,.86));
+    }
+
+    .feature-card .icon-shell {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(79,225,212,.18), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: inset 0 0 0 1px rgba(79,225,212,.05);
+      font-size: 24px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      line-height: 1.22;
+      max-width: 15ch;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+      max-width: 32ch;
+    }
+
+    .feature-card .accent-line {
+      position: absolute;
+      left: 22px;
+      bottom: 18px;
+      height: 4px;
+      width: calc(100% - 44px);
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--gold), transparent 85%);
+      opacity: .62;
+    }
+
+    .detail-panel {
+      min-height: 448px;
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .detail-kicker,
+    .flagship-kicker {
+      display: inline-block;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: .20em;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .detail-title,
+    .flagship-title {
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+      max-width: 12ch;
+    }
+
+    .detail-orbit {
+      position: relative;
+      margin-top: auto;
+      height: 180px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(79,225,212,.18), transparent 30%),
+        repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.08) 0 2px, transparent 2px 28px),
+        linear-gradient(180deg, rgba(5,17,30,.14), rgba(5,17,30,.56));
+      overflow: hidden;
+    }
+
+    .detail-orbit::before {
+      content: "";
+      position: absolute;
+      width: 160%;
+      height: 2px;
+      left: -30%;
+      top: 50%;
+      background: linear-gradient(90deg, transparent, rgba(79,225,212,.76), transparent);
+      transform: rotate(-18deg);
+      animation: sweep 6s linear infinite;
+    }
+
+    .detail-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(79,225,212,.16);
+    }
+
+    @keyframes sweep {
+      from { transform: rotate(-18deg) translateX(-20%); }
+      to { transform: rotate(-18deg) translateX(20%); }
+    }
+
+    .flagship-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .flagship-item {
+      position: relative;
+      padding: 20px 20px 20px 64px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      cursor: pointer;
+      transition: .26s ease;
+      overflow: hidden;
+    }
+
+    .flagship-item::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #031221;
+      font-weight: 800;
+      font-size: 13px;
+      background: linear-gradient(135deg, var(--gold), #fff0c6);
+      box-shadow: 0 8px 20px rgba(242,196,107,.20);
+    }
+
+    .flagship-item::after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--teal), var(--gold));
+      opacity: 0;
+      transition: .26s ease;
+    }
+
+    .flagship-item.active,
+    .flagship-item:hover {
+      transform: translateX(6px);
+      border-color: rgba(242,196,107,.34);
+      background: rgba(255,255,255,.06);
+    }
+
+    .flagship-item.active::after,
+    .flagship-item:hover::after {
+      opacity: 1;
+    }
+
+    .flagship-item h3 {
+      font-size: 18px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .flagship-item p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .flagship-panel {
+      min-height: 540px;
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .flagship-shape {
+      margin-top: auto;
+      min-height: 240px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at 14% 20%, rgba(79,225,212,.24), transparent 20%),
+        radial-gradient(circle at 85% 18%, rgba(242,196,107,.18), transparent 16%),
+        linear-gradient(180deg, rgba(10,34,52,.9), rgba(5,18,31,.96));
+      position: relative;
+    }
+
+    .flagship-shape svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .78;
+    }
+
+    .impact-left,
+    .impact-right {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .result-card {
+      min-height: 220px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(79,225,212,.18), rgba(242,196,107,.16));
+      border: 1px solid rgba(255,255,255,.10);
+      font-size: 24px;
+    }
+
+    .route-card {
+      min-height: 420px;
+    }
+
+    .route-visual {
+      position: relative;
+      margin-top: 18px;
+      min-height: 300px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.09);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(8,28,46,.70), rgba(4,16,29,.84)),
+        radial-gradient(circle at 10% 30%, rgba(79,225,212,.18), transparent 20%),
+        radial-gradient(circle at 88% 22%, rgba(242,196,107,.12), transparent 16%);
+    }
+
+    .route-svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    .route-points {
+      position: absolute;
+      inset: 0;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .route-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 26px rgba(0,0,0,.12);
+    }
+
+    .route-step:nth-child(2) { align-self: center; }
+    .route-step:nth-child(3) { align-self: flex-end; }
+    .route-step:nth-child(4) { align-self: center; }
+
+    .gallery-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-template-rows: 230px 230px;
+      gap: 16px;
+    }
+
+    .gallery-card {
+      position: relative;
+      min-height: 190px;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.22)),
+        radial-gradient(circle at 18% 24%, rgba(79,225,212,.16), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(242,196,107,.16), transparent 20%),
+        linear-gradient(180deg, rgba(10,34,52,.86), rgba(5,17,30,.98));
+      border: 1px solid rgba(255,255,255,.10);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .gallery-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 10%, rgba(255,255,255,.10) 26%, transparent 42%),
+        linear-gradient(180deg, transparent 50%, rgba(0,0,0,.42));
+      transform: translateX(-120%);
+      animation: sheen 8s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes sheen {
+      0%, 10% { transform: translateX(-120%); }
+      35%, 100% { transform: translateX(130%); }
+    }
+
+    .gallery-card.large { grid-row: 1 / span 2; }
+
+    .gallery-card h3 {
+      font-size: clamp(22px, 2.2vw, 34px);
+      line-height: 1.05;
+      max-width: 13ch;
+      margin-bottom: 10px;
+    }
+
+    .gallery-card p {
+      max-width: 32ch;
+      font-size: 14px;
+    }
+
+    .gallery-card .tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(3,15,26,.62);
+      border: 1px solid rgba(255,255,255,.09);
+      color: var(--text);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .map-card {
+      min-height: 580px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart-grid {
+      position: absolute;
+      inset: 24px;
+      border-radius: 28px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(8,30,49,.84), rgba(4,16,28,.95));
+      background-size: 54px 54px, 54px 54px, auto;
+      border: 1px solid rgba(255,255,255,.08);
+      overflow: hidden;
+    }
+
+    .chart-grid::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 22%, rgba(79,225,212,.18), transparent 18%),
+        radial-gradient(circle at 82% 18%, rgba(242,196,107,.14), transparent 15%),
+        linear-gradient(180deg, transparent, rgba(0,0,0,.22));
+    }
+
+    .map-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .node {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.65);
+      background: linear-gradient(135deg, var(--gold), #fff2cc);
+      box-shadow: 0 0 0 0 rgba(242,196,107,.32);
+      z-index: 2;
+      cursor: pointer;
+      transition: .22s ease;
+      animation: ping 2.8s infinite;
+    }
+
+    .node.international {
+      background: linear-gradient(135deg, var(--teal), #efffff);
+      box-shadow: 0 0 0 0 rgba(79,225,212,.30);
+    }
+
+    .node:hover,
+    .node.active {
+      transform: scale(1.18);
+      box-shadow: 0 0 0 10px rgba(255,255,255,0);
+    }
+
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,.22); }
+      70% { box-shadow: 0 0 0 16px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+
+    .map-panel {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      z-index: 3;
+      display: grid;
+      gap: 10px;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(2,12,22,.82);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(14px);
+    }
+
+    .map-panel h3 {
+      font-size: 24px;
+      line-height: 1.04;
+    }
+
+    .partner-list {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .partner-card {
+      min-height: 126px;
+    }
+
+    .partner-card strong span {
+      color: var(--teal);
+    }
+
+    .cta-shell {
+      position: relative;
+      min-height: 560px;
+      padding: 28px;
+      display: grid;
+      align-items: center;
+    }
+
+    .cta-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -14% -12%;
+      height: 46%;
+      background:
+        radial-gradient(circle at 30% 24%, rgba(79,225,212,.24), transparent 18%),
+        radial-gradient(circle at 72% 20%, rgba(242,196,107,.18), transparent 14%),
+        linear-gradient(180deg, rgba(12,60,82,.42), rgba(4,17,31,.82));
+      border-top-left-radius: 45% 40%;
+      border-top-right-radius: 55% 36%;
+      transform: rotate(-2deg);
+      z-index: 0;
+      pointer-events: none;
+      animation: floatWave 9s ease-in-out infinite;
+    }
+
+    @keyframes floatWave {
+      0%,100% { transform: rotate(-2deg) translateY(0); }
+      50% { transform: rotate(-1deg) translateY(-12px); }
+    }
+
+    .cta-copy,
+    .cta-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-copy h2 { max-width: 12ch; }
+
+    .cta-actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .24s ease;
+    }
+
+    .chip-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.10);
+    }
+
+    .signal-core {
+      position: relative;
+      width: min(34vw, 420px);
+      aspect-ratio: 1;
+      margin-left: auto;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.95) 0 3%, rgba(255,255,255,.06) 3.2% 14%, transparent 14.4%),
+        radial-gradient(circle at 50% 50%, rgba(79,225,212,.22), transparent 42%),
+        conic-gradient(from 0deg, rgba(255,255,255,.16), transparent 18%, rgba(242,196,107,.28) 32%, transparent 42%, rgba(79,225,212,.26) 56%, transparent 70%, rgba(255,255,255,.14) 88%, transparent 100%),
+        linear-gradient(180deg, rgba(15,50,72,.70), rgba(5,18,31,.92));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 28px 80px rgba(4,12,25,.44), inset 0 0 50px rgba(255,255,255,.04);
+      animation: pulseCore 8s ease-in-out infinite;
+    }
+
+    .signal-core::before,
+    .signal-core::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .signal-core::after {
+      inset: 26%;
+      border-color: rgba(79,225,212,.22);
+    }
+
+    @keyframes pulseCore {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-12px) scale(1.03); }
+    }
+
+    .signal-labels {
+      position: absolute;
+      inset: 0;
+    }
+
+    .signal-tag {
+      position: absolute;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(3,15,26,.78);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      box-shadow: 0 10px 26px rgba(0,0,0,.16);
+    }
+
+    .signal-tag.one { top: 10%; left: -4%; }
+    .signal-tag.two { top: 42%; right: -10%; }
+    .signal-tag.three { bottom: 8%; left: 6%; }
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .8s ease, transform .8s ease;
+      transform: translateY(30px);
+      transition: opacity .85s ease, transform .85s ease;
     }
 
     .reveal.visible {
@@ -933,167 +1500,243 @@
     .delay-2 { transition-delay: .24s; }
     .delay-3 { transition-delay: .36s; }
 
-    .footer-note {
-      margin-top: 18px;
-      color: rgba(181,204,228,.75);
-      font-size: 13px;
-      line-height: 1.6;
+    .keyboard-hint {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(4,16,28,.72);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      backdrop-filter: blur(12px);
     }
 
-    @media (max-width: 1180px) {
-      .cards-grid { grid-template-columns: repeat(3, 1fr); }
-      .hero-grid, .two-col, .flagships, .map-wrap, .cta-card { grid-template-columns: 1fr; }
-      .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px 220px; }
-      .tile.large { grid-row: auto; grid-column: 1 / span 2; }
-      .impact-grid, .metrics { grid-template-columns: repeat(2, 1fr); }
-      .orb { margin: 0 auto; }
+    .keyboard-hint kbd {
+      font-family: inherit;
+      font-size: 11px;
+      color: var(--text);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      border-bottom-width: 2px;
+      border-radius: 8px;
+      padding: 4px 6px;
     }
 
-    @media (max-width: 860px) {
-      .topbar {
-        border-radius: 26px;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-      .nav { justify-content: flex-start; }
-      .cards-grid,
+    @media (max-width: 1200px) {
+      .hero-grid,
+      .identity-grid,
+      .direction-layout,
+      .flagship-layout,
       .impact-grid,
-      .metrics,
-      .spotlight-grid,
-      .mosaic { grid-template-columns: 1fr; }
-      .tile.large { grid-column: auto; }
-      .section { padding-top: 120px; }
-      .hero h1 { max-width: none; }
+      .partner-grid,
+      .final-grid { grid-template-columns: 1fr; }
+
+      .result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px 220px; }
+      .gallery-card.large { grid-row: auto; grid-column: 1 / span 2; }
+      .signal-core { margin: 0 auto; }
+      .cta-copy h2 { max-width: none; }
+    }
+
+    @media (max-width: 980px) {
+      .topbar { grid-template-columns: 1fr; justify-items: start; border-radius: 30px; }
+      .nav { justify-content: flex-start; }
+      .deck-chip { justify-self: start; }
+      .side-dots, .keyboard-hint { display: none; }
+      .header-shell { width: calc(100% - 18px); }
+      .progress-track { width: calc(100% - 20px); }
+      .section { padding-top: calc(var(--topbar-h) + 88px); }
+    }
+
+    @media (max-width: 760px) {
+      html { scroll-snap-type: y proximity; }
+      .section::before { inset: 10px; border-radius: 24px; }
+      .hero-stage { min-height: 520px; }
+      .hero-stack,
+      .card-grid,
+      .result-grid,
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-card.large { grid-column: auto; }
+      .hero-actions,
+      .cta-actions { display: grid; grid-template-columns: 1fr; }
+      .btn, .chip-link { width: 100%; }
+      .hero-subline { display: grid; grid-template-columns: 1fr; }
+      .signal-tag.one, .signal-tag.two, .signal-tag.three { position: static; margin-top: 12px; display: inline-flex; }
+      .signal-labels { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
     }
 
     @media (max-width: 560px) {
-      .section::before { inset: 10px; border-radius: 24px; }
-      .topbar { top: 10px; width: calc(100% - 16px); padding: 12px; }
-      .hero-panel { min-height: 380px; }
-      .mini strong { font-size: 20px; }
-      .timeline-item { padding-left: 56px; }
-      .btn { width: 100%; }
-      .hero-actions, .links { display: grid; grid-template-columns: 1fr; }
+      .brand-copy strong { white-space: normal; }
+      .hero-stage { min-height: 460px; padding: 20px; }
+      .hero-tile { min-height: 108px; }
+      .compass { width: 280px; }
+      .port-silhouette { left: 10px; right: 10px; height: 148px; }
+      .map-card { min-height: 520px; }
     }
   </style>
 </head>
 <body>
-  <canvas id="particles"></canvas>
-  <div class="noise"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-badge">Y</div>
-      <div class="brand-title">
-        MTWTU Youth
-        <strong>Молодіжна рада ПРМТУ</strong>
-      </div>
+  <div class="ocean-bg" aria-hidden="true">
+    <div class="sonar"></div>
+    <div class="wave-stack">
+      <div class="wave wave-3"></div>
+      <div class="wave wave-2"></div>
+      <div class="wave wave-1"></div>
     </div>
+  </div>
 
-    <nav class="nav">
-      <a href="#hero">Старт</a>
-      <a href="#identity">Хто ми</a>
-      <a href="#directions">Напрями</a>
-      <a href="#flagships">Флагмани</a>
-      <a href="#impact">Вплив</a>
-      <a href="#partners">Партнерства</a>
-      <a href="#join">Фінал</a>
-    </nav>
-  </header>
+  <div class="header-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-copy">
+          <small>морська молодь • digital presentation</small>
+          <strong>MTWTU Youth / Молодіжна рада ПРМТУ</strong>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#hero">Старт</a>
+        <a href="#identity">Хто ми</a>
+        <a href="#directions">Напрями</a>
+        <a href="#flagships">Флагмани</a>
+        <a href="#impact">Вплив</a>
+        <a href="#gallery">Вайб</a>
+        <a href="#partners">Партнерства</a>
+        <a href="#join">Фінал</a>
+      </nav>
+
+      <div class="deck-chip"><span class="dot"></span> live mode / projector ready</div>
+    </header>
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+
+  <div class="side-dots" aria-label="Навігація секціями">
+    <a href="#hero" data-label="Старт"></a>
+    <a href="#identity" data-label="Хто ми"></a>
+    <a href="#directions" data-label="Напрями"></a>
+    <a href="#flagships" data-label="Флагмани"></a>
+    <a href="#impact" data-label="Вплив"></a>
+    <a href="#gallery" data-label="Вайб"></a>
+    <a href="#partners" data-label="Партнерства"></a>
+    <a href="#join" data-label="Фінал"></a>
+  </div>
+
+  <div class="keyboard-hint"><kbd>↑</kbd><kbd>↓</kbd> або <kbd>PgUp</kbd><kbd>PgDn</kbd> для переходу</div>
 
   <main>
-    <section class="section hero" id="hero">
+    <section class="section" id="hero">
       <div class="container hero-grid">
-        <div class="reveal visible">
-          <div class="eyebrow">морська молодь • розвиток • дія • солідарність</div>
-          <h1>Молодь, яка <span>формує</span> майбутнє галузі</h1>
-          <p>
-            Молодіжна рада ПРМТУ — це не просто події. Це жива спільнота молодих моряків, курсантів,
-            студентів і активістів, які зростають через знання, партнерство, лідерство та реальну участь у змінах.
+        <div class="hero-copy reveal visible">
+          <div class="eyebrow">морська молодь • дія • розвиток • солідарність</div>
+          <h1>Молодь, яка <span class="gradient">формує</span> майбутнє галузі</h1>
+          <p class="lead">
+            Молодіжна рада ПРМТУ — це не просто події. Це жива спільнота молодих моряків,
+            курсантів, студентів і активістів, які зростають через знання, партнерство,
+            лідерство та реальну участь у змінах.
           </p>
+
+          <div class="hero-subline">
+            <span>морська професія</span>
+            <span>правозахист</span>
+            <span>лідерство</span>
+            <span>міжнародний діалог</span>
+          </div>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="#identity">Почати презентацію</a>
-            <a class="btn btn-secondary" href="#join">Чому варто з нами</a>
+            <a class="btn btn-secondary" href="#flagships">Подивитися флагмани</a>
           </div>
         </div>
 
-        <div class="glass-card hero-panel reveal delay-1 visible">
-          <div class="spotlight-grid">
-            <div class="mini">
+        <div class="glass hero-stage reveal delay-1 visible tilt-card">
+          <div class="hero-deck-line"></div>
+          <div class="compass"></div>
+          <div class="compass-needle"></div>
+
+          <div class="hero-stack">
+            <div class="hero-tile">
               <strong>2002+</strong>
-              <span>молодіжний рух ПРМТУ розвивається як частина сучасної профспілкової спільноти</span>
+              <span>молодіжний рух ПРМТУ розвивається як важлива частина сучасної профспілкової спільноти</span>
             </div>
-            <div class="mini">
+            <div class="hero-tile">
               <strong>5+</strong>
-              <span>ключових напрямів: від кар’єри й правозахисту до спорту, партнерств та міжнародного діалогу</span>
+              <span>ключових напрямів: від кар’єри й правозахисту до спорту, партнерств та міжнародного треку</span>
             </div>
-            <div class="mini">
-              <strong>100%</strong>
-              <span>фокус на молоді, яка хоче не просто слухати, а діяти, впливати й рости разом</span>
+            <div class="hero-tile">
+              <strong>LIVE</strong>
+              <span>презентація працює як сценічний digital-виступ, а не як звичайний статичний сайт</span>
             </div>
-            <div class="mini">
-              <strong>WOW</strong>
-              <span>сильний візуальний стиль, енергія спільноти й презентація, яку запам’ятовують</span>
+            <div class="hero-tile">
+              <strong>SEA</strong>
+              <span>морська атмосфера, вау-ритм, глибина, рух і сильне візуальне відчуття спільноти</span>
             </div>
           </div>
-          <div class="panel-wave"></div>
+
+          <svg class="port-silhouette" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="portGlow" x1="0" x2="1">
+                <stop offset="0%" stop-color="#0b354c"/>
+                <stop offset="50%" stop-color="#155672"/>
+                <stop offset="100%" stop-color="#0b354c"/>
+              </linearGradient>
+            </defs>
+            <path d="M0 198 H1000 V220 H0 Z" fill="url(#portGlow)" opacity=".95"/>
+            <path d="M60 198 V120 H95 V198 M84 120 V84 H108 V198 M108 84 L170 56 L176 68 L118 98 M175 68 V198 M210 198 V144 H248 V198 M248 144 V104 H286 V198 M330 198 V132 H360 V198 M360 132 V78 H392 V198 M392 90 L446 60 L452 72 L392 104 M452 72 V198 M496 198 V152 H540 V198 M566 198 V110 H600 V198 M600 110 L664 82 L670 95 L602 124 M670 95 V198 M706 198 V138 H738 V198 M738 138 V96 H772 V198 M820 198 V142 H854 V198 M854 142 V104 H888 V198" stroke="rgba(255,255,255,.38)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M120 198 Q210 166 284 176 T462 174 T632 176 T848 170 T1000 174" fill="none" stroke="rgba(79,225,212,.38)" stroke-width="3"/>
+          </svg>
         </div>
       </div>
 
-      <div class="scroll-hint">
-        <div class="mouse"><span></span></div>
-        <div>scroll</div>
+      <div class="scroll-cue" aria-hidden="true">
+        <div class="wheel"><span></span></div>
+        <div>scroll / next</div>
       </div>
     </section>
 
     <section class="section" id="identity">
-      <div class="container two-col">
-        <div class="reveal">
+      <div class="section-decor"></div>
+      <div class="container identity-grid">
+        <div class="identity-left reveal">
           <div class="eyebrow">хто ми</div>
-          <h2>Не окремі заходи. А середовище розвитку.</h2>
+          <h2>Не окремі заходи. А <span class="gradient">середовище розвитку</span>.</h2>
           <p class="lead">
-            Молодіжна рада ПРМТУ об’єднує молодь навколо професійного становлення, правопросвіти,
-            лідерства, взаємопідтримки та участі у формуванні майбутнього морської галузі.
+            Молодіжна рада ПРМТУ об’єднує молодь навколо професійного становлення,
+            правопросвіти, лідерства, взаємопідтримки та участі у формуванні майбутнього морської галузі.
             Тут молодь отримує знання, досвід, нові контакти та реальні можливості для зростання.
           </p>
 
-          <div class="metrics">
-            <div class="metric reveal delay-1">
-              <span class="num">01</span>
-              <div class="label">простір, де молодь бачить Профспілку не як абстракцію, а як команду і точку опори</div>
-            </div>
-            <div class="metric reveal delay-2">
-              <span class="num">02</span>
-              <div class="label">міст між освітою, професією, правами, розвитком компетенцій та сучасним молодіжним середовищем</div>
-            </div>
-            <div class="metric reveal delay-3">
-              <span class="num">03</span>
-              <div class="label">платформа, де молодий голос має значення вже сьогодні, а не десь у далекому майбутньому</div>
-            </div>
+          <div class="identity-bands">
+            <span>сучасні</span>
+            <span>живі</span>
+            <span>професійні</span>
+            <span>відкриті до партнерства</span>
+            <span>орієнтовані на розвиток</span>
           </div>
         </div>
 
-        <div class="side-stack reveal delay-1">
-          <div class="glass-card quote">
-            <strong>Наш характер</strong>
-            <p>
-              Сучасні. Живі. Професійні. Відкриті до партнерства. Орієнтовані не лише на події,
-              а на створення покоління активних, свідомих і відповідальних молодих лідерів.
-            </p>
+        <div class="identity-right reveal delay-1">
+          <div class="glass statement-card tilt-card">
+            <strong>Простір опори</strong>
+            <p>Молодь бачить Профспілку не як абстракцію, а як команду, яка реально підтримує, пояснює і відкриває можливості.</p>
           </div>
-          <div class="glass-card info-card">
-            <strong>Що відчуває аудиторія</strong>
-            <p>
-              «Це не формальна молодіжка. Це сильна спільнота, яка реально працює,
-              розвивається і вміє говорити сучасною мовою».
-            </p>
+          <div class="glass statement-card tilt-card">
+            <strong>Міст між етапами</strong>
+            <p>Освіта, професія, права, розвиток компетенцій і сучасне молодіжне середовище тут поєднані в одну цілісну траєкторію.</p>
           </div>
-          <div class="glass-card info-card">
-            <strong>Позиціонування</strong>
-            <p>
-              Морська + молодіжна + сучасна + змістовна.
-              Без сухої бюрократії, але й без поверхневого пафосу.
-            </p>
+          <div class="glass statement-card tilt-card">
+            <strong>Голос, що має значення</strong>
+            <p>Молодий голос тут важливий не колись потім, а вже сьогодні — у рішеннях, дискусіях, ініціативах і спільному русі вперед.</p>
           </div>
         </div>
       </div>
@@ -1103,56 +1746,57 @@
       <div class="container">
         <div class="reveal">
           <div class="eyebrow">чим ми займаємось</div>
-          <h2>П’ять напрямів. Одна сильна система.</h2>
+          <h2>П’ять напрямів. <span class="gradient">Одна сильна система</span>.</h2>
           <p class="lead">
             Замість довгого переліку подій — чітка екосистема напрямів, через які Молодіжна рада ПРМТУ
             формує компетентну, активну і згуртовану молодіжну спільноту.
           </p>
         </div>
 
-        <div class="cards-grid reveal delay-1" id="featureCards">
-          <article class="feature-card active" data-title="Професійний розвиток" data-kicker="кар’єра і професія" data-text="Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі.">
-            <div class="icon">⚓</div>
-            <h3>Професійний розвиток</h3>
-            <p>Sail Smart, кар’єрні формати, зустрічі зі спікерами з реальним досвідом.</p>
-            <div class="line"></div>
-          </article>
+        <div class="direction-layout">
+          <div class="card-grid reveal delay-1" id="featureCards">
+            <article class="feature-card active tilt-card" data-title="Професійний розвиток" data-kicker="кар’єра і професія" data-text="Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі.">
+              <div class="icon-shell">⚓</div>
+              <h3>Професійний розвиток</h3>
+              <p>Sail Smart, кар’єрні формати, зустрічі зі спікерами з реальним досвідом.</p>
+              <div class="accent-line"></div>
+            </article>
 
-          <article class="feature-card" data-title="Права і правозахист" data-kicker="знання, які працюють" data-text="ITF Summer School, MTWTU LAW HUB, теми MLC 2006, контракти, колективні договори, інспекторат, електронні інструменти та практичне ознайомлення з правозахистом.">
-            <div class="icon">⚖️</div>
-            <h3>Права і правозахист</h3>
-            <p>Не абстрактна теорія, а прикладне розуміння того, як захищати себе в професії.</p>
-            <div class="line"></div>
-          </article>
+            <article class="feature-card tilt-card" data-title="Права і правозахист" data-kicker="знання, які працюють" data-text="ITF Summer School, MTWTU LAW HUB, теми MLC 2006, контракти, колективні договори, інспекторат, електронні інструменти та практичне ознайомлення з правозахистом.">
+              <div class="icon-shell">⚖️</div>
+              <h3>Права і правозахист</h3>
+              <p>Не абстрактна теорія, а прикладне розуміння того, як захищати себе в професії.</p>
+              <div class="accent-line"></div>
+            </article>
 
-          <article class="feature-card" data-title="Лідерство та участь" data-kicker="молодь у рішеннях" data-text="Форуми, Summer Leadership Camp, стратегічні сесії, участь у формуванні молодіжних стратегій, фокус-групах, виборних органах і спільних напрацюваннях.">
-            <div class="icon">🚀</div>
-            <h3>Лідерство та участь</h3>
-            <p>Молодь не просто долучається, а стає повноцінним учасником процесів і змін.</p>
-            <div class="line"></div>
-          </article>
+            <article class="feature-card tilt-card" data-title="Лідерство та участь" data-kicker="молодь у рішеннях" data-text="Форуми, Summer Leadership Camp, стратегічні сесії, участь у формуванні молодіжних стратегій, фокус-групах, виборних органах і спільних напрацюваннях.">
+              <div class="icon-shell">🚀</div>
+              <h3>Лідерство та участь</h3>
+              <p>Молодь не просто долучається, а стає повноцінним учасником процесів і змін.</p>
+              <div class="accent-line"></div>
+            </article>
 
-          <article class="feature-card" data-title="Спільнота, спорт, культура" data-kicker="живе середовище" data-text="Union Quiz, Union Sport, Мем Батл, культурні ініціативи, неформальні зустрічі та формати, що зближують, мотивують і створюють відчуття команди.">
-            <div class="icon">🔥</div>
-            <h3>Спільнота і драйв</h3>
-            <p>Інтелект, спорт, гумор, культура, дружба і відчуття, що ти серед своїх.</p>
-            <div class="line"></div>
-          </article>
+            <article class="feature-card tilt-card" data-title="Спільнота, спорт, культура" data-kicker="живе середовище" data-text="Union Quiz, Union Sport, Мем Батл, культурні ініціативи, неформальні зустрічі та формати, що зближують, мотивують і створюють відчуття команди.">
+              <div class="icon-shell">🔥</div>
+              <h3>Спільнота і драйв</h3>
+              <p>Інтелект, спорт, гумор, культура, дружба і відчуття, що ти серед своїх.</p>
+              <div class="accent-line"></div>
+            </article>
 
-          <article class="feature-card" data-title="Партнерства та міжнародний вимір" data-kicker="від Одеси до Європи" data-text="Міжгалузева співпраця, меморандуми, робота з молодіжними радами, міжнародні навчальні формати, ETF, ETUI, NTF, зустрічі з міжнародними партнерами і нові горизонти для молоді.">
-            <div class="icon">🌍</div>
-            <h3>Партнерства і міжнародність</h3>
-            <p>Від локальних ініціатив до міжнародного профспілкового діалогу та солідарності.</p>
-            <div class="line"></div>
-          </article>
-        </div>
+            <article class="feature-card tilt-card" data-title="Партнерства та міжнародний вимір" data-kicker="від Одеси до Європи" data-text="Міжгалузева співпраця, меморандуми, робота з молодіжними радами, міжнародні навчальні формати, ETF, ETUI, NTF, зустрічі з міжнародними партнерами і нові горизонти для молоді.">
+              <div class="icon-shell">🌍</div>
+              <h3>Партнерства і міжнародність</h3>
+              <p>Від локальних ініціатив до міжнародного профспілкового діалогу та солідарності.</p>
+              <div class="accent-line"></div>
+            </article>
+          </div>
 
-        <div class="glass-card tabs-panel reveal delay-2">
-          <small id="panelKicker">кар’єра і професія</small>
-          <div class="tabs-panel-title" id="panelTitle">Професійний розвиток</div>
-          <p id="panelText" class="lead" style="margin-top:0; max-width:none; font-size:16px;">
-            Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі.
-          </p>
+          <div class="glass detail-panel reveal delay-2 tilt-card">
+            <span class="detail-kicker" id="detailKicker">кар’єра і професія</span>
+            <div class="detail-title" id="detailTitle">Професійний розвиток</div>
+            <p id="detailText">Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі.</p>
+            <div class="detail-orbit"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1161,57 +1805,64 @@
       <div class="container">
         <div class="reveal">
           <div class="eyebrow">флагманські формати</div>
-          <h2>Проєкти, які будують репутацію і спільноту.</h2>
+          <h2>Проєкти, які будують <span class="gradient">репутацію і спільноту</span>.</h2>
           <p class="lead">
             Це не «разові активності», а впізнавані формати, через які Молодіжна рада ПРМТУ
             системно працює з розвитком молоді, її мотивацією, правовою обізнаністю та лідерським потенціалом.
           </p>
         </div>
 
-        <div class="flagships">
-          <div class="timeline reveal delay-1">
-            <div class="timeline-item" data-step="01">
+        <div class="flagship-layout">
+          <div class="flagship-list reveal delay-1" id="flagshipList">
+            <article class="flagship-item active" data-step="01" data-kicker="флагман кар’єрного треку" data-title="Sail Smart: Valuable Insights" data-text="Серія змістовних зустрічей та інсайтів про морську кар’єру, перший рейс, офшор, інтерв’ю, логістику, сучасні виклики індустрії та роботу на березі.">
               <h3>Sail Smart: Valuable Insights</h3>
-              <p>Серія змістовних зустрічей та інсайтів про морську кар’єру, перший рейс, офшор, інтерв’ю, логістику, сучасні виклики індустрії та роботу на березі.</p>
-            </div>
-            <div class="timeline-item" data-step="02">
+              <p>Сильний професійний трек, який дає молоді практичне бачення галузі.</p>
+            </article>
+
+            <article class="flagship-item" data-step="02" data-kicker="лідерський простір" data-title="MTWTU Summer Leadership Camp" data-text="Лідерський простір, де молодь розвиває soft skills, вчиться співпрацювати, мислити ширше і перетворювати ідеї на реальні дії.">
               <h3>MTWTU Summer Leadership Camp</h3>
-              <p>Лідерський простір, де молодь розвиває soft skills, вчиться співпрацювати, мислити ширше і перетворювати ідеї на реальні дії.</p>
-            </div>
-            <div class="timeline-item" data-step="03">
+              <p>Формат, де зростання відбувається через команду, відповідальність і досвід.</p>
+            </article>
+
+            <article class="flagship-item" data-step="03" data-kicker="форумний трек" data-title="Форуми MTWTU / «Курсант PRO»" data-text="Формати, де молодь глибше розуміє профспілку, міжнародну систему захисту моряків, значення солідарності та практичної взаємодії.">
               <h3>Форуми MTWTU / «Курсант PRO»</h3>
-              <p>Формати, де молодь глибше розуміє профспілку, міжнародну систему захисту моряків, значення солідарності та практичної взаємодії.</p>
-            </div>
-            <div class="timeline-item" data-step="04">
+              <p>Платформи для занурення у суть профспілкового руху та власної ролі в ньому.</p>
+            </article>
+
+            <article class="flagship-item" data-step="04" data-kicker="правовий вимір" data-title="ITF Summer School + MTWTU LAW HUB" data-text="Знання про MLC 2006, контракти, колективні угоди, цифрові інструменти, судовий процес і реальний механізм правозахисту.">
               <h3>ITF Summer School + MTWTU LAW HUB</h3>
-              <p>Знання про MLC 2006, контракти, колективні угоди, цифрові інструменти, судовий процес і реальний механізм правозахисту.</p>
-            </div>
-            <div class="timeline-item" data-step="05">
+              <p>Тут молодь отримує не теорію, а реальний інструментарій для захисту себе.</p>
+            </article>
+
+            <article class="flagship-item" data-step="05" data-kicker="ком’юніті трек" data-title="Union Quiz / Union Sport / Мем Батл" data-text="Формати, які тримають молодь поруч, створюють енергію спільноти, розвивають командність та роблять профспілкове середовище живим.">
               <h3>Union Quiz / Union Sport / Мем Батл</h3>
-              <p>Формати, які тримають молодь поруч, створюють енергію спільноти, розвивають командність та роблять профспілкове середовище живим.</p>
-            </div>
+              <p>Саме тут народжується відчуття, що профспілкове життя може бути сучасним і драйвовим.</p>
+            </article>
           </div>
 
-          <div class="side-stack reveal delay-2">
-            <div class="glass-card timeline-card">
-              <strong>Що важливо для презентації</strong>
-              <p>
-                На сцені цей блок працює як доказ, що у вас є не лише контент,
-                а впізнавані формати з власною логікою, стилем і регулярністю.
-              </p>
-            </div>
-            <div class="glass-card timeline-card">
-              <strong>Як це виглядає для аудиторії</strong>
-              <p>
-                Не «вони щось проводять», а «вони системно будують молодіжну екосистему».
-              </p>
-            </div>
-            <div class="glass-card timeline-card">
-              <strong>Виступна підказка</strong>
-              <p>
-                На цьому екрані говори не всі деталі, а 2–3 речення: у нас є кар’єрні,
-                правові, лідерські та ком’юніті-формати, які працюють як єдина система.
-              </p>
+          <div class="glass flagship-panel reveal delay-2 tilt-card">
+            <span class="flagship-kicker" id="flagshipKicker">флагман кар’єрного треку</span>
+            <div class="flagship-title" id="flagshipTitle">Sail Smart: Valuable Insights</div>
+            <p id="flagshipText">Серія змістовних зустрічей та інсайтів про морську кар’єру, перший рейс, офшор, інтерв’ю, логістику, сучасні виклики індустрії та роботу на березі.</p>
+
+            <div class="flagship-shape">
+              <svg viewBox="0 0 800 460" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#4fe1d4"/>
+                    <stop offset="55%" stop-color="#f2c46b"/>
+                    <stop offset="100%" stop-color="#ffffff"/>
+                  </linearGradient>
+                </defs>
+                <path d="M60 356 C160 330, 220 270, 274 236 S402 168, 460 184 S566 280, 612 254 S682 168, 748 124" fill="none" stroke="url(#routeGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 14"/>
+                <circle cx="60" cy="356" r="10" fill="#4fe1d4"/>
+                <circle cx="274" cy="236" r="10" fill="#f2c46b"/>
+                <circle cx="460" cy="184" r="10" fill="#4fe1d4"/>
+                <circle cx="612" cy="254" r="10" fill="#f2c46b"/>
+                <circle cx="748" cy="124" r="12" fill="#ffffff"/>
+                <path d="M0 386 L800 386" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+                <path d="M110 392 C168 368, 220 366, 282 392 S388 418, 452 394 S552 358, 622 382 S728 406, 800 388" fill="none" stroke="rgba(79,225,212,.32)" stroke-width="3"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -1219,118 +1870,178 @@
     </section>
 
     <section class="section" id="impact">
-      <div class="container">
-        <div class="reveal">
+      <div class="container impact-grid">
+        <div class="impact-left reveal">
           <div class="eyebrow">результат і вплив</div>
-          <h2>Ми не просто збираємо молодь. Ми змінюємо її траєкторію.</h2>
+          <h2>Ми не просто збираємо молодь. Ми <span class="gradient">змінюємо її траєкторію</span>.</h2>
           <p class="lead">
             Найсильніший ефект молодіжної роботи ПРМТУ — у поєднанні практичних знань,
             спільноти, цінностей, лідерського досвіду та реальної участі у важливих процесах.
           </p>
+
+          <div class="result-grid">
+            <article class="glass result-card tilt-card">
+              <div class="result-badge">🧭</div>
+              <strong>Для молоді</strong>
+              <p>Більше впевненості на старті, краще розуміння професії, прав, ризиків, ринку праці та власних можливостей у морі й на березі.</p>
+            </article>
+            <article class="glass result-card tilt-card">
+              <div class="result-badge">🤝</div>
+              <strong>Для Профспілки</strong>
+              <p>Формування нового покоління активних молодих спілчан, які не лише підтримують ідеї, а беруть участь у розвитку й представництві.</p>
+            </article>
+            <article class="glass result-card tilt-card">
+              <div class="result-badge">🌐</div>
+              <strong>Для середовища</strong>
+              <p>Партнерства, меморандуми, міжгалузевий діалог, участь у молодіжних стратегіях, форумах та міжнародних програмах.</p>
+            </article>
+          </div>
         </div>
 
-        <div class="impact-grid reveal delay-1">
-          <article class="impact-card">
-            <strong>Для молоді</strong>
-            <p>Більше впевненості на старті, краще розуміння професії, прав, ризиків, ринку праці та власних можливостей у морі й на березі.</p>
-          </article>
-          <article class="impact-card">
-            <strong>Для Профспілки</strong>
-            <p>Формування нового покоління активних молодих спілчан, які не лише підтримують ідеї, а беруть участь у рішенні, розвитку та представництві.</p>
-          </article>
-          <article class="impact-card">
-            <strong>Для середовища</strong>
-            <p>Партнерства, меморандуми, міжгалузевий діалог, участь у молодіжних стратегіях, міжнародних форумах та посилення голосу молоді.</p>
-          </article>
-        </div>
-
-        <div class="mosaic reveal delay-2">
-          <div class="tile large">
-            <div>
-              <h3>Молодь у дії</h3>
-              <p>Лідерські табори, форуми, правозахисні формати, інтелектуальні і спортивні події, міжнародні можливості та культура живої участі.</p>
-            </div>
-          </div>
-          <div class="tile">
-            <div>
-              <h3>Знання</h3>
-              <p>Практичні теми, які реально потрібні на старті кар’єри.</p>
-            </div>
-          </div>
-          <div class="tile">
-            <div>
-              <h3>Солідарність</h3>
-              <p>Відчуття, що ти не один, а частина сильної спільноти.</p>
-            </div>
-          </div>
-          <div class="tile">
-            <div>
-              <h3>Лідерство</h3>
-              <p>Участь у рішеннях, ініціативах і розвитку молодіжного руху.</p>
-            </div>
-          </div>
-          <div class="tile">
-            <div>
-              <h3>Майбутнє</h3>
-              <p>Молодь, яка готова не лише адаптуватися, а й впливати.</p>
+        <div class="impact-right reveal delay-1">
+          <div class="glass route-card tilt-card">
+            <strong>Траєкторія молоді</strong>
+            <p>Цінність вашої роботи — у тому, що вона не зупиняється на окремій події. Вона веде людину від першого інтересу до реальної участі, компетентності та лідерства.</p>
+            <div class="route-visual">
+              <svg class="route-svg" viewBox="0 0 700 420" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="curve" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#4fe1d4"/>
+                    <stop offset="50%" stop-color="#f2c46b"/>
+                    <stop offset="100%" stop-color="#ffffff"/>
+                  </linearGradient>
+                </defs>
+                <path d="M70 310 C120 268, 168 258, 230 268 S334 318, 394 286 S486 200, 560 182 S632 164, 664 112" fill="none" stroke="url(#curve)" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 14"/>
+                <circle cx="70" cy="310" r="12" fill="#4fe1d4"/>
+                <circle cx="230" cy="268" r="12" fill="#f2c46b"/>
+                <circle cx="394" cy="286" r="12" fill="#4fe1d4"/>
+                <circle cx="560" cy="182" r="12" fill="#f2c46b"/>
+                <circle cx="664" cy="112" r="14" fill="#ffffff"/>
+              </svg>
+              <div class="route-points">
+                <div class="route-step">знайомство з ПРМТУ</div>
+                <div class="route-step">знання і навички</div>
+                <div class="route-step">участь і відповідальність</div>
+                <div class="route-step">лідерство і вплив</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="partners">
+    <section class="section" id="gallery">
       <div class="container">
         <div class="reveal">
-          <div class="eyebrow">географія і співпраця</div>
-          <h2>Сильні локально. Відкриті на міжнародному рівні.</h2>
+          <div class="eyebrow">візуальний вайб</div>
+          <h2>Не сухий звіт. А <span class="gradient">жива енергія спільноти</span>.</h2>
           <p class="lead">
-            Молодіжна рада ПРМТУ працює в морських містах України, у міжгалузевих партнерствах,
-            у молодіжних форматах Одещини та в міжнародному профспілковому просторі.
+            Цей блок побудований як емоційний екран для виступу: лідерство, форумна атмосфера,
+            командність, міжнародність і сучасна молодіжна подача в одному ритмі.
           </p>
         </div>
 
-        <div class="map-wrap">
-          <div class="glass-card map-card reveal delay-1">
-            <div class="world">
-              <svg viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M95,180 C170,120 250,120 305,175 C340,205 385,215 430,192 C485,165 530,175 570,215 C615,260 680,270 735,238 C785,209 850,214 910,255" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2" />
-                <path d="M120,350 C210,310 315,295 405,332 C460,355 515,355 585,325 C645,298 735,305 830,360" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2" />
-                <path d="M180,120 C220,80 265,88 300,116 C340,146 385,145 430,124" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1.5" />
-              </svg>
-
-              <button class="map-dot" style="left: 56%; top: 53%;" data-title="Одеса" data-text="Один із головних центрів активності Молодіжної ради ПРМТУ: зустрічі, форуми, правопросвіта, партнерства та молодіжні ініціативи."></button>
-              <button class="map-dot" style="left: 59%; top: 50%;" data-title="Чорноморськ" data-text="Місто молодіжної взаємодії, де розвиваються формати Union Quiz, події спільноти та партнерський обмін досвідом."></button>
-              <button class="map-dot" style="left: 63%; top: 49%;" data-title="Ізмаїл" data-text="Впізнавана точка активності через інтелектуальні та спортивні формати, які зміцнюють молодіжне середовище."></button>
-              <button class="map-dot international" style="left: 44%; top: 33%;" data-title="Копенгаген" data-text="Участь представників Молодіжної ради ПРМТУ в конференції молодих активістів NTF та міжнародному профспілковому діалозі."></button>
-              <button class="map-dot international" style="left: 46%; top: 38%;" data-title="Прага" data-text="Міжнародний освітній досвід, рефлексія над цінностями демократії, прав людини та ролі молодого покоління."></button>
-              <button class="map-dot international" style="left: 47%; top: 36%;" data-title="Освенцим" data-text="Участь у навчальній мандрівці «Потяг пам’яті» як частині міжнародного ціннісного й освітнього діалогу."></button>
-              <button class="map-dot international" style="left: 43%; top: 35%;" data-title="Брюссель / європейський трек" data-text="Європейські освітні та профспілкові формати, що розширюють горизонти молодіжної роботи ПРМТУ."></button>
+        <div class="gallery-grid reveal delay-1">
+          <article class="gallery-card large tilt-card">
+            <div class="tag">форумний драйв</div>
+            <div>
+              <h3>Молодь у дії, а не в режимі спостерігачів</h3>
+              <p>Форуми, leadership camp, дискусії, комунікація, партнерства, сильні сцени та відчуття, що молодь реально впливає на процес.</p>
             </div>
+          </article>
 
-            <div class="tooltip" id="mapTooltip">
-              <strong>Одеса</strong>
-              <p>Один із головних центрів активності Молодіжної ради ПРМТУ: зустрічі, форуми, правопросвіта, партнерства та молодіжні ініціативи.</p>
+          <article class="gallery-card tilt-card">
+            <div class="tag">career track</div>
+            <div>
+              <h3>Професійний трек</h3>
+              <p>Перший рейс, співбесіди, офшор, логістика, морська кар’єра на борту і на березі.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card tilt-card">
+            <div class="tag">law / rights</div>
+            <div>
+              <h3>Правова опора</h3>
+              <p>Коли молодь знає не лише мрію про професію, а й свої права, інструменти та правила гри.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card tilt-card">
+            <div class="tag">community</div>
+            <div>
+              <h3>Ком’юніті</h3>
+              <p>Union Quiz, спорт, меми, культурні формати, які роблять середовище близьким і сучасним.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card tilt-card">
+            <div class="tag">international</div>
+            <div>
+              <h3>Міжнародний горизонт</h3>
+              <p>ETF, ETUI, NTF, європейські зустрічі, нові контакти, нові сенси і новий масштаб мислення.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <div class="container partner-grid">
+        <div class="glass map-card reveal tilt-card">
+          <div class="chart-grid">
+            <svg class="map-svg" viewBox="0 0 1000 680" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="seaRoute" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#4fe1d4"/>
+                  <stop offset="48%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#f2c46b"/>
+                </linearGradient>
+              </defs>
+              <path d="M120 534 C188 520, 244 486, 320 468 S470 436, 558 398 S720 316, 834 230" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".9"/>
+              <path d="M96 560 C196 564, 282 546, 356 510 S494 446, 590 448 S760 492, 916 428" fill="none" stroke="rgba(79,225,212,.20)" stroke-width="2" opacity=".9"/>
+              <path d="M0 612 H1000" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+              <path d="M118 612 C188 596, 244 602, 304 612 S428 626, 514 608 S640 582, 736 602 S886 624, 1000 604" fill="none" stroke="rgba(79,225,212,.24)" stroke-width="4"/>
+            </svg>
+
+            <button class="node active" style="left: 56%; top: 70%;" data-title="Одеса" data-text="Один із головних центрів активності Молодіжної ради ПРМТУ: зустрічі, форуми, правопросвіта, партнерства та молодіжні ініціативи."></button>
+            <button class="node" style="left: 62%; top: 67%;" data-title="Чорноморськ" data-text="Місто молодіжної взаємодії, де розвиваються формати Union Quiz, події спільноти та партнерський обмін досвідом."></button>
+            <button class="node" style="left: 69%; top: 65%;" data-title="Ізмаїл" data-text="Впізнавана точка активності через інтелектуальні та спортивні формати, які зміцнюють молодіжне середовище."></button>
+            <button class="node international" style="left: 39%; top: 36%;" data-title="Копенгаген" data-text="Участь представників Молодіжної ради ПРМТУ в конференції молодих активістів NTF та міжнародному профспілковому діалозі."></button>
+            <button class="node international" style="left: 46%; top: 42%;" data-title="Прага" data-text="Міжнародний освітній досвід, рефлексія над цінностями демократії, прав людини та ролі молодого покоління."></button>
+            <button class="node international" style="left: 49%; top: 39%;" data-title="Освенцим" data-text="Участь у навчальній мандрівці «Потяг пам’яті» як частині міжнародного ціннісного й освітнього діалогу."></button>
+            <button class="node international" style="left: 42%; top: 45%;" data-title="Брюссель / європейський трек" data-text="Європейські освітні та профспілкові формати, що розширюють горизонти молодіжної роботи ПРМТУ."></button>
+
+            <div class="map-panel">
+              <div class="eyebrow" style="margin:0; width:fit-content;">географія присутності</div>
+              <h3 id="mapTitle">Одеса</h3>
+              <p id="mapText">Один із головних центрів активності Молодіжної ради ПРМТУ: зустрічі, форуми, правопросвіта, партнерства та молодіжні ініціативи.</p>
             </div>
           </div>
+        </div>
 
-          <div class="partner-list reveal delay-2">
-            <div class="partner-card glass-card">
-              <strong><span>01</span> Міжгалузеві партнери</strong>
-              <p>Молодіжні ради інших профспілок, спільні форуми, меморандуми та обмін практиками для посилення профспілкового молодіжного руху.</p>
-            </div>
-            <div class="partner-card glass-card">
-              <strong><span>02</span> Освітні та молодіжні середовища</strong>
-              <p>Курсанти, студенти, молодіжні форуми, школи, громадські ініціативи й середовища, де народжується нова активна спільнота.</p>
-            </div>
-            <div class="partner-card glass-card">
-              <strong><span>03</span> Інституції та правовий вимір</strong>
-              <p>Співпраця з інституціями у сфері прав людини, правопросвіти, безпеки, медіації та практичної підтримки молоді.</p>
-            </div>
-            <div class="partner-card glass-card">
-              <strong><span>04</span> Міжнародний трек</strong>
-              <p>NTF, ETF, ETUI, міжнародні профспілкові форуми й навчальні формати, що дають молоді нові орієнтири та контакти.</p>
-            </div>
+        <div class="partner-list reveal delay-1">
+          <div class="eyebrow">партнерства і масштаб</div>
+          <h2>Сильні локально. <span class="gradient">Відкриті на міжнародному рівні</span>.</h2>
+          <p class="lead" style="margin-top:14px; max-width:none;">
+            Молодіжна рада ПРМТУ працює в морських містах України, у міжгалузевих партнерствах,
+            у молодіжних форматах Одещини та в міжнародному профспілковому просторі.
+          </p>
+
+          <div class="glass partner-card tilt-card">
+            <strong><span>01</span> Міжгалузеві партнери</strong>
+            <p>Молодіжні ради інших профспілок, спільні форуми, меморандуми та обмін практиками для посилення профспілкового молодіжного руху.</p>
+          </div>
+          <div class="glass partner-card tilt-card">
+            <strong><span>02</span> Освітні та молодіжні середовища</strong>
+            <p>Курсанти, студенти, молодіжні форуми, школи, громадські ініціативи й середовища, де народжується нова активна спільнота.</p>
+          </div>
+          <div class="glass partner-card tilt-card">
+            <strong><span>03</span> Інституції та правовий вимір</strong>
+            <p>Співпраця з інституціями у сфері прав людини, правопросвіти, безпеки, медіації та практичної підтримки молоді.</p>
+          </div>
+          <div class="glass partner-card tilt-card">
+            <strong><span>04</span> Міжнародний трек</strong>
+            <p>NTF, ETF, ETUI, міжнародні профспілкові форуми й навчальні формати, що дають молоді нові орієнтири та контакти.</p>
           </div>
         </div>
       </div>
@@ -1338,36 +2049,36 @@
 
     <section class="section" id="join">
       <div class="container">
-        <div class="quote-band reveal">
-          <h3>Молодіжна рада ПРМТУ — це не про «бути присутнім». Це про бути частиною сили, що рухає вперед.</h3>
-          <p>
-            Коли молодь має підтримку, довіру, знання і простір для дії — вона стає не аудиторією,
-            а реальною рушійною силою змін у професії, у спільноті та в майбутньому галузі.
-          </p>
-        </div>
+        <div class="glass cta-shell reveal">
+          <div class="final-grid">
+            <div class="cta-copy">
+              <div class="eyebrow">фінальний меседж</div>
+              <h2>Чому з нами варто <span class="gradient">співпрацювати і зростати</span></h2>
+              <p class="lead">
+                Тому що ми поєднуємо зміст, стиль, молодіжну енергію, системність і сучасну мову комунікації.
+                Ми не просто говоримо про розвиток молоді — ми створюємо середовище, де цей розвиток реально відбувається.
+              </p>
 
-        <div class="cta-card glass-card reveal delay-1">
-          <div>
-            <div class="eyebrow">фінальний меседж</div>
-            <h2>Чому з нами варто співпрацювати і зростати</h2>
-            <p class="lead" style="margin-top:18px; max-width:740px;">
-              Тому що ми поєднуємо зміст, стиль, молодіжну енергію, системність і сучасну мову комунікації.
-              Ми не просто говоримо про розвиток молоді — ми створюємо середовище, де цей розвиток реально відбувається.
-            </p>
+              <div class="cta-actions">
+                <a class="chip-link" href="https://www.instagram.com/mtwtuyouth/" target="_blank" rel="noopener">Instagram MTWTUYouth ↗</a>
+                <a class="chip-link" href="https://mtwtu.org.ua/youth" target="_blank" rel="noopener">Офіційна youth-сторінка ↗</a>
+                <a class="chip-link" href="#hero">На початок ↑</a>
+              </div>
 
-            <div class="links">
-              <a class="link-chip" href="https://www.instagram.com/mtwtuyouth/" target="_blank" rel="noopener">Instagram MTWTUYouth ↗</a>
-              <a class="link-chip" href="https://mtwtu.org.ua/youth" target="_blank" rel="noopener">Офіційна youth-сторінка ↗</a>
-              <a class="link-chip" href="#hero">На початок ↑</a>
+              <p style="margin-top:18px; color:rgba(183,207,225,.82); line-height:1.65; max-width:720px; font-size:14px;">
+                У цій версії акцент зроблено на морський вайб, сценічний ефект і сильні візуальні переходи. Коли додаси власні фото,
+                логотип ПРМТУ та QR-код, презентація стане ще сильнішою саме як ваша авторська подача.
+              </p>
             </div>
 
-            <div class="footer-note">
-              Порада: додай свої реальні фото подій, логотип ПРМТУ та, за бажанням, QR-код на Instagram у фінальному блоці — це ще сильніше підніме ефект на живому виступі.
+            <div class="cta-visual">
+              <div class="signal-core"></div>
+              <div class="signal-labels">
+                <div class="signal-tag one">leadership</div>
+                <div class="signal-tag two">solidarity</div>
+                <div class="signal-tag three">maritime future</div>
+              </div>
             </div>
-          </div>
-
-          <div>
-            <div class="orb"></div>
           </div>
         </div>
       </div>
@@ -1375,142 +2086,160 @@
   </main>
 
   <script>
-    // reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const sideLinks = [...document.querySelectorAll('.side-dots a')];
+    const progressBar = document.getElementById('progressBar');
+    const cursorGlow = document.querySelector('.cursor-glow');
+
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.16 });
 
     document.querySelectorAll('.reveal').forEach(el => {
-      if (!el.classList.contains('visible')) observer.observe(el);
+      if (!el.classList.contains('visible')) revealObserver.observe(el);
     });
 
-    // active nav by section
-    const sections = [...document.querySelectorAll('section[id]')];
-    const navLinks = [...document.querySelectorAll('.nav a')];
-
-    const setActive = () => {
+    function updateActiveSection() {
       let current = sections[0].id;
-      const scrollMid = window.scrollY + window.innerHeight * 0.42;
-      sections.forEach(sec => {
-        if (scrollMid >= sec.offsetTop) current = sec.id;
+      const marker = window.scrollY + window.innerHeight * 0.46;
+      sections.forEach(section => {
+        if (marker >= section.offsetTop) current = section.id;
       });
-      navLinks.forEach(link => {
+
+      [...navLinks, ...sideLinks].forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + current);
       });
-    };
 
-    window.addEventListener('scroll', setActive);
-    window.addEventListener('load', setActive);
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    }
 
-    // interactive feature cards
-    const cards = document.querySelectorAll('.feature-card');
-    const panelTitle = document.getElementById('panelTitle');
-    const panelKicker = document.getElementById('panelKicker');
-    const panelText = document.getElementById('panelText');
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('load', updateActiveSection);
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        cards.forEach(c => c.classList.remove('active'));
+    // Smooth arrow/Page navigation between sections
+    let isScrollingProgrammatically = false;
+
+    function goToSection(index) {
+      if (index < 0 || index >= sections.length) return;
+      isScrollingProgrammatically = true;
+      sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.setTimeout(() => { isScrollingProgrammatically = false; }, 760);
+    }
+
+    function currentSectionIndex() {
+      const marker = window.scrollY + window.innerHeight * 0.45;
+      let idx = 0;
+      sections.forEach((section, i) => {
+        if (marker >= section.offsetTop) idx = i;
+      });
+      return idx;
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (["ArrowDown", "PageDown", "ArrowUp", "PageUp", "Home", "End", " "].includes(e.key)) {
+        const tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      }
+
+      const idx = currentSectionIndex();
+      if ((e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') && !isScrollingProgrammatically) {
+        e.preventDefault();
+        goToSection(idx + 1);
+      }
+      if ((e.key === 'ArrowUp' || e.key === 'PageUp') && !isScrollingProgrammatically) {
+        e.preventDefault();
+        goToSection(idx - 1);
+      }
+      if (e.key === 'Home') {
+        e.preventDefault();
+        goToSection(0);
+      }
+      if (e.key === 'End') {
+        e.preventDefault();
+        goToSection(sections.length - 1);
+      }
+    });
+
+    // Cursor glow
+    window.addEventListener('pointermove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    }, { passive: true });
+
+    // Tilt effect
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rx = ((y / rect.height) - 0.5) * -7;
+        const ry = ((x / rect.width) - 0.5) * 8;
+        card.style.transform = `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+        card.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
+        card.style.setProperty('--my', `${(y / rect.height) * 100}%`);
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // Directions panel
+    const directionCards = document.querySelectorAll('.feature-card');
+    const detailKicker = document.getElementById('detailKicker');
+    const detailTitle = document.getElementById('detailTitle');
+    const detailText = document.getElementById('detailText');
+
+    directionCards.forEach(card => {
+      const activate = () => {
+        directionCards.forEach(c => c.classList.remove('active'));
         card.classList.add('active');
-        panelTitle.textContent = card.dataset.title;
-        panelKicker.textContent = card.dataset.kicker;
-        panelText.textContent = card.dataset.text;
-      });
+        detailKicker.textContent = card.dataset.kicker;
+        detailTitle.textContent = card.dataset.title;
+        detailText.textContent = card.dataset.text;
+      };
+      card.addEventListener('click', activate);
+      card.addEventListener('mouseenter', activate);
     });
 
-    // interactive map tooltips
-    const tooltip = document.getElementById('mapTooltip');
-    document.querySelectorAll('.map-dot').forEach(dot => {
-      dot.addEventListener('click', () => {
-        tooltip.querySelector('strong').textContent = dot.dataset.title;
-        tooltip.querySelector('p').textContent = dot.dataset.text;
-      });
-      dot.addEventListener('mouseenter', () => {
-        tooltip.querySelector('strong').textContent = dot.dataset.title;
-        tooltip.querySelector('p').textContent = dot.dataset.text;
-      });
+    // Flagships panel
+    const flagshipItems = document.querySelectorAll('.flagship-item');
+    const flagshipKicker = document.getElementById('flagshipKicker');
+    const flagshipTitle = document.getElementById('flagshipTitle');
+    const flagshipText = document.getElementById('flagshipText');
+
+    flagshipItems.forEach(item => {
+      const activate = () => {
+        flagshipItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        flagshipKicker.textContent = item.dataset.kicker;
+        flagshipTitle.textContent = item.dataset.title;
+        flagshipText.textContent = item.dataset.text;
+      };
+      item.addEventListener('click', activate);
+      item.addEventListener('mouseenter', activate);
     });
 
-    // simple particles / waves background
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let w, h, particles;
+    // Map nodes
+    const mapNodes = document.querySelectorAll('.node');
+    const mapTitle = document.getElementById('mapTitle');
+    const mapText = document.getElementById('mapText');
 
-    function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = canvas.width = window.innerWidth * dpr;
-      h = canvas.height = window.innerHeight * dpr;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      initParticles();
-    }
-
-    function initParticles() {
-      particles = Array.from({ length: Math.min(72, Math.floor(window.innerWidth / 20)) }, () => ({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        r: Math.random() * 1.8 + 0.6,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: Math.random() * 0.3 + 0.12,
-        a: Math.random() * 0.6 + 0.15
-      }));
-    }
-
-    function drawWave(offset, color, amp, speed, width) {
-      ctx.beginPath();
-      for (let x = 0; x <= window.innerWidth; x += 8) {
-        const y = h / (window.devicePixelRatio || 1) - 110 + Math.sin((x + offset) * speed) * amp;
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.lineTo(window.innerWidth, window.innerHeight);
-      ctx.lineTo(0, window.innerHeight);
-      ctx.closePath();
-      ctx.fillStyle = color;
-      ctx.fill();
-
-      ctx.beginPath();
-      for (let x = 0; x <= window.innerWidth; x += 8) {
-        const y = h / (window.devicePixelRatio || 1) - 110 + Math.sin((x + offset) * speed) * amp;
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.lineWidth = width;
-      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-      ctx.stroke();
-    }
-
-    function animate(t = 0) {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-      drawWave(t * 0.018, 'rgba(23, 76, 126, 0.10)', 16, 0.011, 1);
-      drawWave(t * 0.012 + 80, 'rgba(7, 44, 79, 0.18)', 22, 0.008, 1.2);
-      drawWave(t * 0.009 + 140, 'rgba(4, 29, 55, 0.24)', 28, 0.006, 1.3);
-
-      particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.y > window.innerHeight + 10) {
-          p.y = -10;
-          p.x = Math.random() * window.innerWidth;
-        }
-        if (p.x < -10) p.x = window.innerWidth + 10;
-        if (p.x > window.innerWidth + 10) p.x = -10;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(190, 230, 255, ${p.a})`;
-        ctx.fill();
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', resize);
-    resize();
-    animate();
+    mapNodes.forEach(node => {
+      const activate = () => {
+        mapNodes.forEach(n => n.classList.remove('active'));
+        node.classList.add('active');
+        mapTitle.textContent = node.dataset.title;
+        mapText.textContent = node.dataset.text;
+      };
+      node.addEventListener('click', activate);
+      node.addEventListener('mouseenter', activate);
+    });
   </script>
 </body>
 </html>
