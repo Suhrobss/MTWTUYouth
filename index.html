@@ -3,296 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MTWTU Youth — Презентація</title>
-  <meta name="description" content="Сучасна презентація Молодіжної ради ПРМТУ для GitHub Pages" />
+  <title>MTWTU Youth — WOW Presentation</title>
+  <meta name="description" content="Інтерактивна wow-презентація Молодіжної ради ПРМТУ для GitHub Pages" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --text:#eef7ff;
-      --muted:#b7ccdd;
-      --teal:#59e0d5;
-      --gold:#f2c46b;
-      --panel:rgba(8,24,38,.80);
-      --panel-strong:rgba(5,17,28,.90);
-      --line:rgba(255,255,255,.10);
-      --shadow:0 20px 56px rgba(1,10,18,.30);
-      --radius:24px;
-      --max:1320px;
-      --header-h:68px;
-    }
+    :root{--bg-0:#020d17;--bg-1:#041726;--bg-2:#062437;--bg-3:#0a3850;--card:rgba(7,25,40,.72);--card-strong:rgba(5,20,32,.84);--line:rgba(255,255,255,.10);--text:#eef8ff;--muted:#b9d0df;--teal:#4fe1d4;--gold:#f2c46b;--blue:#80c8ff;--wave:#0d6b8b;--max:1320px;--radius:28px;--shadow:0 24px 80px rgba(1,9,18,.42);--topbar:70px;--pad-y:clamp(52px, 6svh, 78px);--section-inset:18px;--safe-h:100svh}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-snap-type:y mandatory}body{margin:0;font-family:"Montserrat",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 15% 15%, rgba(79,225,212,.12), transparent 0 20%),radial-gradient(circle at 85% 12%, rgba(242,196,107,.09), transparent 0 16%),radial-gradient(circle at 50% 100%, rgba(13,75,105,.28), transparent 0 32%),linear-gradient(180deg,#020c15 0%,#03131f 22%,#041928 48%,#052138 72%,#031523 100%);min-height:100vh;overflow-x:hidden}body::before{content:"";position:fixed;inset:0;background:linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(180deg, rgba(255,255,255,.025) 1px, transparent 1px);background-size:88px 88px;mask-image:linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.8));opacity:.16;z-index:-8;pointer-events:none}
+    .ambient{position:fixed;inset:0;pointer-events:none;z-index:-7;overflow:hidden}.ambient .cursor-glow{position:absolute;width:min(42vw,580px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(79,225,212,.16), rgba(128,200,255,.08) 30%, transparent 68%);filter:blur(18px);mix-blend-mode:screen;opacity:.7;transition:left .16s ease-out, top .16s ease-out}.ambient .sonar{position:absolute;width:min(70vw,820px);aspect-ratio:1;right:-16vw;top:-20vw;border-radius:50%;background:radial-gradient(circle, transparent 0 17%, rgba(79,225,212,.10) 17.4% 17.8%, transparent 18% 31%, rgba(79,225,212,.08) 31.5% 31.8%, transparent 32% 45%, rgba(79,225,212,.05) 45.3% 45.6%, transparent 46%),conic-gradient(from 205deg, rgba(79,225,212,.26), transparent 12%, transparent 70%, rgba(79,225,212,.15) 88%, transparent 94%);opacity:.55;animation:spinSlow 24s linear infinite;filter:blur(.2px)}.ambient .sonar::after{content:"";position:absolute;inset:14%;border-radius:50%;border:1px solid rgba(79,225,212,.10)}.ambient .beam{position:absolute;top:-5%;left:-20%;width:60%;height:100%;background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,.02) 24%, rgba(128,200,255,.18) 40%, rgba(255,255,255,.02) 52%, transparent 70%);transform:skewX(-24deg);filter:blur(10px);opacity:.35;animation:lighthouseGlobal 15s ease-in-out infinite;transform-origin:center}.ambient .wave-stack{position:absolute;inset:auto 0 -1px 0;height:clamp(72px, 11svh, 118px);min-height:72px;max-height:118px}.wave{position:absolute;inset:auto -14% 0 -14%;height:100%;background-repeat:repeat-x;background-size:1200px 100%}.wave.one{opacity:.28;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 420' preserveAspectRatio='none'%3E%3Cpath fill='%2308506d' d='M0,254L50,244.7C100,235,200,216,300,216.7C400,217,500,235,600,228.7C700,223,800,193,900,175.3C1000,157,1100,151,1200,166.7C1300,183,1400,223,1450,243L1500,263L1500,421L1450,421C1400,421,1300,421,1200,421C1100,421,1000,421,900,421C800,421,700,421,600,421C500,421,400,421,300,421C200,421,100,421,50,421L0,421Z'/%3E%3C/svg%3E");animation:waveMove 20s linear infinite}.wave.two{opacity:.22;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 420' preserveAspectRatio='none'%3E%3Cpath fill='%230b6a89' d='M0,220L60,204C120,188,240,156,360,168C480,180,600,236,720,246C840,256,960,220,1080,198C1200,176,1320,168,1380,164L1440,160L1440,421L1380,421C1320,421,1200,421,1080,421C960,421,840,421,720,421C600,421,480,421,360,421C240,421,120,421,60,421L0,421Z'/%3E%3C/svg%3E");animation:waveMoveReverse 30s linear infinite}.wave.three{opacity:.14;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 420' preserveAspectRatio='none'%3E%3Cpath fill='%23107d9a' d='M0,280L70,262C140,244,280,208,420,192C560,176,700,180,840,201C980,223,1120,261,1260,267C1400,272,1540,244,1610,230L1680,216L1680,421L1610,421C1540,421,1400,421,1260,421C1120,421,980,421,840,421C700,421,560,421,420,421C280,421,140,421,70,421L0,421Z'/%3E%3C/svg%3E");animation:waveMove 38s linear infinite}@keyframes waveMove{from{transform:translateX(0)}to{transform:translateX(-600px)}}@keyframes waveMoveReverse{from{transform:translateX(-600px)}to{transform:translateX(0)}}@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes lighthouseGlobal{0%,20%{transform:translateX(-34%) skewX(-24deg);opacity:0}28%{opacity:.26}46%{transform:translateX(88%) skewX(-24deg);opacity:.42}54%,100%{opacity:0}}
+    .header-shell{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:min(calc(100% - 22px),1320px);z-index:90;pointer-events:none}.topbar{pointer-events:auto;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:16px;min-height:var(--topbar);padding:12px 16px;border-radius:999px;background:linear-gradient(180deg, rgba(7,22,35,.84), rgba(5,18,29,.66));border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(18px);box-shadow:0 16px 36px rgba(2,10,18,.26)}.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-mark{position:relative;width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 36% 36%, rgba(255,255,255,.9), rgba(255,255,255,.18) 18%, transparent 19%),conic-gradient(from 0deg, var(--gold), #fff0c3, var(--teal), #ccfffa, var(--gold));box-shadow:0 0 0 2px rgba(255,255,255,.08),0 10px 22px rgba(79,225,212,.15)}.brand-mark::before{content:"";position:absolute;inset:5px;border-radius:50%;background:linear-gradient(180deg, rgba(5,18,31,1), rgba(7,31,48,.98));border:1px solid rgba(255,255,255,.08)}.brand-mark::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px rgba(242,196,107,.5)}.brand-copy{min-width:0;line-height:1.08}.brand-copy small{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}.brand-copy strong{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;min-width:0}.nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:700;padding:10px 12px;border-radius:999px;transition:.24s ease;white-space:nowrap}.nav a:hover,.nav a.active{color:#041421;background:linear-gradient(135deg, var(--teal), #dcfffb 66%, #fff0cb);box-shadow:0 10px 20px rgba(79,225,212,.20)}.progress-track{width:min(calc(100% - 64px),1180px);height:4px;margin:10px auto 0;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;pointer-events:none}.progress-bar{height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg, var(--teal), var(--gold), #fff);box-shadow:0 0 18px rgba(79,225,212,.4);transition:width .18s linear}.side-dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:70;display:grid;gap:12px}.side-dots a{position:relative;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.28);transition:.24s ease}.side-dots a::after{content:attr(data-label);position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%);padding:8px 10px;border-radius:999px;background:rgba(2,12,22,.90);border:1px solid rgba(255,255,255,.10);color:var(--text);font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;opacity:0;pointer-events:none;transition:.22s ease}.side-dots a:hover::after,.side-dots a.active::after{opacity:1}.side-dots a.active{background:linear-gradient(135deg, var(--teal), #efffff);transform:scale(1.18);border-color:rgba(255,255,255,.74);box-shadow:0 0 0 6px rgba(79,225,212,.12)}
+    main{position:relative}.section{position:relative;min-height:var(--safe-h);padding:calc(var(--topbar) + 12px) 22px 28px;display:flex;align-items:center;scroll-snap-align:start;overflow:clip;isolation:isolate}.section::before{content:"";position:absolute;inset:var(--section-inset);border-radius:34px;border:1px solid rgba(255,255,255,.06);pointer-events:none}.section::after{content:"";position:absolute;left:14%;right:14%;bottom:0;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);pointer-events:none}.container{width:min(100%, var(--max));margin:0 auto;position:relative;z-index:2}.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.20em;text-transform:uppercase;margin-bottom:14px;box-shadow:inset 0 0 0 1px rgba(79,225,212,.05)}.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg, var(--teal), #f3fffd);box-shadow:0 0 18px rgba(79,225,212,.52)}h1,h2,h3,p{margin:0}h1{font-size:clamp(38px, 6.2vw, 86px);line-height:.93;letter-spacing:-.055em;max-width:10.5ch}h2{font-size:clamp(28px, 4.2vw, 54px);line-height:.98;letter-spacing:-.045em;max-width:13ch}.gradient{background:linear-gradient(135deg, #fff 6%, #d0fff8 36%, #f2c46b 72%, #fff0cc 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{margin-top:12px;max-width:760px;color:var(--muted);font-size:clamp(13px, 1.45vw, 17px);line-height:1.48}.glass{position:relative;background:linear-gradient(180deg, rgba(9,28,45,.76), rgba(5,18,31,.78));border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);backdrop-filter:blur(18px);box-shadow:var(--shadow);overflow:hidden}.glass::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg, rgba(255,255,255,.08), transparent 18%, transparent 82%, rgba(255,255,255,.03)),radial-gradient(circle at 12% 14%, rgba(79,225,212,.10), transparent 22%),radial-gradient(circle at 88% 18%, rgba(242,196,107,.08), transparent 20%);pointer-events:none}.hero-grid,.identity-grid,.impact-grid,.partner-grid,.final-grid{display:grid;gap:24px;align-items:center}.hero-grid{grid-template-columns:1.02fr .98fr}.identity-grid{grid-template-columns:1fr 1fr}.impact-grid{grid-template-columns:1.04fr .96fr;align-items:start}.partner-grid{grid-template-columns:1.06fr .94fr;align-items:stretch}.final-grid{grid-template-columns:1.08fr .92fr}.hero-copy{position:relative;z-index:1}.hero-subline{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}.hero-subline span{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);color:var(--muted);font-size:13px;font-weight:700}.hero-subline span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(242,196,107,.56)}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:999px;font-size:14px;font-weight:800;text-decoration:none;transition:.24s ease;border:1px solid transparent}.btn:hover{transform:translateY(-2px)}.btn-primary{color:#031221;background:linear-gradient(135deg, var(--gold), #fff0c9 62%, #fff);box-shadow:0 14px 30px rgba(242,196,107,.22)}.btn-secondary{color:var(--text);background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.10)}
+    .hero-stage{position:relative;min-height:min(60svh,500px);padding:18px;display:grid;align-items:end;isolation:isolate}.hero-stage::after{content:"";position:absolute;inset:auto 6% 12px 6%;height:150px;background:radial-gradient(circle at 16% 28%, rgba(79,225,212,.34), transparent 24%),radial-gradient(circle at 82% 32%, rgba(242,196,107,.22), transparent 18%),linear-gradient(180deg, rgba(6,16,29,0), rgba(6,16,29,.62));filter:blur(12px);z-index:0;pointer-events:none}.hero-horizon{position:absolute;left:0;right:0;bottom:112px;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);z-index:1}.hero-scan{position:absolute;inset:0;z-index:0;pointer-events:none}.hero-scan::before{content:"";position:absolute;width:min(46vw,420px);aspect-ratio:1;left:44%;top:10%;border-radius:50%;background:radial-gradient(circle, transparent 0 42%, rgba(79,225,212,.08) 42.6% 43%, transparent 43.4% 58%, rgba(255,255,255,.08) 58.6% 59%, transparent 59.4%),conic-gradient(from 160deg, rgba(79,225,212,.24), transparent 10%, transparent 72%, rgba(79,225,212,.14) 87%, transparent 94%);transform:translate(-50%,0);animation:spinSlow 22s linear infinite;opacity:.76}.hero-scan::after{content:"";position:absolute;left:-12%;top:0;width:42%;height:100%;background:linear-gradient(90deg, transparent 0, rgba(255,255,255,.03) 20%, rgba(128,200,255,.14) 44%, rgba(255,255,255,.03) 56%, transparent 78%);transform:skewX(-24deg);filter:blur(10px);opacity:0;animation:lighthouseHero 8s ease-in-out infinite}@keyframes lighthouseHero{0%,12%{transform:translateX(-25%) skewX(-24deg);opacity:0}18%{opacity:.18}36%{transform:translateX(210%) skewX(-24deg);opacity:.34}44%,100%{opacity:0}}.compass{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:min(24vw,280px);aspect-ratio:1;border-radius:50%;opacity:.92;background:radial-gradient(circle, transparent 0 35%, rgba(79,225,212,.10) 35.5% 36%, transparent 36.5% 49%, rgba(255,255,255,.11) 49.5% 50%, transparent 50.5%),repeating-conic-gradient(from 0deg, rgba(255,255,255,.14) 0 2deg, transparent 2deg 14deg),radial-gradient(circle at center, rgba(79,225,212,.10), transparent 62%);filter:drop-shadow(0 10px 30px rgba(79,225,212,.14));animation:spinSlow 24s linear infinite}.compass::before,.compass::after{content:"";position:absolute;border-radius:50%}.compass::before{inset:10%;border:1px solid rgba(255,255,255,.09)}.compass::after{inset:22%;border:1px solid rgba(79,225,212,.18)}.compass-needle{position:absolute;inset:50% auto auto 50%;width:10px;height:min(10vw,132px);transform:translate(-50%,-52%) rotate(12deg);transform-origin:center 82%;z-index:1}.compass-needle::before,.compass-needle::after{content:"";position:absolute;left:50%;transform:translateX(-50%);clip-path:polygon(50% 0, 100% 100%, 0 100%);width:100%}.compass-needle::before{top:0;height:56%;background:linear-gradient(180deg, #fff, var(--gold));filter:drop-shadow(0 0 16px rgba(242,196,107,.3))}.compass-needle::after{bottom:0;height:56%;transform:translateX(-50%) rotate(180deg);background:linear-gradient(180deg, #d5fff9, var(--teal));filter:drop-shadow(0 0 16px rgba(79,225,212,.34))}.hero-stack{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:10px}.hero-tile{position:relative;padding:16px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);backdrop-filter:blur(10px);min-height:100px}.hero-tile strong{display:block;font-size:clamp(22px, 2.8vw, 32px);margin-bottom:8px}.hero-tile span{display:block;color:var(--muted);line-height:1.48;font-size:13px}.hero-deck-line{position:absolute;left:24px;right:24px;top:20px;height:2px;background:linear-gradient(90deg, transparent, rgba(79,225,212,.7), rgba(242,196,107,.8), transparent);z-index:2;opacity:.85}.port-silhouette{position:absolute;inset:auto 18px 8px 18px;height:124px;z-index:1;opacity:.9}30%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+    .identity-bands{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}.identity-bands span{display:inline-flex;align-items:center;padding:11px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:var(--text);font-size:13px;font-weight:700}.identity-right,.impact-left,.impact-right,.partner-list{display:grid;gap:14px;align-content:start}.statement-card,.detail-panel,.flagship-panel,.result-card,.route-card,.gallery-card,.partner-card,.map-card,.cta-shell,.type-card{padding:22px}.statement-card strong,.detail-panel strong,.flagship-panel strong,.result-card strong,.route-card strong,.gallery-card strong,.partner-card strong{display:block;margin-bottom:10px;font-size:18px}.statement-card p,.detail-panel p,.flagship-panel p,.result-card p,.route-card p,.gallery-card p,.partner-card p{color:var(--muted);line-height:1.5;font-size:14px}.direction-layout,.flagship-layout{display:grid;grid-template-columns:1.08fr .92fr;gap:16px;margin-top:20px;align-items:start}.card-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px}.feature-card{position:relative;min-height:154px;padding:16px;border-radius:22px;background:linear-gradient(180deg, rgba(12,35,55,.76), rgba(6,17,29,.82));border:1px solid rgba(255,255,255,.10);box-shadow:0 10px 30px rgba(0,0,0,.14);cursor:pointer;transform-style:preserve-3d;transition:transform .24s ease, border-color .24s ease, box-shadow .24s ease, background .24s ease;overflow:hidden;isolation:isolate}.feature-card::before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(79,225,212,.18), transparent 36%),linear-gradient(120deg, transparent, rgba(255,255,255,.06), transparent 72%);z-index:-1;opacity:.95;transition:opacity .24s ease}.feature-card:hover,.feature-card.active{transform:translateY(-5px);border-color:rgba(79,225,212,.34);box-shadow:0 20px 40px rgba(0,0,0,.22), 0 0 0 1px rgba(79,225,212,.04);background:linear-gradient(180deg, rgba(14,43,66,.82), rgba(7,19,33,.86))}.icon-shell{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;margin-bottom:14px;background:linear-gradient(135deg, rgba(79,225,212,.18), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.10);font-size:24px}.feature-card h3{margin-bottom:8px;font-size:16px;line-height:1.18;max-width:15ch}.feature-card p{color:var(--muted);line-height:1.4;font-size:13px}.accent-line{position:absolute;left:20px;bottom:16px;height:4px;width:calc(100% - 40px);border-radius:999px;background:linear-gradient(90deg, var(--teal), var(--gold), transparent 85%);opacity:.62}.detail-panel{min-height:356px;display:grid;align-content:start;gap:12px}.detail-kicker,.flagship-kicker{display:inline-block;color:var(--teal);text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:800}.detail-title,.flagship-title{font-size:clamp(23px, 2.6vw, 34px);line-height:1.02;letter-spacing:-.04em;max-width:12ch}.detail-orbit{position:relative;margin-top:auto;height:120px;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:radial-gradient(circle at 50% 50%, rgba(79,225,212,.16), transparent 30%),repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.08) 0 2px, transparent 2px 26px),linear-gradient(180deg, rgba(5,17,30,.14), rgba(5,17,30,.56));overflow:hidden}.detail-orbit::before{content:"";position:absolute;width:160%;height:2px;left:-30%;top:50%;background:linear-gradient(90deg, transparent, rgba(79,225,212,.76), transparent);transform:rotate(-18deg);animation:sweep 6s linear infinite}.detail-orbit::after{content:"";position:absolute;inset:22px;border-radius:50%;border:1px solid rgba(79,225,212,.16)}@keyframes sweep{from{transform:rotate(-18deg) translateX(-20%)}to{transform:rotate(-18deg) translateX(20%)}}.flagship-list{display:grid;gap:12px}.flagship-item{position:relative;padding:14px 14px 14px 54px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);cursor:pointer;transition:.24s ease;overflow:hidden}.flagship-item::before{content:attr(data-step);position:absolute;left:16px;top:16px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;color:#031221;background:linear-gradient(135deg, var(--gold), #fff0c6);font-size:13px;font-weight:800;box-shadow:0 8px 20px rgba(242,196,107,.20)}.flagship-item::after{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(180deg, var(--teal), var(--gold));opacity:0;transition:.24s ease}.flagship-item.active,.flagship-item:hover{transform:translateX(5px);border-color:rgba(242,196,107,.32);background:rgba(255,255,255,.06)}.flagship-item.active::after,.flagship-item:hover::after{opacity:1}.flagship-item h3{font-size:17px;line-height:1.25;margin-bottom:8px}.flagship-item p{color:var(--muted);font-size:13px;line-height:1.45}.flagship-panel{min-height:460px;display:grid;align-content:start;gap:14px}.flagship-shape{margin-top:auto;min-height:180px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:radial-gradient(circle at 14% 20%, rgba(79,225,212,.24), transparent 20%),radial-gradient(circle at 85% 18%, rgba(242,196,107,.18), transparent 16%),linear-gradient(180deg, rgba(10,34,52,.9), rgba(5,18,31,.96));position:relative}.flagship-shape svg{position:absolute;inset:0;width:100%;height:100%;opacity:.78}
+    .result-grid{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:10px;margin-top:16px}.result-card{min-height:176px;display:grid;align-content:start;gap:8px}.result-badge{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg, rgba(79,225,212,.18), rgba(242,196,107,.16));border:1px solid rgba(255,255,255,.10);font-size:24px}.route-card{min-height:408px}.route-visual{position:relative;margin-top:14px;min-height:210px;border-radius:24px;border:1px solid rgba(255,255,255,.09);overflow:hidden;background:linear-gradient(180deg, rgba(8,28,46,.70), rgba(4,16,29,.84)),radial-gradient(circle at 10% 30%, rgba(79,225,212,.18), transparent 20%),radial-gradient(circle at 88% 22%, rgba(242,196,107,.12), transparent 16%)}.route-svg{width:100%;height:100%;position:absolute;inset:0}.route-points{position:absolute;inset:0;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none}.route-step{display:inline-flex;align-items:center;gap:8px;width:fit-content;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);color:var(--text);font-size:12px;font-weight:700;box-shadow:0 10px 26px rgba(0,0,0,.12)}.route-step:nth-child(2){align-self:center}.route-step:nth-child(3){align-self:flex-end}.route-step:nth-child(4){align-self:center}.stage-shell{position:relative;min-height:min(72svh,560px);padding:22px;display:grid;align-items:center;justify-items:center;text-align:center}.stage-shell::before{content:"";position:absolute;inset:20px;border-radius:28px;background:radial-gradient(circle at 20% 20%, rgba(79,225,212,.10), transparent 18%),radial-gradient(circle at 80% 18%, rgba(242,196,107,.10), transparent 18%),linear-gradient(180deg, rgba(8,29,47,.74), rgba(4,16,28,.92));border:1px solid rgba(255,255,255,.08);z-index:0}.stage-shell::after{content:"";position:absolute;left:-12%;top:0;width:42%;height:100%;background:linear-gradient(90deg, transparent 0, rgba(255,255,255,.03) 20%, rgba(128,200,255,.14) 44%, rgba(255,255,255,.03) 56%, transparent 78%);transform:skewX(-24deg);filter:blur(10px);opacity:0;animation:lighthouseHero 7s ease-in-out infinite;z-index:1;pointer-events:none}.stage-grid{position:absolute;inset:0;background:linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(180deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:64px 64px;mask-image:linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.75));opacity:.18;z-index:0}.stage-copy{position:relative;z-index:2;width:min(100%,980px);display:grid;gap:16px;justify-items:center}.stage-word{font-size:clamp(52px, 10vw, 148px);line-height:.86;letter-spacing:-.07em;font-weight:900;text-transform:uppercase;min-height:1.04em;text-wrap:balance;background:linear-gradient(135deg, #fff 4%, #d0fff8 38%, #f2c46b 72%, #fff0cc 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 12px 34px rgba(79,225,212,.10))}.stage-desc{max-width:760px;color:var(--muted);font-size:clamp(15px, 2vw, 19px);line-height:1.62;min-height:3.4em}.stage-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:4px}.stage-pills span{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);color:var(--text);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.stage-pills span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal)}
+    .gallery-grid{margin-top:16px;display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:156px 156px;gap:10px}.gallery-card{position:relative;min-height:132px;display:flex;align-items:flex-end;padding:14px;border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.22)),radial-gradient(circle at 18% 24%, rgba(79,225,212,.16), transparent 22%),radial-gradient(circle at 82% 18%, rgba(242,196,107,.16), transparent 20%),linear-gradient(180deg, rgba(10,34,52,.86), rgba(5,17,30,.98));border:1px solid rgba(255,255,255,.10);overflow:hidden;isolation:isolate;transition:transform .24s ease, box-shadow .24s ease}.gallery-card:hover{transform:translateY(-4px);box-shadow:0 20px 36px rgba(0,0,0,.20)}.gallery-card::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent 10%, rgba(255,255,255,.10) 26%, transparent 42%),linear-gradient(180deg, transparent 50%, rgba(0,0,0,.42));transform:translateX(-120%);animation:sheen 8s linear infinite;z-index:-1}@keyframes sheen{0%,10%{transform:translateX(-120%)}35%,100%{transform:translateX(130%)}}.gallery-card.large{grid-row:1 / span 2}.gallery-card .tag{position:absolute;top:16px;left:16px;padding:9px 11px;border-radius:999px;background:rgba(3,15,26,.62);border:1px solid rgba(255,255,255,.09);color:var(--text);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}.gallery-card h3{font-size:clamp(18px, 1.8vw, 26px);line-height:1.04;max-width:13ch;margin-bottom:6px}.gallery-card p{max-width:32ch;font-size:14px}.type-shell{position:relative;min-height:min(68svh,520px);display:grid;align-items:center;justify-items:center;text-align:center;padding:20px}.type-shell::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 22%, rgba(79,225,212,.12), transparent 18%),radial-gradient(circle at 80% 18%, rgba(242,196,107,.10), transparent 16%),linear-gradient(180deg, rgba(8,29,47,.62), rgba(3,14,25,.86));border-radius:28px;border:1px solid rgba(255,255,255,.08)}.type-card{position:relative;z-index:2;width:min(100%,980px);display:grid;gap:16px;justify-items:center;text-align:center;background:transparent;border:none;box-shadow:none}.type-kicker{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:800}.type-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(242,196,107,.52)}.type-moment{font-size:clamp(34px, 6.8vw, 90px);line-height:.96;letter-spacing:-.06em;max-width:12ch;text-wrap:balance;font-weight:900}.type-note{max-width:760px;color:var(--muted);font-size:clamp(15px, 1.9vw, 19px);line-height:1.64}
+    .map-card{min-height:430px;position:relative;overflow:hidden}.chart-grid{position:absolute;inset:22px;border-radius:28px;background:linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(180deg, rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(180deg, rgba(8,30,49,.84), rgba(4,16,28,.95));background-size:54px 54px,54px 54px,auto;border:1px solid rgba(255,255,255,.08);overflow:hidden}.chart-grid::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 16% 22%, rgba(79,225,212,.18), transparent 18%),radial-gradient(circle at 82% 18%, rgba(242,196,107,.14), transparent 15%),linear-gradient(180deg, transparent, rgba(0,0,0,.22))}.map-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1}.hub-glow{position:absolute;width:220px;height:220px;left:calc(56% - 110px);top:calc(70% - 110px);border-radius:50%;background:radial-gradient(circle, rgba(79,225,212,.14), transparent 62%);filter:blur(10px);z-index:0;pointer-events:none}.route-line{opacity:.16;transition:opacity .22s ease}.route-line.active{opacity:1;filter:drop-shadow(0 0 10px rgba(79,225,212,.32))}.node{position:absolute;width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.65);background:linear-gradient(135deg, var(--gold), #fff2cc);box-shadow:0 0 0 0 rgba(242,196,107,.32);z-index:2;cursor:pointer;transition:.22s ease;animation:ping 2.8s infinite}.node.international{background:linear-gradient(135deg, var(--teal), #efffff);box-shadow:0 0 0 0 rgba(79,225,212,.30)}.node:hover,.node.active{transform:scale(1.18)}@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,255,255,.22)}70%{box-shadow:0 0 0 16px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}.map-panel{position:absolute;left:22px;right:22px;bottom:22px;z-index:3;display:grid;gap:10px;padding:18px;border-radius:24px;background:rgba(2,12,22,.84);border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(14px)}.map-panel h3{font-size:24px;line-height:1.04}.partner-card{min-height:98px}.partner-card strong span{color:var(--teal)}.cta-shell{position:relative;min-height:min(60svh,430px);padding:20px;display:grid;align-items:center}.cta-shell::before{content:"";position:absolute;inset:auto -12% -16% -12%;height:48%;background:radial-gradient(circle at 30% 24%, rgba(79,225,212,.24), transparent 18%),radial-gradient(circle at 72% 20%, rgba(242,196,107,.18), transparent 14%),linear-gradient(180deg, rgba(12,60,82,.34), rgba(4,17,31,.82));border-top-left-radius:45% 40%;border-top-right-radius:55% 36%;transform:rotate(-2deg);z-index:0;pointer-events:none;animation:floatWave 9s ease-in-out infinite}.cta-shell::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 16%);pointer-events:none}@keyframes floatWave{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-1deg) translateY(-12px)}}.cta-copy,.cta-visual{position:relative;z-index:1}.cta-copy h2{max-width:12ch}.cta-actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}.chip-link{display:inline-flex;align-items:center;gap:10px;padding:12px 15px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:var(--text);text-decoration:none;font-size:14px;font-weight:700;transition:.24s ease}.chip-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.10)}.sunrise{position:absolute;left:50%;bottom:42px;transform:translateX(-50%);width:min(90%,420px);height:180px;z-index:0;pointer-events:none;opacity:.72;background:radial-gradient(circle at 50% 100%, rgba(242,196,107,.52), transparent 30%),radial-gradient(circle at 50% 90%, rgba(255,255,255,.22), transparent 18%),linear-gradient(180deg, transparent 30%, rgba(79,225,212,.12));filter:blur(12px)}.signal-core{position:relative;width:min(24vw,280px);aspect-ratio:1;margin-left:auto;border-radius:50%;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.95) 0 3%, rgba(255,255,255,.06) 3.2% 14%, transparent 14.4%),radial-gradient(circle at 50% 50%, rgba(79,225,212,.22), transparent 42%),conic-gradient(from 0deg, rgba(255,255,255,.16), transparent 18%, rgba(242,196,107,.28) 32%, transparent 42%, rgba(79,225,212,.26) 56%, transparent 70%, rgba(255,255,255,.14) 88%, transparent 100%),linear-gradient(180deg, rgba(15,50,72,.70), rgba(5,18,31,.92));border:1px solid rgba(255,255,255,.10);box-shadow:0 28px 80px rgba(4,12,25,.44), inset 0 0 50px rgba(255,255,255,.04);animation:pulseCore 8s ease-in-out infinite;z-index:1}.signal-core::before,.signal-core::after{content:"";position:absolute;border-radius:50%}.signal-core::before{inset:12%;border:1px solid rgba(255,255,255,.10)}.signal-core::after{inset:26%;border:1px solid rgba(79,225,212,.22)}.signal-rings{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:min(56vw,600px);aspect-ratio:1;z-index:0;pointer-events:none}.signal-rings span{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(79,225,212,.18);animation:ringOut 5.2s ease-out infinite}.signal-rings span:nth-child(2){animation-delay:1.4s}.signal-rings span:nth-child(3){animation-delay:2.8s}@keyframes ringOut{0%{transform:scale(.42);opacity:0}18%{opacity:.34}100%{transform:scale(1);opacity:0}}@keyframes pulseCore{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.03)}}.signal-labels{position:absolute;inset:0}.signal-tag{position:absolute;padding:10px 12px;border-radius:999px;background:rgba(3,15,26,.78);border:1px solid rgba(255,255,255,.10);color:var(--text);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;box-shadow:0 10px 26px rgba(0,0,0,.16)}.signal-tag.one{top:12%;left:-2%}.signal-tag.two{top:44%;right:-10%}.signal-tag.three{bottom:10%;left:8%}.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}.delay-1{transition-delay:.12s}.delay-2{transition-delay:.24s}.delay-3{transition-delay:.36s}
+    body.presentation-mode .header-shell{top:8px}body.presentation-mode .topbar{grid-template-columns:auto auto;justify-content:space-between;width:fit-content;margin-left:auto;gap:10px;padding:10px 12px}body.presentation-mode .nav,body.presentation-mode .side-dots,body.presentation-mode .progress-track{display:none!important}body.presentation-mode .section{padding-top:62px}@media (max-width:1220px){.hero-grid,.identity-grid,.direction-layout,.flagship-layout,.impact-grid,.partner-grid,.final-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}.gallery-card.large{grid-row:auto;grid-column:1 / span 2}.signal-core{margin:0 auto}.cta-copy h2{max-width:none}}@media (max-width:980px){html{scroll-snap-type:y proximity}.header-shell{width:calc(100% - 16px)}.topbar{grid-template-columns:1fr;justify-items:start;border-radius:28px}.nav{justify-content:flex-start}.side-dots,.keyboard-hint{display:none}.progress-track{width:calc(100% - 18px)}.section{padding-top:calc(var(--topbar) + 84px)}.hero-stage{min-height:560px}}@media (max-width:760px){.section::before{inset:10px;border-radius:24px}.hero-stack,.card-grid,.result-grid,.gallery-grid{grid-template-columns:1fr}.gallery-card.large{grid-column:auto}.hero-actions,.cta-actions{display:grid;grid-template-columns:1fr}.btn,.chip-link{width:100%}.hero-subline{display:grid;grid-template-columns:1fr}.hero-stage{min-height:420px;padding:16px}.port-silhouette{height:140px}.stage-word{font-size:clamp(42px,14vw,90px)}.signal-tag.one,.signal-tag.two,.signal-tag.three{position:static;margin-top:10px;display:inline-flex}.signal-labels{position:static;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:16px}.route-points{padding:18px}}@media (max-width:560px){.brand-copy strong{white-space:normal}.hero-stage{min-height:380px}.hero-tile{min-height:100px}.compass{width:270px}.map-card{min-height:520px}.chart-grid{inset:14px}.map-panel{left:14px;right:14px;bottom:14px}.stage-shell,.type-shell,.cta-shell{padding:16px}.section{padding-left:14px;padding-right:14px}}@media (max-height:820px){:root{--pad-y:52px;--section-inset:12px}.hero-stage{min-height:min(54svh,430px)}.map-card{min-height:480px}.flagship-panel{min-height:460px}.detail-panel{min-height:360px}.cta-shell{min-height:min(62svh,450px)}}
+    @media (max-height:760px){.section{padding-top:calc(var(--topbar) + 8px);padding-bottom:18px}.hero-grid,.identity-grid,.impact-grid,.partner-grid,.final-grid{gap:18px}.hero-subline{margin-top:12px}.hero-actions{margin-top:18px}.lead{margin-top:12px}.eyebrow{margin-bottom:10px}.map-panel{padding:14px}.route-points{padding:14px 16px}.gallery-grid{grid-template-rows:160px 160px}.signal-core{width:min(24vw,280px)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.reveal,.feature-card,.gallery-card,.nav a,.btn,.chip-link,.node,.flagship-item{transition:none!important}.ambient .sonar,.ambient .beam,.wave,.compass,.hero-scan::after,.detail-orbit::before,.flagship-shape svg,.stage-shell::after,.signal-core,.signal-rings span,.gallery-card::before{animation:none!important}}
+  
+    /* refinements */
+    :root{--topbar:68px;--pad-y:clamp(32px,4.8svh,60px)}
+    .topbar{grid-template-columns:auto 1fr;gap:18px;padding:12px 16px}
+    .nav{justify-content:flex-end;gap:4px}.nav a{font-size:12px;padding:9px 10px}
+    
+    .brand-copy small{font-size:10px;letter-spacing:.12em}.brand-copy strong{font-size:14px}
+    .section{padding:calc(var(--topbar) + 10px) 20px 24px}
+    h1{font-size:clamp(42px,7vw,92px)}
+    .lead{font-size:clamp(15px,1.65vw,18px);line-height:1.62}
+    .hero-stage{min-height:min(56svh,470px)}
+    .hero-tile{min-height:104px;padding:16px}.hero-tile span{font-size:12px;line-height:1.42}.port-silhouette{height:154px}
+    .statement-card,.quote-card,.detail-panel,.flagship-panel,.result-card,.route-card,.map-card,.partner-card,.cta-card,.gallery-card{padding:20px}
+    .flagship-item{padding:18px 18px 18px 60px}.flagship-item h3{font-size:17px}.flagship-item p{font-size:13px}
+    .flagship-panel{min-height:min(58svh,470px)}
+    .result-card{min-height:206px}.route-card{min-height:272px}.route-visual{min-height:272px}
+    .stage-shell{min-height:min(60svh,470px)}.stage-word{font-size:clamp(48px,9vw,136px)}.stage-desc{font-size:clamp(15px,1.7vw,18px)}
+    .gallery-grid{grid-template-rows:210px 210px}.gallery-card h3{font-size:clamp(20px,2vw,30px)}
+    .type-shell{min-height:min(58svh,470px)}.type-moment{font-size:clamp(42px,7.2vw,92px)}
+    .map-card{min-height:520px}.chart-grid{inset:18px}.partner-card{min-height:108px}.partner-list{gap:12px}
+    .cta-shell{min-height:min(60svh,500px)}.signal-core{width:min(28vw,340px)}
+        @media (max-width:1360px){.nav a{padding:8px 8px;font-size:11px}.brand-copy strong{font-size:13px}}
+    @media (max-width:1360px){.compass-needle{display:none}.compass{opacity:.5;width:min(20vw,220px)}}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-snap-type:y proximity}
-    body{
-      margin:0;
-      font-family:"Montserrat",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      min-height:100svh;
-      overflow-x:hidden;
-      background:
-        radial-gradient(circle at 16% 18%, rgba(89,224,213,.14), transparent 0 18%),
-        radial-gradient(circle at 82% 14%, rgba(242,196,107,.08), transparent 0 14%),
-        radial-gradient(circle at 50% 120%, rgba(14,83,115,.22), transparent 0 34%),
-        linear-gradient(180deg,#020c15 0%,#041321 22%,#041a2a 46%,#062238 76%,#031421 100%);
-    }
-    body::before{
-      content:"";
-      position:fixed; inset:0; pointer-events:none; z-index:-8; opacity:.13;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(255,255,255,.024) 1px, transparent 1px);
-      background-size:82px 82px;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.82));
-    }
+    @media (max-width:1120px){.topbar{grid-template-columns:1fr}.nav{justify-content:flex-start}.section{padding-top:calc(var(--topbar) + 62px)}.header-shell{width:calc(100% - 18px)}.side-dots{display:none}}
 
-    .ambient{position:fixed; inset:0; pointer-events:none; z-index:-7; overflow:hidden}
-    .cursor-glow{
-      position:absolute; width:min(36vw,480px); aspect-ratio:1; left:50%; top:50%;
-      transform:translate(-50%,-50%);
-      background:radial-gradient(circle, rgba(89,224,213,.12), rgba(128,200,255,.06) 34%, transparent 70%);
-      filter:blur(20px); mix-blend-mode:screen; opacity:.68;
-      transition:left .15s ease-out, top .15s ease-out;
-    }
-    .sonar{
-      position:absolute; right:-14vw; top:-18vw; width:min(68vw,820px); aspect-ratio:1; border-radius:50%; opacity:.40;
-      background:
-        radial-gradient(circle, transparent 0 16%, rgba(89,224,213,.10) 16.4% 16.9%, transparent 17% 30%, rgba(89,224,213,.08) 30.5% 31%, transparent 31.2% 45%, rgba(89,224,213,.05) 45.4% 45.8%, transparent 46%),
-        conic-gradient(from 210deg, rgba(89,224,213,.20), transparent 12%, transparent 72%, rgba(89,224,213,.10) 88%, transparent 94%);
-      animation:spin 32s linear infinite;
-    }
-    .sonar::after{content:""; position:absolute; inset:13%; border-radius:50%; border:1px solid rgba(89,224,213,.09)}
-    .beam{
-      position:absolute; top:-10%; right:-16%; width:40%; height:110%; opacity:.18;
-      background:linear-gradient(90deg, transparent, rgba(130,222,255,.18) 48%, rgba(255,255,255,.03) 58%, transparent 72%);
-      filter:blur(12px); transform:rotate(22deg); transform-origin:center; animation:beamSweep 18s ease-in-out infinite;
-    }
-
-    @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-    @keyframes beamSweep{0%,20%{transform:translateX(14%) rotate(22deg);opacity:0}32%{opacity:.10}46%{transform:translateX(-62%) rotate(22deg);opacity:.18}60%,100%{opacity:0}}
-
-    .sea-waves{
-      position:absolute; left:0; right:0; bottom:0; height:56px; overflow:hidden; pointer-events:none; z-index:1;
-      mask-image:linear-gradient(180deg, transparent 0, rgba(0,0,0,.35) 14px, rgba(0,0,0,1) 28px);
-    }
-    .wave{
-      position:absolute; left:-8%; width:116%; background-repeat:repeat-x; background-size:1600px 100%;
-      transform-origin:center bottom;
-    }
-    .wave.back{
-      bottom:0; height:38px; opacity:.14;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 110' preserveAspectRatio='none'%3E%3Cpath d='M0 76 C120 60 240 60 360 76 S600 92 720 76 S960 60 1080 76 S1320 92 1440 76 S1560 60 1600 66 L1600 110 L0 110 Z' fill='%2359e0d5'/%3E%3C/svg%3E");
-      animation:drift 34s linear infinite;
-    }
-    .wave.mid{
-      bottom:8px; height:26px; opacity:.10;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 80' preserveAspectRatio='none'%3E%3Cpath d='M0 50 C130 38 260 38 390 50 S650 62 780 50 S1040 38 1170 50 S1430 62 1600 48' fill='none' stroke='%2380c8ff' stroke-width='2.6'/%3E%3C/svg%3E");
-      animation:driftReverse 42s linear infinite;
-    }
-    .wave.front{
-      bottom:18px; height:18px; opacity:.20;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 60' preserveAspectRatio='none'%3E%3Cpath d='M0 34 C110 24 220 24 330 34 S550 44 660 34 S880 24 990 34 S1210 44 1320 34 S1490 24 1600 28' fill='none' stroke='%2359e0d5' stroke-width='2'/%3E%3C/svg%3E");
-      animation:drift 54s linear infinite;
-    }
-    @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-520px)}}
-    @keyframes driftReverse{from{transform:translateX(-520px)}to{transform:translateX(0)}}
-
-    .header-shell{position:fixed; top:10px; left:50%; transform:translateX(-50%); width:min(calc(100% - 22px),1320px); z-index:100; pointer-events:none}
-    .topbar{
-      pointer-events:auto; display:grid; grid-template-columns:auto 1fr; align-items:center; gap:16px; min-height:var(--header-h);
-      padding:10px 14px; border-radius:999px;
-      background:linear-gradient(180deg, rgba(7,22,35,.82), rgba(5,17,28,.68));
-      border:1px solid rgba(255,255,255,.10); backdrop-filter:blur(18px); box-shadow:0 16px 30px rgba(2,10,18,.22);
-    }
-    .brand{display:flex; align-items:center; gap:12px; min-width:0}
-    .brand-mark{
-      position:relative; width:42px; height:42px; border-radius:50%;
-      background:radial-gradient(circle at 36% 36%, rgba(255,255,255,.94), rgba(255,255,255,.22) 18%, transparent 19%),
-                 conic-gradient(from 0deg, var(--gold), #fff0c4, var(--teal), #d8fffa, var(--gold));
-      box-shadow:0 0 0 2px rgba(255,255,255,.08),0 10px 20px rgba(89,224,213,.16)
-    }
-    .brand-mark::before{content:""; position:absolute; inset:5px; border-radius:50%; background:linear-gradient(180deg, rgba(5,18,31,1), rgba(7,31,48,.98)); border:1px solid rgba(255,255,255,.08)}
-    .brand-mark::after{content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:50%; background:var(--gold); box-shadow:0 0 14px rgba(242,196,107,.54)}
-    .brand-copy{min-width:0; line-height:1.08}
-    .brand-copy small{display:block; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:4px}
-    .brand-copy strong{display:block; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-    .nav{display:flex; gap:6px; flex-wrap:wrap; justify-content:center; min-width:0}
-    .nav a{color:var(--muted); text-decoration:none; font-size:12px; font-weight:700; padding:10px 12px; border-radius:999px; white-space:nowrap; transition:.22s ease}
-    .nav a:hover,.nav a.active{color:#041421; background:linear-gradient(135deg, var(--teal), #e3fffc 64%, #fff0c7); box-shadow:0 10px 18px rgba(89,224,213,.20)}
-    .progress-track{width:min(calc(100% - 64px),1180px); height:4px; margin:8px auto 0; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; pointer-events:none}
-    .progress-bar{height:100%; width:0; background:linear-gradient(90deg, var(--teal), var(--gold), #fff); box-shadow:0 0 18px rgba(89,224,213,.4); transition:width .18s linear}
-    .side-dots{position:fixed; right:14px; top:50%; transform:translateY(-50%); z-index:80; display:grid; gap:10px}
-    .side-dots a{position:relative; width:13px; height:13px; border-radius:50%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.24); transition:.22s ease}
-    .side-dots a::after{content:attr(data-label); position:absolute; right:calc(100% + 10px); top:50%; transform:translateY(-50%); padding:8px 11px; border-radius:999px; background:rgba(3,14,24,.88); border:1px solid rgba(255,255,255,.10); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--text); white-space:nowrap; opacity:0; pointer-events:none; transition:.2s ease}
-    .side-dots a:hover::after,.side-dots a.active::after{opacity:1}
-    .side-dots a.active{background:linear-gradient(135deg, var(--teal), #f0fffd); border-color:rgba(255,255,255,.74); transform:scale(1.2); box-shadow:0 0 0 6px rgba(89,224,213,.10)}
-
-    main{position:relative}
-    .section{
-      position:relative; min-height:100svh; padding:calc(var(--header-h) + 30px) 22px 30px; display:flex; align-items:center; scroll-snap-align:start; overflow:clip;
-    }
-    .section::before{content:""; position:absolute; inset:14px; border-radius:32px; border:1px solid rgba(255,255,255,.06); pointer-events:none}
-    .container{width:min(100%, var(--max)); margin:0 auto; position:relative; z-index:2}
-    .eyebrow{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.20em; text-transform:uppercase; margin-bottom:14px}
-    .eyebrow::before{content:""; width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg, var(--teal), #fff); box-shadow:0 0 18px rgba(89,224,213,.54)}
-    h1,h2,h3,p{margin:0}
-    h1{font-size:clamp(46px, 6.2vw, 84px); line-height:.94; letter-spacing:-.055em; max-width:10ch}
-    h2{font-size:clamp(32px, 4.7vw, 60px); line-height:.98; letter-spacing:-.045em; max-width:12ch}
-    .gradient{background:linear-gradient(135deg,#ffffff 2%, #d8fff9 36%, #f2c46b 76%, #fff0cc 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .lead{margin-top:14px; max-width:58ch; color:var(--muted); font-size:clamp(16px, 1.55vw, 18px); line-height:1.58}
-    .glass{position:relative; background:linear-gradient(180deg, rgba(9,27,43,.76), rgba(5,17,29,.84)); border:1px solid rgba(255,255,255,.10); border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter:blur(16px); overflow:hidden}
-    .glass::before{content:""; position:absolute; inset:0; background:linear-gradient(110deg, rgba(255,255,255,.06), transparent 18%, transparent 82%, rgba(255,255,255,.03)),radial-gradient(circle at 12% 14%, rgba(89,224,213,.08), transparent 20%),radial-gradient(circle at 86% 18%, rgba(242,196,107,.07), transparent 18%); pointer-events:none}
-
-    .hero-grid,.identity-grid,.direction-layout,.flagship-layout,.impact-layout,.partners-layout,.final-layout{
-      display:grid; gap:20px; align-items:center;
-    }
-    .hero-grid{grid-template-columns:1.05fr .95fr}
-    .identity-grid{grid-template-columns:1fr 1fr}
-    .direction-layout,.flagship-layout,.impact-layout,.partners-layout,.final-layout{grid-template-columns:1.03fr .97fr}
-
-    .tags{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
-    .tags span{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); font-size:13px; font-weight:700; color:var(--muted)}
-    .tags span::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 10px rgba(242,196,107,.5)}
-    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:14px 18px; border-radius:999px; text-decoration:none; font-weight:800; font-size:14px; transition:.22s ease; border:1px solid transparent}
-    .btn:hover{transform:translateY(-2px)}
-    .btn.primary{color:#03111d; background:linear-gradient(135deg, var(--gold), #fff0cb 62%, #fff); box-shadow:0 14px 28px rgba(242,196,107,.22)}
-    .btn.secondary{color:var(--text); background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.10)}
-
-    .hero-panel{padding:18px; position:relative; min-height:min(50svh, 420px); display:grid; align-items:end}
-    .hero-art{position:absolute; inset:18px; border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:
-        radial-gradient(circle at 74% 34%, rgba(89,224,213,.10), transparent 18%),
-        radial-gradient(circle at 78% 34%, rgba(255,255,255,.06), transparent 34%),
-        linear-gradient(180deg, rgba(6,21,34,.24), rgba(6,21,34,.62))}
-    .hero-rings{
-      position:absolute; right:8%; top:10%; width:min(30vw,260px); aspect-ratio:1; border-radius:50%; opacity:.28;
-      background:
-        radial-gradient(circle, transparent 0 34%, rgba(89,224,213,.10) 34.5% 35.1%, transparent 35.4% 48%, rgba(255,255,255,.08) 48.4% 49%, transparent 49.4%),
-        radial-gradient(circle, transparent 0 62%, rgba(89,224,213,.08) 62.3% 62.7%, transparent 63%);
-    }
-    .hero-rings::after{content:""; position:absolute; inset:18%; border-radius:50%; border:1px solid rgba(255,255,255,.08)}
-    .hero-light{
-      position:absolute; right:4%; top:2%; width:28%; height:72%;
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(89,224,213,.08) 40%, transparent 75%);
-      clip-path:polygon(50% 0, 100% 100%, 0 100%); opacity:.18; filter:blur(3px);
-    }
-    .hero-city{position:absolute; left:0; right:0; bottom:24px; height:86px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160' preserveAspectRatio='none'%3E%3Cpath d='M0 130 H1200 V160 H0 Z' fill='%230b3650'/%3E%3Cpath d='M90 130 V82 H122 V130 M122 82 V42 H148 V130 M148 56 L202 30 L208 40 L150 68 M208 40 V130 M280 130 V92 H314 V130 M314 92 V54 H344 V130 M408 130 V86 H434 V130 M434 86 V46 H466 V130 M466 58 L526 32 L532 44 L468 70 M532 44 V130 M620 130 V98 H654 V130 M690 130 V80 H718 V130 M718 80 L776 58 L782 70 L720 94 M782 70 V130 M852 130 V92 H886 V130 M886 92 V62 H918 V130 M972 130 V88 H1004 V130 M1004 88 V50 H1036 V130' stroke='rgba(255,255,255,.30)' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center bottom/cover no-repeat; opacity:.90}
-    .hero-stats{position:relative; z-index:2; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
-    .stat{padding:16px 16px 18px; border-radius:22px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); min-height:110px}
-    .stat strong{display:block; font-size:clamp(26px,3vw,36px); margin-bottom:6px}
-    .stat span{display:block; color:var(--muted); font-size:13px; line-height:1.42}
-
-    .info-card,.partner-card,.impact-card,.feature-card,.flagship-item,.photo-card,.video-card,.mini-card{
-      position:relative; padding:18px; border-radius:24px; background:linear-gradient(180deg, rgba(11,32,49,.74), rgba(5,16,28,.84)); border:1px solid rgba(255,255,255,.10)
-    }
-    .info-card strong,.partner-card strong,.impact-card strong,.feature-card h3,.flagship-item h3,.mini-card strong{display:block; margin-bottom:8px; font-size:18px}
-    .info-card p,.partner-card p,.impact-card p,.feature-card p,.flagship-item p,.mini-card p{color:var(--muted); font-size:14px; line-height:1.52}
-
-    .identity-right{display:grid; grid-template-columns:1.06fr .94fr; gap:14px}
-    .photo-well{grid-row:span 2; min-height:min(34svh, 290px); display:grid; align-items:end; padding:20px; border-radius:28px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.26)),radial-gradient(circle at 20% 28%, rgba(89,224,213,.16), transparent 20%),radial-gradient(circle at 84% 18%, rgba(242,196,107,.14), transparent 18%),linear-gradient(180deg, rgba(10,34,52,.86), rgba(5,17,30,.98)); border:1px solid rgba(255,255,255,.10)}
-    .placeholder-label{display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:999px; background:rgba(3,15,26,.72); border:1px solid rgba(255,255,255,.10); font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:var(--text)}
-    .placeholder-label::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--teal); box-shadow:0 0 12px rgba(89,224,213,.48)}
-    .photo-well h3,.photo-card h3{font-size:clamp(26px,2.2vw,38px); line-height:1.02; max-width:12ch; margin-top:14px}
-
-    .feature-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
-    .feature-card{min-height:152px; cursor:pointer; transition:.22s ease}
-    .feature-card.wide{grid-column:1 / span 2}
-    .feature-card.active,.feature-card:hover{transform:translateY(-4px); border-color:rgba(89,224,213,.34); box-shadow:0 18px 34px rgba(0,0,0,.18)}
-    .feature-icon{width:50px; height:50px; border-radius:18px; display:grid; place-items:center; margin-bottom:12px; background:linear-gradient(135deg, rgba(89,224,213,.18), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.10); font-size:22px}
-    .feature-card .accent{position:absolute; left:18px; right:18px; bottom:14px; height:3px; border-radius:999px; background:linear-gradient(90deg, var(--teal), var(--gold), transparent 84%); opacity:.7}
-    .detail-panel,.flagship-panel{padding:20px; min-height:min(42svh, 360px)}
-    .kicker{display:inline-block; color:var(--teal); font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:800; margin-bottom:12px}
-    .detail-title{font-size:clamp(28px,3vw,42px); line-height:1.02; max-width:12ch}
-    .panel-visual{margin-top:16px; min-height:150px; border-radius:24px; border:1px solid rgba(255,255,255,.09); background:radial-gradient(circle at 50% 50%, rgba(89,224,213,.14), transparent 26%),repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.06) 0 2px, transparent 2px 22px),linear-gradient(180deg, rgba(6,18,30,.16), rgba(5,17,30,.54)); position:relative; overflow:hidden}
-    .panel-visual::before{content:""; position:absolute; width:130%; height:2px; left:-15%; top:50%; background:linear-gradient(90deg, transparent, rgba(89,224,213,.72), transparent); transform:rotate(-16deg); animation:sweep 7s linear infinite}
-    @keyframes sweep{from{transform:rotate(-16deg) translateX(-20%)}to{transform:rotate(-16deg) translateX(20%)}}
-
-    .flagship-list{display:grid; gap:12px}
-    .flagship-item{padding:16px 16px 16px 54px; cursor:pointer; transition:.22s ease}
-    .flagship-item::before{content:attr(data-step); position:absolute; left:16px; top:16px; width:28px; height:28px; display:grid; place-items:center; border-radius:50%; background:linear-gradient(135deg,var(--gold),#fff0c7); color:#03111d; font-weight:800; font-size:12px; box-shadow:0 8px 16px rgba(242,196,107,.20)}
-    .flagship-item.active,.flagship-item:hover{transform:translateX(4px); border-color:rgba(242,196,107,.34); background:rgba(255,255,255,.06)}
-    .flagship-chart{margin-top:16px; height:168px; border-radius:24px; border:1px solid rgba(255,255,255,.09); background:radial-gradient(circle at 14% 24%, rgba(89,224,213,.20), transparent 18%),radial-gradient(circle at 86% 18%, rgba(242,196,107,.16), transparent 16%),linear-gradient(180deg, rgba(10,34,52,.9), rgba(5,18,31,.96)); overflow:hidden}
-    .flagship-chart svg{width:100%; height:100%}
-
-    .impact-layout .left-stack{display:grid; gap:16px}
-    .impact-cards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
-    .trajectory{padding:18px; min-height:min(40svh,320px)}
-    .trajectory svg{width:100%; height:198px; display:block; border-radius:22px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(6,21,34,.16), rgba(6,21,34,.52))}
-
-    .gallery-head{max-width:820px}
-    .gallery-grid{display:grid; grid-template-columns:1.08fr .92fr; grid-template-rows:220px 220px; gap:14px; margin-top:18px}
-    .photo-card{display:flex; align-items:flex-end; overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.26)),radial-gradient(circle at 18% 26%, rgba(89,224,213,.16), transparent 18%),radial-gradient(circle at 84% 18%, rgba(242,196,107,.14), transparent 16%),linear-gradient(180deg, rgba(10,34,52,.86), rgba(5,17,30,.98))}
-    .photo-card.main{grid-row:1 / span 2}
-    .quote-card{
-      display:flex; align-items:flex-end; padding:20px; border-radius:24px; background:linear-gradient(180deg, rgba(9,27,43,.74), rgba(5,17,29,.84)); border:1px solid rgba(255,255,255,.10)
-    }
-    .photo-card p,.quote-card p{margin-top:10px; max-width:30ch; color:var(--muted); font-size:14px; line-height:1.52}
-
-    .video-panel{display:grid; gap:14px}
-    .video-card{padding:18px}
-    .video-frame{position:relative; aspect-ratio:4/3; border-radius:24px; border:1px solid rgba(255,255,255,.10); overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.20)),radial-gradient(circle at 18% 24%, rgba(89,224,213,.16), transparent 18%),radial-gradient(circle at 84% 18%, rgba(242,196,107,.14), transparent 16%),linear-gradient(180deg, rgba(10,34,52,.86), rgba(5,17,30,.98))}
-    .video-frame::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,.28))}
-    .play-button{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:82px; height:82px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.16); backdrop-filter:blur(12px); box-shadow:0 18px 30px rgba(0,0,0,.22); z-index:2}
-    .play-button::before{content:""; margin-left:6px; border-style:solid; border-width:15px 0 15px 22px; border-color:transparent transparent transparent #fff}
-    .video-caption{position:absolute; left:18px; right:18px; bottom:18px; z-index:2}
-    .mini-photo-row{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
-    .mini-card{min-height:130px}
-
-    .cta{padding:22px; min-height:min(42svh, 340px); display:grid; align-items:center}
-    .chip-links{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
-    .chip-links a{display:inline-flex; align-items:center; padding:13px 15px; border-radius:999px; text-decoration:none; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); color:var(--text); font-size:14px; font-weight:800; transition:.22s ease}
-    .chip-links a:hover{transform:translateY(-2px); background:rgba(255,255,255,.10)}
-    .signal-wrap{position:relative; display:grid; place-items:center; min-height:min(42svh, 340px)}
-    .rings{position:absolute; width:min(30vw,340px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.08)}
-    .rings::before,.rings::after{content:""; position:absolute; border-radius:50%; inset:16%; border:1px solid rgba(255,255,255,.08)}
-    .rings::after{inset:32%; border-color:rgba(89,224,213,.18)}
-    .core{width:min(24vw,260px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.94) 0 3%, rgba(255,255,255,.06) 3.2% 14%, transparent 14.4%),radial-gradient(circle at 50% 50%, rgba(89,224,213,.22), transparent 42%),conic-gradient(from 0deg, rgba(255,255,255,.15), transparent 18%, rgba(242,196,107,.26) 32%, transparent 42%, rgba(89,224,213,.26) 56%, transparent 70%, rgba(255,255,255,.12) 88%, transparent 100%),linear-gradient(180deg, rgba(15,50,72,.70), rgba(5,18,31,.92)); border:1px solid rgba(255,255,255,.10); box-shadow:0 26px 72px rgba(4,12,25,.40), inset 0 0 40px rgba(255,255,255,.04); position:relative; z-index:2}
-    .signal-tag{position:absolute; padding:10px 12px; border-radius:999px; background:rgba(3,15,26,.80); border:1px solid rgba(255,255,255,.10); font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap}
-    .signal-tag.one{left:10%; top:22%}
-    .signal-tag.two{right:2%; top:50%; transform:translateY(-50%)}
-    .signal-tag.three{left:20%; bottom:10%}
-
-    .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease}
-    .reveal.visible{opacity:1; transform:translateY(0)}
-    .delay-1{transition-delay:.12s}
-    .delay-2{transition-delay:.24s}
-
-    @media (max-width: 1240px){
-      .hero-grid,.identity-grid,.direction-layout,.flagship-layout,.impact-layout,.partners-layout,.final-layout{grid-template-columns:1fr}
-      .gallery-grid{grid-template-columns:1fr 1fr; grid-template-rows:210px 210px}
-      .photo-card.main{grid-row:auto; grid-column:1 / span 2}
-      .impact-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-    @media (max-width: 980px){
-      .header-shell{width:calc(100% - 16px)}
-      .topbar{grid-template-columns:1fr; justify-items:start; border-radius:28px}
-      .nav{justify-content:flex-start}
-      .progress-track{width:calc(100% - 18px)}
-      .side-dots{display:none}
-      .section{padding-top:calc(var(--header-h) + 76px)}
-      .identity-right{grid-template-columns:1fr}
-      .photo-well{grid-row:auto; min-height:260px}
-    }
-    @media (max-width: 760px){
-      .section::before{inset:10px; border-radius:24px}
-      .hero-stats,.feature-grid,.impact-cards,.mini-photo-row{grid-template-columns:1fr}
-      .feature-card.wide,.photo-card.main{grid-column:auto}
-      .gallery-grid{grid-template-columns:1fr; grid-template-rows:auto}
-      .actions,.chip-links{display:grid; grid-template-columns:1fr}
-      .btn,.chip-links a{width:100%}
-      .hero-panel{min-height:380px}
-      .hero-city{height:74px; bottom:20px}
-      .hero-rings{width:220px}
-      .rings{width:280px}
-      .core{width:220px}
-      .signal-tag.one,.signal-tag.two,.signal-tag.three{position:static; transform:none}
-      .signal-wrap{gap:14px}
-      .sea-waves{height:40px}
-      .wave.back{height:28px}
-      .wave.mid{height:20px}
-      .wave.front{bottom:12px}
-    }
   </style>
 </head>
 <body>
@@ -300,6 +55,11 @@
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="sonar"></div>
     <div class="beam"></div>
+    <div class="wave-stack">
+      <div class="wave three"></div>
+      <div class="wave two"></div>
+      <div class="wave one"></div>
+    </div>
   </div>
 
   <div class="header-shell">
@@ -311,16 +71,18 @@
           <strong>MTWTU Youth / Молодіжна рада ПРМТУ</strong>
         </div>
       </div>
+
       <nav class="nav">
         <a href="#hero">Старт</a>
         <a href="#identity">Хто ми</a>
         <a href="#directions">Напрями</a>
         <a href="#flagships">Флагмани</a>
         <a href="#impact">Вплив</a>
-        <a href="#gallery">Фото</a>
         <a href="#partners">Партнерства</a>
         <a href="#join">Фінал</a>
       </nav>
+
+      
     </header>
     <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
   </div>
@@ -331,301 +93,77 @@
     <a href="#directions" data-label="Напрями"></a>
     <a href="#flagships" data-label="Флагмани"></a>
     <a href="#impact" data-label="Вплив"></a>
-    <a href="#gallery" data-label="Фото"></a>
+    <a href="#stage" data-label="Молодь у дії"></a>
+    <a href="#gallery" data-label="Галерея"></a>
+    <a href="#moment" data-label="Суть"></a>
     <a href="#partners" data-label="Партнерства"></a>
     <a href="#join" data-label="Фінал"></a>
   </div>
 
+  
+
   <main>
     <section class="section" id="hero">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
       <div class="container hero-grid">
-        <div class="reveal visible">
+        <div class="hero-copy reveal visible">
           <div class="eyebrow">морська молодь • дія • розвиток • солідарність</div>
           <h1>Молодь, яка <span class="gradient">формує</span> майбутнє галузі</h1>
-          <p class="lead">Молодіжна рада ПРМТУ — це жива спільнота молодих моряків, курсантів, студентів і активістів, які зростають через знання, партнерство, лідерство та реальну участь у змінах.</p>
-          <div class="tags">
-            <span>морська професія</span>
-            <span>правозахист</span>
-            <span>лідерство</span>
-            <span>міжнародний діалог</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="#identity">Почати презентацію</a>
-            <a class="btn secondary" href="#gallery">Подивитися фото</a>
-          </div>
+          <p class="lead">Молодіжна рада ПРМТУ — це не просто події. Це жива спільнота молодих моряків, курсантів, студентів і активістів, які зростають через знання, партнерство, лідерство та реальну участь у змінах.</p>
+          <div class="hero-subline"><span>морська професія</span><span>правозахист</span><span>лідерство</span><span>міжнародний діалог</span></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="#identity">Почати презентацію</a><a class="btn btn-secondary" href="#stage">Побачити молодь у дії</a></div>
         </div>
-        <div class="glass hero-panel reveal delay-1">
-          <div class="hero-art">
-            <div class="hero-rings"></div>
-            <div class="hero-light"></div>
-            <div class="hero-city"></div>
+        <div class="glass hero-stage reveal delay-1 tilt-card">
+          <div class="hero-scan"></div><div class="hero-horizon"></div><div class="hero-deck-line"></div><div class="compass"></div><div class="compass-needle"></div>
+          <div class="hero-stack">
+            <div class="hero-tile"><strong>2002+</strong><span>молодіжний рух ПРМТУ розвивається як важлива частина сучасної профспілкової спільноти</span></div>
+            <div class="hero-tile"><strong>5+</strong><span>ключових напрямів: від кар’єри й правозахисту до спорту, партнерств та міжнародного треку</span></div>
+            <div class="hero-tile"><strong>ДІЯ</strong><span>Форуми, навчання, спільні ініціативи та формати, де молодь переходить від ідей до реальної участі.</span></div>
+            <div class="hero-tile"><strong>ГОЛОС</strong><span>Молодь не залишається осторонь, а долучається до дискусій, рішень і формування майбутнього галузі.</span></div>
           </div>
-          <div class="hero-stats">
-            <div class="stat"><strong>2002+</strong><span>молодіжний рух ПРМТУ розвивається як важлива частина сучасної профспілкової спільноти</span></div>
-            <div class="stat"><strong>5+</strong><span>ключових напрямів: від кар’єри й правозахисту до спорту, партнерств та міжнародного виміру</span></div>
-            <div class="stat"><strong>ФОРУМИ</strong><span>простір для дискусій, розвитку навичок і формування молодіжного голосу</span></div>
-            <div class="stat"><strong>ПАРТНЕРСТВА</strong><span>від локальних ініціатив до міжнародного профспілкового діалогу та нових можливостей</span></div>
-          </div>
+          <svg class="port-silhouette" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="portGlow" x1="0" x2="1"><stop offset="0%" stop-color="#0b354c"/><stop offset="50%" stop-color="#155672"/><stop offset="100%" stop-color="#0b354c"/></linearGradient></defs><path d="M0 198 H1000 V220 H0 Z" fill="url(#portGlow)" opacity=".95"/><path d="M60 198 V120 H95 V198 M84 120 V84 H108 V198 M108 84 L170 56 L176 68 L118 98 M175 68 V198 M210 198 V144 H248 V198 M248 144 V104 H286 V198 M330 198 V132 H360 V198 M360 132 V78 H392 V198 M392 90 L446 60 L452 72 L392 104 M452 72 V198 M496 198 V152 H540 V198 M566 198 V110 H600 V198 M600 110 L664 82 L670 95 L602 124 M670 95 V198 M706 198 V138 H738 V198 M738 138 V96 H772 V198 M820 198 V142 H854 V198 M854 142 V104 H888 V198" stroke="rgba(255,255,255,.38)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M120 198 Q210 166 284 176 T462 174 T632 176 T848 170 T1000 174" fill="none" stroke="rgba(79,225,212,.38)" stroke-width="3"/></svg>
         </div>
       </div>
+      
     </section>
 
-    <section class="section" id="identity">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
-      <div class="container identity-grid">
-        <div class="reveal">
-          <div class="eyebrow">хто ми</div>
-          <h2>Не окремі заходи. А <span class="gradient">середовище розвитку</span>.</h2>
-          <p class="lead">Молодіжна рада ПРМТУ об’єднує молодь навколо професійного становлення, правопросвіти, лідерства, взаємопідтримки та участі у формуванні майбутнього морської галузі. Тут молодь отримує знання, досвід, нові контакти та реальні можливості для зростання.</p>
-        </div>
-        <div class="identity-right reveal delay-1">
-          <div class="photo-well glass">
-            <div>
-              <div class="placeholder-label">Місце для головного фото</div>
-              <h3>Сюди можна поставити сильний груповий кадр</h3>
-              <p class="lead" style="margin-top:10px;max-width:32ch;font-size:15px">Найкраще підійде форум, табір або командне фото, де видно масштаб і атмосферу спільноти.</p>
-            </div>
-          </div>
-          <div class="info-card glass"><strong>Простір опори</strong><p>Молодь бачить Профспілку не як абстракцію, а як команду, яка реально підтримує, пояснює і відкриває можливості.</p></div>
-          <div class="info-card glass"><strong>Голос, що має значення</strong><p>Молодий голос тут важливий не колись потім, а вже сьогодні — у рішеннях, дискусіях, ініціативах і спільному русі вперед.</p></div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="identity"><div class="container identity-grid"><div class="reveal"><div class="eyebrow">хто ми</div><h2>Не окремі заходи. А <span class="gradient">середовище розвитку</span>.</h2><p class="lead">Молодіжна рада ПРМТУ об’єднує молодь навколо професійного становлення, правопросвіти, лідерства, взаємопідтримки та участі у формуванні майбутнього морської галузі. Тут молодь отримує знання, досвід, нові контакти та реальні можливості для зростання.</p><div class="identity-bands"><span>сучасні</span><span>живі</span><span>професійні</span><span>відкриті до партнерства</span><span>орієнтовані на розвиток</span></div></div><div class="identity-right reveal delay-1"><div class="glass statement-card tilt-card"><strong>Простір опори</strong><p>Молодь бачить Профспілку не як абстракцію, а як команду, яка реально підтримує, пояснює і відкриває можливості.</p></div><div class="glass statement-card tilt-card"><strong>Міст між етапами</strong><p>Освіта, професія, права, розвиток компетенцій і сучасне молодіжне середовище тут поєднані в одну цілісну траєкторію.</p></div><div class="glass statement-card tilt-card"><strong>Голос, що має значення</strong><p>Молодий голос тут важливий не колись потім, а вже сьогодні — у рішеннях, дискусіях, ініціативах і спільному русі вперед.</p></div></div></div></section>
 
-    <section class="section" id="directions">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
-      <div class="container">
-        <div class="reveal">
-          <div class="eyebrow">чим ми займаємось</div>
-          <h2>П’ять напрямів. <span class="gradient">Одна сильна система</span>.</h2>
-          <p class="lead">Замість довгого переліку подій — чітка екосистема напрямів, через які Молодіжна рада ПРМТУ формує компетентну, активну і згуртовану молодіжну спільноту.</p>
-        </div>
-        <div class="direction-layout" style="margin-top:18px">
-          <div class="feature-grid reveal delay-1" id="featureCards">
-            <article class="feature-card glass active" data-kicker="кар’єра і професія" data-title="Професійний розвиток" data-text="Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі."><div class="feature-icon">⚓</div><h3>Професійний розвиток</h3><p>Sail Smart, кар’єрні формати, зустрічі зі спікерами з реальним досвідом.</p><div class="accent"></div></article>
-            <article class="feature-card glass" data-kicker="знання, які працюють" data-title="Права і правозахист" data-text="ITF Summer School, MTWTU LAW HUB, теми MLC 2006, контракти, колективні договори, інспекторат, електронні інструменти та практичне ознайомлення з правозахистом."><div class="feature-icon">⚖️</div><h3>Права і правозахист</h3><p>Не абстрактна теорія, а прикладне розуміння того, як захищати себе в професії.</p><div class="accent"></div></article>
-            <article class="feature-card glass" data-kicker="молодь у рішеннях" data-title="Лідерство та участь" data-text="Форуми, Summer Leadership Camp, стратегічні сесії, участь у формуванні молодіжних стратегій, фокус-групах, виборних органах і спільних напрацюваннях."><div class="feature-icon">🚀</div><h3>Лідерство та участь</h3><p>Молодь не просто долучається, а стає повноцінним учасником процесів і змін.</p><div class="accent"></div></article>
-            <article class="feature-card glass" data-kicker="живе середовище" data-title="Спільнота і драйв" data-text="Union Quiz, Union Sport, Мем Батл, культурні ініціативи, неформальні зустрічі та формати, що зближують, мотивують і створюють відчуття команди."><div class="feature-icon">🔥</div><h3>Спільнота і драйв</h3><p>Інтелект, спорт, гумор, культура, дружба і відчуття, що ти серед своїх.</p><div class="accent"></div></article>
-            <article class="feature-card glass wide" data-kicker="від Одеси до Європи" data-title="Партнерства та міжнародний вимір" data-text="Міжгалузева співпраця, меморандуми, робота з молодіжними радами, міжнародні навчальні формати, ETF, ETUI, NTF, зустрічі з міжнародними партнерами і нові горизонти для молоді."><div class="feature-icon">🌍</div><h3>Партнерства і міжнародність</h3><p>Від локальних ініціатив до міжнародного профспілкового діалогу та солідарності.</p><div class="accent"></div></article>
-          </div>
-          <div class="glass detail-panel reveal delay-2">
-            <span class="kicker" id="detailKicker">кар’єра і професія</span>
-            <div class="detail-title" id="detailTitle">Професійний розвиток</div>
-            <p class="lead" id="detailText" style="margin-top:12px;max-width:none">Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі.</p>
-            <div class="panel-visual"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="directions"><div class="container"><div class="reveal"><div class="eyebrow">чим ми займаємось</div><h2>П’ять напрямів. <span class="gradient">Одна сильна система</span>.</h2><p class="lead">Замість довгого переліку подій — чітка екосистема напрямів, через які Молодіжна рада ПРМТУ формує компетентну, активну і згуртовану молодіжну спільноту.</p></div><div class="direction-layout"><div class="card-grid reveal delay-1" id="featureCards"><article class="feature-card active tilt-card" data-title="Професійний розвиток" data-kicker="кар’єра і професія" data-text="Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі."><div class="icon-shell">⚓</div><h3>Професійний розвиток</h3><p>Sail Smart, кар’єрні формати, зустрічі зі спікерами з реальним досвідом.</p><div class="accent-line"></div></article><article class="feature-card tilt-card" data-title="Права і правозахист" data-kicker="знання, які працюють" data-text="ITF Summer School, MTWTU LAW HUB, теми MLC 2006, контракти, колективні договори, інспекторат, електронні інструменти та практичне ознайомлення з правозахистом."><div class="icon-shell">⚖️</div><h3>Права і правозахист</h3><p>Не абстрактна теорія, а прикладне розуміння того, як захищати себе в професії.</p><div class="accent-line"></div></article><article class="feature-card tilt-card" data-title="Лідерство та участь" data-kicker="молодь у рішеннях" data-text="Форуми, Summer Leadership Camp, стратегічні сесії, участь у формуванні молодіжних стратегій, фокус-групах, виборних органах і спільних напрацюваннях."><div class="icon-shell">🚀</div><h3>Лідерство та участь</h3><p>Молодь не просто долучається, а стає повноцінним учасником процесів і змін.</p><div class="accent-line"></div></article><article class="feature-card tilt-card" data-title="Спільнота, спорт, культура" data-kicker="живе середовище" data-text="Union Quiz, Union Sport, Мем Батл, культурні ініціативи, неформальні зустрічі та формати, що зближують, мотивують і створюють відчуття команди."><div class="icon-shell">🔥</div><h3>Спільнота і драйв</h3><p>Інтелект, спорт, гумор, культура, дружба і відчуття, що ти серед своїх.</p><div class="accent-line"></div></article><article class="feature-card tilt-card" data-title="Партнерства та міжнародний вимір" data-kicker="від Одеси до Європи" data-text="Міжгалузева співпраця, меморандуми, робота з молодіжними радами, міжнародні навчальні формати, ETF, ETUI, NTF, зустрічі з міжнародними партнерами і нові горизонти для молоді."><div class="icon-shell">🌍</div><h3>Партнерства і міжнародність</h3><p>Від локальних ініціатив до міжнародного профспілкового діалогу та солідарності.</p><div class="accent-line"></div></article></div><div class="glass detail-panel reveal delay-2 tilt-card"><span class="detail-kicker" id="detailKicker">кар’єра і професія</span><div class="detail-title" id="detailTitle">Професійний розвиток</div><p id="detailText">Кар’єрні вебзустрічі, інсайти про перший рейс, офшор, пасажирський флот, співбесіди, роботу механіка, перспективи на морі та на березі.</p><div class="detail-orbit"></div></div></div></div></section>
 
-    <section class="section" id="flagships">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
-      <div class="container">
-        <div class="reveal">
-          <div class="eyebrow">флагманські формати</div>
-          <h2>Проєкти, які будують <span class="gradient">репутацію і спільноту</span>.</h2>
-          <p class="lead">Це не «разові активності», а впізнавані формати, через які Молодіжна рада ПРМТУ системно працює з розвитком молоді, її мотивацією, правовою обізнаністю та лідерським потенціалом.</p>
-        </div>
-        <div class="flagship-layout" style="margin-top:18px">
-          <div class="flagship-list reveal delay-1" id="flagshipList">
-            <article class="flagship-item glass active" data-step="01" data-kicker="флагман кар’єрного треку" data-title="Sail Smart: Valuable Insights" data-text="Серія змістовних зустрічей та інсайтів про морську кар’єру, перший рейс, офшор, інтерв’ю, логістику, сучасні виклики індустрії та роботу на березі."><h3>Sail Smart: Valuable Insights</h3><p>Сильний професійний трек, який дає молоді практичне бачення галузі.</p></article>
-            <article class="flagship-item glass" data-step="02" data-kicker="лідерський простір" data-title="MTWTU Summer Leadership Camp" data-text="Лідерський простір, де молодь розвиває soft skills, вчиться співпрацювати, мислити ширше і перетворювати ідеї на реальні дії."><h3>MTWTU Summer Leadership Camp</h3><p>Формат, де зростання відбувається через команду, відповідальність і досвід.</p></article>
-            <article class="flagship-item glass" data-step="03" data-kicker="форумний трек" data-title="Форуми MTWTU / «Курсант PRO»" data-text="Формати, де молодь глибше розуміє профспілку, міжнародну систему захисту моряків, значення солідарності та практичної взаємодії."><h3>Форуми MTWTU / «Курсант PRO»</h3><p>Платформи для занурення у суть профспілкового руху та власної ролі в ньому.</p></article>
-            <article class="flagship-item glass" data-step="04" data-kicker="правовий вимір" data-title="ITF Summer School + MTWTU LAW HUB" data-text="Знання про MLC 2006, контракти, колективні угоди, цифрові інструменти, судовий процес і реальний механізм правозахисту."><h3>ITF Summer School + MTWTU LAW HUB</h3><p>Тут молодь отримує не теорію, а реальний інструментарій для захисту себе.</p></article>
-            <article class="flagship-item glass" data-step="05" data-kicker="ком’юніті трек" data-title="Union Quiz / Union Sport / Мем Батл" data-text="Формати, які тримають молодь поруч, створюють енергію спільноти, розвивають командність та роблять профспілкове середовище живим."><h3>Union Quiz / Union Sport / Мем Батл</h3><p>Саме тут народжується відчуття, що профспілкове життя може бути сучасним і драйвовим.</p></article>
-          </div>
-          <div class="glass flagship-panel reveal delay-2">
-            <span class="kicker" id="flagshipKicker">флагман кар’єрного треку</span>
-            <div class="detail-title" id="flagshipTitle">Sail Smart: Valuable Insights</div>
-            <p class="lead" id="flagshipText" style="margin-top:12px;max-width:none">Серія змістовних зустрічей та інсайтів про морську кар’єру, перший рейс, офшор, інтерв’ю, логістику, сучасні виклики індустрії та роботу на березі.</p>
-            <div class="flagship-chart">
-              <svg viewBox="0 0 800 260" preserveAspectRatio="none" aria-hidden="true">
-                <defs><linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#59e0d5"/><stop offset="55%" stop-color="#f2c46b"/><stop offset="100%" stop-color="#ffffff"/></linearGradient></defs>
-                <path d="M50 190 C140 170, 210 130, 292 118 S450 150, 520 126 S634 70, 742 44" fill="none" stroke="url(#routeGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 14"/>
-                <circle cx="50" cy="190" r="10" fill="#59e0d5"/><circle cx="244" cy="124" r="10" fill="#f2c46b"/><circle cx="420" cy="132" r="10" fill="#59e0d5"/><circle cx="574" cy="136" r="10" fill="#f2c46b"/><circle cx="742" cy="44" r="12" fill="#ffffff"/>
-                <path d="M0 206 C120 194, 220 214, 330 206 S520 194, 640 206 S760 214, 800 204" fill="none" stroke="rgba(89,224,213,.24)" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="flagships"><div class="container"><div class="reveal"><div class="eyebrow">флагманські формати</div><h2>Проєкти, які будують <span class="gradient">репутацію і спільноту</span>.</h2><p class="lead">Це не «разові активності», а впізнавані формати, через які Молодіжна рада ПРМТУ системно працює з розвитком молоді, її мотивацією, правовою обізнаністю та лідерським потенціалом.</p></div><div class="flagship-layout"><div class="flagship-list reveal delay-1" id="flagshipList"><article class="flagship-item active" data-step="01" data-kicker="флагман кар’єрного треку" data-title="Sail Smart: Valuable Insights" data-text="Серія змістовних зустрічей та інсайтів про морську кар’єру, перший рейс, офшор, інтерв’ю, логістику, сучасні виклики індустрії та роботу на березі."><h3>Sail Smart: Valuable Insights</h3><p>Сильний професійний трек, який дає молоді практичне бачення галузі.</p></article><article class="flagship-item" data-step="02" data-kicker="лідерський простір" data-title="MTWTU Summer Leadership Camp" data-text="Лідерський простір, де молодь розвиває soft skills, вчиться співпрацювати, мислити ширше і перетворювати ідеї на реальні дії."><h3>MTWTU Summer Leadership Camp</h3><p>Формат, де зростання відбувається через команду, відповідальність і досвід.</p></article><article class="flagship-item" data-step="03" data-kicker="форумний трек" data-title="Форуми MTWTU / «Курсант PRO»" data-text="Формати, де молодь глибше розуміє профспілку, міжнародну систему захисту моряків, значення солідарності та практичної взаємодії."><h3>Форуми MTWTU / «Курсант PRO»</h3><p>Платформи для занурення у суть профспілкового руху та власної ролі в ньому.</p></article><article class="flagship-item" data-step="04" data-kicker="правовий вимір" data-title="ITF Summer School + MTWTU LAW HUB" data-text="Знання про MLC 2006, контракти, колективні угоди, цифрові інструменти, судовий процес і реальний механізм правозахисту."><h3>ITF Summer School + MTWTU LAW HUB</h3><p>Тут молодь отримує не теорію, а реальний інструментарій для захисту себе.</p></article><article class="flagship-item" data-step="05" data-kicker="ком’юніті трек" data-title="Union Quiz / Union Sport / Мем Батл" data-text="Формати, які тримають молодь поруч, створюють енергію спільноти, розвивають командність та роблять профспілкове середовище живим."><h3>Union Quiz / Union Sport / Мем Батл</h3><p>Саме тут народжується відчуття, що профспілкове життя може бути сучасним і драйвовим.</p></article></div><div class="glass flagship-panel reveal delay-2 tilt-card"><span class="flagship-kicker" id="flagshipKicker">флагман кар’єрного треку</span><div class="flagship-title" id="flagshipTitle">Sail Smart: Valuable Insights</div><p id="flagshipText">Серія змістовних зустрічей та інсайтів про морську кар’єру, перший рейс, офшор, інтерв’ю, логістику, сучасні виклики індустрії та роботу на березі.</p><div class="flagship-shape"><svg viewBox="0 0 800 460" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4fe1d4"/><stop offset="55%" stop-color="#f2c46b"/><stop offset="100%" stop-color="#ffffff"/></linearGradient></defs><path d="M60 356 C160 330, 220 270, 274 236 S402 168, 460 184 S566 280, 612 254 S682 168, 748 124" fill="none" stroke="url(#routeGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 14"/><circle cx="60" cy="356" r="10" fill="#4fe1d4"/><circle cx="274" cy="236" r="10" fill="#f2c46b"/><circle cx="460" cy="184" r="10" fill="#4fe1d4"/><circle cx="612" cy="254" r="10" fill="#f2c46b"/><circle cx="748" cy="124" r="12" fill="#ffffff"/><path d="M0 386 L800 386" stroke="rgba(255,255,255,.12)" stroke-width="2"/><path d="M110 392 C168 368, 220 366, 282 392 S388 418, 452 394 S552 358, 622 382 S728 406, 800 388" fill="none" stroke="rgba(79,225,212,.32)" stroke-width="3"/></svg></div></div></div></div></section>
 
-    <section class="section" id="impact">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
-      <div class="container impact-layout">
-        <div class="left-stack reveal">
-          <div>
-            <div class="eyebrow">результат і вплив</div>
-            <h2>Ми не просто збираємо молодь. Ми <span class="gradient">змінюємо її траєкторію</span>.</h2>
-            <p class="lead">Найсильніший ефект молодіжної роботи ПРМТУ — у поєднанні практичних знань, спільноти, цінностей, лідерського досвіду та реальної участі у важливих процесах.</p>
-          </div>
-          <div class="impact-cards">
-            <article class="impact-card glass"><strong>Для молоді</strong><p>Більше впевненості на старті, краще розуміння професії, прав, ризиків, ринку праці та власних можливостей у морі й на березі.</p></article>
-            <article class="impact-card glass"><strong>Для Профспілки</strong><p>Формування нового покоління активних молодих спілчан, які не лише підтримують ідеї, а беруть участь у розвитку й представництві.</p></article>
-            <article class="impact-card glass"><strong>Для середовища</strong><p>Партнерства, меморандуми, міжгалузевий діалог, участь у молодіжних стратегіях, форумах та міжнародних програмах.</p></article>
-          </div>
-        </div>
-        <div class="trajectory glass reveal delay-1">
-          <strong>Траєкторія молоді</strong>
-          <p class="lead" style="margin-top:8px;max-width:none;font-size:15px">Цінність вашої роботи — у тому, що вона не зупиняється на окремій події. Вона веде людину від першого інтересу до реальної участі, компетентності та лідерства.</p>
-          <svg viewBox="0 0 700 230" preserveAspectRatio="none" aria-hidden="true" style="margin-top:14px">
-            <defs><linearGradient id="curve" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#59e0d5"/><stop offset="50%" stop-color="#f2c46b"/><stop offset="100%" stop-color="#ffffff"/></linearGradient></defs>
-            <path d="M60 164 C132 132, 198 122, 260 138 S360 176, 430 150 S548 98, 604 90 S656 72, 680 40" fill="none" stroke="url(#curve)" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 14"/>
-            <circle cx="60" cy="164" r="11" fill="#59e0d5"/><circle cx="250" cy="138" r="11" fill="#f2c46b"/><circle cx="430" cy="150" r="11" fill="#59e0d5"/><circle cx="572" cy="96" r="11" fill="#f2c46b"/><circle cx="680" cy="40" r="12" fill="#ffffff"/>
-            <g fill="rgba(255,255,255,.92)" font-size="12" font-weight="700">
-              <rect x="44" y="18" rx="20" ry="20" width="176" height="32" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><text x="66" y="38">знайомство з ПРМТУ</text>
-              <rect x="248" y="42" rx="20" ry="20" width="154" height="32" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><text x="270" y="62">знання і навички</text>
-              <rect x="396" y="120" rx="20" ry="20" width="200" height="32" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><text x="420" y="140">участь і відповідальність</text>
-              <rect x="214" y="172" rx="20" ry="20" width="160" height="32" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><text x="236" y="192">лідерство і вплив</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="impact"><div class="container impact-grid"><div class="impact-left reveal"><div class="eyebrow">результат і вплив</div><h2>Ми не просто збираємо молодь. Ми <span class="gradient">змінюємо її траєкторію</span>.</h2><p class="lead">Найсильніший ефект молодіжної роботи ПРМТУ — у поєднанні практичних знань, спільноти, цінностей, лідерського досвіду та реальної участі у важливих процесах.</p><div class="result-grid"><article class="glass result-card tilt-card"><div class="result-badge">🧭</div><strong>Для молоді</strong><p>Більше впевненості на старті, краще розуміння професії, прав, ризиків, ринку праці та власних можливостей у морі й на березі.</p></article><article class="glass result-card tilt-card"><div class="result-badge">🤝</div><strong>Для Профспілки</strong><p>Формування нового покоління активних молодих спілчан, які не лише підтримують ідеї, а беруть участь у розвитку й представництві.</p></article><article class="glass result-card tilt-card"><div class="result-badge">🌐</div><strong>Для середовища</strong><p>Партнерства, меморандуми, міжгалузевий діалог, участь у молодіжних стратегіях, форумах та міжнародних програмах.</p></article></div></div><div class="impact-right reveal delay-1"><div class="glass route-card tilt-card"><strong>Траєкторія молоді</strong><p>Цінність вашої роботи — у тому, що вона не зупиняється на окремій події. Вона веде людину від першого інтересу до реальної участі, компетентності та лідерства.</p><div class="route-visual"><svg class="route-svg" viewBox="0 0 700 420" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="curve" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4fe1d4"/><stop offset="50%" stop-color="#f2c46b"/><stop offset="100%" stop-color="#ffffff"/></linearGradient></defs><path d="M70 310 C120 268, 168 258, 230 268 S334 318, 394 286 S486 200, 560 182 S632 164, 664 112" fill="none" stroke="url(#curve)" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 14"/><circle cx="70" cy="310" r="12" fill="#4fe1d4"/><circle cx="230" cy="268" r="12" fill="#f2c46b"/><circle cx="394" cy="286" r="12" fill="#4fe1d4"/><circle cx="560" cy="182" r="12" fill="#f2c46b"/><circle cx="664" cy="112" r="14" fill="#ffffff"/></svg><div class="route-points"><div class="route-step">знайомство з ПРМТУ</div><div class="route-step">знання і навички</div><div class="route-step">участь і відповідальність</div><div class="route-step">лідерство і вплив</div></div></div></div></div></div></section>
 
-    <section class="section" id="gallery">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
-      <div class="container">
-        <div class="gallery-head reveal">
-          <div class="eyebrow">фото і візуальні блоки</div>
-          <h2>Жива енергія <span class="gradient">спільноти</span>.</h2>
-          <p class="lead">Тут підготовлено лише кілька ключових місць для реальних фото, щоб презентація не була перевантаженою, але водночас виглядала живою і переконливою.</p>
-        </div>
-        <div class="gallery-grid reveal delay-1">
-          <article class="photo-card glass main"><div><div class="placeholder-label">Фото 1 / головний кадр</div><h3>Сюди постав головне фото з великої події</h3><p>Підійде форум, табір або сильний командний кадр, який одразу дає масштаб.</p></div></article>
-          <article class="photo-card glass"><div><div class="placeholder-label">Фото 2 / ком’юніті</div><h3>Живий кадр спільноти</h3><p>Фото з Union Quiz, Union Sport, табору або неформального молодіжного формату.</p></div></article>
-          <article class="quote-card glass"><div><div class="placeholder-label">Візуальний акцент</div><h3 style="font-size:30px;line-height:1.05;max-width:12ch;margin-top:14px">Тут можна залишити текстовий акцент або замінити його ще одним фото</h3><p>Цей блок можна використати як цитату, короткий сильний меседж або додаткове фото, якщо буде потреба.</p></div></article>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="stage"><div class="container"><div class="glass stage-shell reveal"><div class="stage-grid"></div><div class="stage-copy"><div class="eyebrow" style="margin-bottom:6px;">молодь у дії</div><div class="stage-word" id="stageWord">ЛІДЕРСТВО</div><div class="stage-desc" id="stageDesc">Молодь не чекає запрошення в майбутнє — вона вчиться бути тією силою, яка це майбутнє формує.</div><div class="stage-pills"><span>лідерство</span><span>солідарність</span><span>дія</span><span>морське майбутнє</span></div></div></div></div></section>
 
-    <section class="section" id="partners">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
-      <div class="container partners-layout">
-        <div class="video-panel reveal">
-          <div class="video-card glass">
-            <div class="placeholder-label" style="margin-bottom:14px">Відео 4:3 / географічна присутність</div>
-            <div class="video-frame">
-              <div class="play-button"></div>
-              <div class="video-caption">
-                <div class="placeholder-label">Сюди вставити відео 4:3</div>
-                <h3 style="font-size:30px;line-height:1.06;margin-top:12px;max-width:12ch">Тут може бути динамічне відео про географію, події або міжнародні поїздки</h3>
-              </div>
-            </div>
-          </div>
-          <div class="mini-photo-row reveal delay-1">
-            <div class="mini-card glass"><strong>Додаткове фото 1</strong><p>Можна поставити фото з локальної події або зустрічі в одному з міст.</p></div>
-            <div class="mini-card glass"><strong>Додаткове фото 2</strong><p>Можна використати для міжнародного кадру, меморандуму або партнерської події.</p></div>
-          </div>
-        </div>
-        <div class="reveal delay-1">
-          <div class="eyebrow">партнерства і масштаб</div>
-          <h2>Сильні локально. <span class="gradient">Відкриті на міжнародному рівні</span>.</h2>
-          <p class="lead">Молодіжна рада ПРМТУ працює в морських містах України, у міжгалузевих партнерствах, у молодіжних форматах Одещини та в міжнародному профспілковому просторі.</p>
-          <div style="display:grid;gap:14px;margin-top:18px">
-            <div class="partner-card glass"><strong><span style="color:var(--teal)">01</span> Міжгалузеві партнери</strong><p>Молодіжні ради інших профспілок, спільні форуми, меморандуми та обмін практиками для посилення профспілкового молодіжного руху.</p></div>
-            <div class="partner-card glass"><strong><span style="color:var(--teal)">02</span> Освітні та молодіжні середовища</strong><p>Курсанти, студенти, молодіжні форуми, школи, громадські ініціативи й середовища, де народжується нова активна спільнота.</p></div>
-            <div class="partner-card glass"><strong><span style="color:var(--teal)">03</span> Інституції та правовий вимір</strong><p>Співпраця з інституціями у сфері прав людини, правопросвіти, безпеки, медіації та практичної підтримки молоді.</p></div>
-            <div class="partner-card glass"><strong><span style="color:var(--teal)">04</span> Міжнародний трек</strong><p>NTF, ETF, ETUI, міжнародні профспілкові форуми й навчальні формати, що дають молоді нові орієнтири та контакти.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="gallery"><div class="container"><div class="reveal"><div class="eyebrow">візуальний вайб</div><h2>Не сухий звіт. А <span class="gradient">жива енергія спільноти</span>.</h2><p class="lead">Цей блок показує живу енергію спільноти:  лідерство, форумна атмосфера, командність, міжнародність і сучасна молодіжна подача в одному ритмі.</p></div><div class="gallery-grid reveal delay-1"><article class="gallery-card large tilt-card"><div class="tag">форумний драйв</div><div><h3>Молодь у дії, а не в режимі спостерігачів</h3><p>Форуми, лідерські табори, дискусії, комунікація, партнерства і відчуття, що молодь реально впливає на процес.</p></div></article><article class="gallery-card tilt-card"><div class="tag">кар’єрний трек</div><div><h3>Професійний трек</h3><p>Перший рейс, співбесіди, офшор, логістика, морська кар’єра на борту і на березі.</p></div></article><article class="gallery-card tilt-card"><div class="tag">права і захист</div><div><h3>Правова опора</h3><p>Коли молодь знає не лише мрію про професію, а й свої права, інструменти та правила гри.</p></div></article><article class="gallery-card tilt-card"><div class="tag">спільнота</div><div><h3>Ком’юніті</h3><p>Union Quiz, спорт, меми, культурні формати, які роблять середовище близьким і сучасним.</p></div></article><article class="gallery-card tilt-card"><div class="tag">міжнародність</div><div><h3>Міжнародний горизонт</h3><p>ETF, ETUI, NTF, європейські зустрічі, нові контакти, нові сенси і новий масштаб мислення.</p></div></article></div></div></section>
 
-    <section class="section" id="join">
-      <div class="sea-waves" aria-hidden="true"><div class="wave back"></div><div class="wave mid"></div><div class="wave front"></div></div>
-      <div class="container final-layout">
-        <div class="cta glass reveal">
-          <div>
-            <div class="eyebrow">фінальний меседж</div>
-            <h2>Чому з нами варто <span class="gradient">співпрацювати і зростати</span></h2>
-            <p class="lead">Тому що ми поєднуємо зміст, стиль, молодіжну енергію, системність і сучасну мову комунікації. Ми не просто говоримо про розвиток молоді — ми створюємо середовище, де цей розвиток реально відбувається.</p>
-            <div class="chip-links">
-              <a href="https://www.instagram.com/mtwtuyouth/" target="_blank" rel="noopener">Instagram MTWTUYouth ↗</a>
-              <a href="https://mtwtu.org.ua/youth" target="_blank" rel="noopener">Офіційна youth-сторінка ↗</a>
-              <a href="#hero">На початок ↑</a>
-            </div>
-            <p class="lead" style="margin-top:18px;max-width:44ch;font-size:15px">Молодіжна рада ПРМТУ — це простір, де молода людина отримує не лише можливості, а й відчуття причетності, підтримки та реального зростання.</p>
-          </div>
-        </div>
-        <div class="signal-wrap reveal delay-1">
-          <div class="rings"></div>
-          <div class="core"></div>
-          <div class="signal-tag one">лідерство</div>
-          <div class="signal-tag two">солідарність</div>
-          <div class="signal-tag three">майбутнє галузі</div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="moment"><div class="container"><div class="type-shell reveal"><div class="type-card"><div class="type-kicker">ключовий меседж</div><div class="type-moment">Молодь у ПРМТУ — це не «додаток». Це <span class="gradient">рушійна сила змін</span>.</div><div class="type-note">Саме через системну молодіжну роботу народжується нове покоління людей, які не просто входять у професію, а вміють діяти, мислити ширше, брати відповідальність і будувати сильне майбутнє галузі.</div></div></div></div></section>
+
+    <section class="section" id="partners"><div class="container partner-grid"><div class="glass map-card reveal tilt-card"><div class="chart-grid"><div class="hub-glow"></div><svg class="map-svg" viewBox="0 0 1000 680" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="seaRoute" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4fe1d4"/><stop offset="48%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f2c46b"/></linearGradient></defs><path id="route-odesa" class="route-line active" d="M560 476 C560 476,560 476,560 476" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".92"/><path id="route-chornomorsk" class="route-line" d="M560 476 C586 468, 602 462, 620 456" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".92"/><path id="route-izmail" class="route-line" d="M560 476 C610 456, 656 448, 690 442" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".92"/><path id="route-copenhagen" class="route-line" d="M560 476 C500 430, 454 350, 390 244" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".92"/><path id="route-prague" class="route-line" d="M560 476 C524 418, 500 360, 460 286" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".92"/><path id="route-auschwitz" class="route-line" d="M560 476 C534 418, 520 346, 490 266" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".92"/><path id="route-brussels" class="route-line" d="M560 476 C510 420, 468 372, 420 306" fill="none" stroke="url(#seaRoute)" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 16" opacity=".92"/><path d="M0 612 H1000" stroke="rgba(255,255,255,.12)" stroke-width="2"/><path d="M118 612 C188 596, 244 602, 304 612 S428 626, 514 608 S640 582, 736 602 S886 624, 1000 604" fill="none" stroke="rgba(79,225,212,.24)" stroke-width="4"/></svg><button class="node active" style="left:56%; top:70%;" data-route="route-odesa" data-title="Одеса" data-text="Один із головних центрів активності Молодіжної ради ПРМТУ: зустрічі, форуми, правопросвіта, партнерства та молодіжні ініціативи."></button><button class="node" style="left:62%; top:67%;" data-route="route-chornomorsk" data-title="Чорноморськ" data-text="Місто молодіжної взаємодії, де розвиваються формати Union Quiz, події спільноти та партнерський обмін досвідом."></button><button class="node" style="left:69%; top:65%;" data-route="route-izmail" data-title="Ізмаїл" data-text="Впізнавана точка активності через інтелектуальні та спортивні формати, які зміцнюють молодіжне середовище."></button><button class="node international" style="left:39%; top:36%;" data-route="route-copenhagen" data-title="Копенгаген" data-text="Участь представників Молодіжної ради ПРМТУ в конференції молодих активістів NTF та міжнародному профспілковому діалозі."></button><button class="node international" style="left:46%; top:42%;" data-route="route-prague" data-title="Прага" data-text="Міжнародний освітній досвід, рефлексія над цінностями демократії, прав людини та ролі молодого покоління."></button><button class="node international" style="left:49%; top:39%;" data-route="route-auschwitz" data-title="Освенцим" data-text="Участь у навчальній мандрівці «Потяг пам’яті» як частині міжнародного ціннісного й освітнього діалогу."></button><button class="node international" style="left:42%; top:45%;" data-route="route-brussels" data-title="Брюссель / європейський трек" data-text="Європейські освітні та профспілкові формати, що розширюють горизонти молодіжної роботи ПРМТУ."></button><div class="map-panel"><div class="eyebrow" style="margin:0; width:fit-content;">географія присутності</div><h3 id="mapTitle">Одеса</h3><p id="mapText">Один із головних центрів активності Молодіжної ради ПРМТУ: зустрічі, форуми, правопросвіта, партнерства та молодіжні ініціативи.</p></div></div></div><div class="partner-list reveal delay-1"><div class="eyebrow">партнерства і масштаб</div><h2>Сильні локально. <span class="gradient">Відкриті на міжнародному рівні</span>.</h2><p class="lead" style="margin-top:14px; max-width:none;">Молодіжна рада ПРМТУ працює в морських містах України, у міжгалузевих партнерствах, у молодіжних форматах Одещини та в міжнародному профспілковому просторі.</p><div class="glass partner-card tilt-card"><strong><span>01</span> Міжгалузеві партнери</strong><p>Молодіжні ради інших профспілок, спільні форуми, меморандуми та обмін практиками для посилення профспілкового молодіжного руху.</p></div><div class="glass partner-card tilt-card"><strong><span>02</span> Освітні та молодіжні середовища</strong><p>Курсанти, студенти, молодіжні форуми, школи, громадські ініціативи й середовища, де народжується нова активна спільнота.</p></div><div class="glass partner-card tilt-card"><strong><span>03</span> Інституції та правовий вимір</strong><p>Співпраця з інституціями у сфері прав людини, правопросвіти, безпеки, медіації та практичної підтримки молоді.</p></div><div class="glass partner-card tilt-card"><strong><span>04</span> Міжнародний трек</strong><p>NTF, ETF, ETUI, міжнародні профспілкові форуми й навчальні формати, що дають молоді нові орієнтири та контакти.</p></div></div></div></section>
+
+    <section class="section" id="join"><div class="container"><div class="glass cta-shell reveal"><div class="sunrise"></div><div class="final-grid"><div class="cta-copy"><div class="eyebrow">фінальний меседж</div><h2>Чому з нами варто <span class="gradient">співпрацювати і зростати</span></h2><p class="lead">Тому що ми поєднуємо зміст, стиль, молодіжну енергію, системність і сучасну мову комунікації. Ми не просто говоримо про розвиток молоді — ми створюємо середовище, де цей розвиток реально відбувається.</p><div class="cta-actions"><a class="chip-link" href="https://www.instagram.com/mtwtuyouth/" target="_blank" rel="noopener">Instagram MTWTUYouth ↗</a><a class="chip-link" href="https://mtwtu.org.ua/youth" target="_blank" rel="noopener">Офіційна youth-сторінка ↗</a><a class="chip-link" href="#hero">На початок ↑</a></div><p style="margin-top:18px; color:rgba(183,207,225,.82); line-height:1.65; max-width:720px; font-size:14px;">Молодіжна рада ПРМТУ — це простір, де молода людина отримує не лише можливості, а й відчуття причетності, підтримки та реального зростання.</p></div><div class="cta-visual"><div class="signal-rings"><span></span><span></span><span></span></div><div class="signal-core"></div><div class="signal-labels"><div class="signal-tag one">лідерство</div><div class="signal-tag two">солідарність</div><div class="signal-tag three">майбутнє галузі</div></div></div></div></div></div></section>
   </main>
 
   <script>
-    const sections=[...document.querySelectorAll('section[id]')];
-    const navLinks=[...document.querySelectorAll('.nav a')];
-    const sideLinks=[...document.querySelectorAll('.side-dots a')];
-    const progressBar=document.getElementById('progressBar');
-    const cursorGlow=document.getElementById('cursorGlow');
-
-    const observer=new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
-    },{threshold:0.16});
-    document.querySelectorAll('.reveal').forEach(el=>{ if(!el.classList.contains('visible')) observer.observe(el); });
-
-    function updateActive(){
-      let current=sections[0].id;
-      const marker=window.scrollY + window.innerHeight*0.45;
-      sections.forEach(sec=>{ if(marker>=sec.offsetTop) current=sec.id; });
-      [...navLinks,...sideLinks].forEach(link=>link.classList.toggle('active', link.getAttribute('href')==='#'+current));
-      const scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
-      const maxScroll=document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width=(maxScroll>0 ? (scrollTop/maxScroll)*100 : 0)+'%';
-    }
-    window.addEventListener('scroll', updateActive, {passive:true});
-    window.addEventListener('load', updateActive);
-
-    let lock=false;
-    function goToSection(index){ if(index<0 || index>=sections.length) return; lock=true; sections[index].scrollIntoView({behavior:'smooth',block:'start'}); setTimeout(()=>lock=false,760); }
-    function currentSection(){ const marker=window.scrollY + window.innerHeight*0.45; let i=0; sections.forEach((sec,idx)=>{ if(marker>=sec.offsetTop) i=idx; }); return i; }
-    window.addEventListener('keydown',(e)=>{
-      const idx=currentSection();
-      if(lock) return;
-      if(['ArrowDown','PageDown','ArrowRight',' '].includes(e.key)){ e.preventDefault(); goToSection(idx+1); }
-      if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){ e.preventDefault(); goToSection(idx-1); }
-      if(e.key==='Home'){ e.preventDefault(); goToSection(0); }
-      if(e.key==='End'){ e.preventDefault(); goToSection(sections.length-1); }
-    });
-
-    window.addEventListener('pointermove',(e)=>{ cursorGlow.style.left=e.clientX+'px'; cursorGlow.style.top=e.clientY+'px'; },{passive:true});
-
-    const directionCards=document.querySelectorAll('.feature-card');
-    const detailKicker=document.getElementById('detailKicker');
-    const detailTitle=document.getElementById('detailTitle');
-    const detailText=document.getElementById('detailText');
-    directionCards.forEach(card=>{
-      card.addEventListener('click',()=>{
-        directionCards.forEach(c=>c.classList.remove('active'));
-        card.classList.add('active');
-        detailKicker.textContent=card.dataset.kicker;
-        detailTitle.textContent=card.dataset.title;
-        detailText.textContent=card.dataset.text;
-      });
-    });
-
-    const flagshipItems=document.querySelectorAll('.flagship-item');
-    const flagshipKicker=document.getElementById('flagshipKicker');
-    const flagshipTitle=document.getElementById('flagshipTitle');
-    const flagshipText=document.getElementById('flagshipText');
-    flagshipItems.forEach(item=>{
-      item.addEventListener('click',()=>{
-        flagshipItems.forEach(i=>i.classList.remove('active'));
-        item.classList.add('active');
-        flagshipKicker.textContent=item.dataset.kicker;
-        flagshipTitle.textContent=item.dataset.title;
-        flagshipText.textContent=item.dataset.text;
-      });
-    });
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const sideLinks = [...document.querySelectorAll('.side-dots a')];
+    const progressBar = document.getElementById('progressBar');
+    const cursorGlow = document.getElementById('cursorGlow');
+        const revealObserver = new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('visible')})},{threshold:0.16});
+    document.querySelectorAll('.reveal').forEach(el=>{if(!el.classList.contains('visible')) revealObserver.observe(el)});
+    function updateActiveSection(){let current=sections[0].id; const marker=window.scrollY + window.innerHeight * 0.46; sections.forEach(section=>{if(marker>=section.offsetTop) current=section.id}); [...navLinks,...sideLinks].forEach(link=>link.classList.toggle('active', link.getAttribute('href') === '#' + current)); const scrollTop=document.documentElement.scrollTop || document.body.scrollTop; const maxScroll=document.documentElement.scrollHeight - window.innerHeight; const progress=maxScroll>0 ? (scrollTop / maxScroll)*100 : 0; progressBar.style.width = progress + '%';}
+    window.addEventListener('scroll', updateActiveSection, { passive:true }); window.addEventListener('load', updateActiveSection);
+    let isScrollingProgrammatically=false; function goToSection(index){ if(index<0 || index>=sections.length) return; isScrollingProgrammatically=true; sections[index].scrollIntoView({behavior:'smooth', block:'start'}); window.setTimeout(()=>{isScrollingProgrammatically=false},760);} function currentSectionIndex(){ const marker=window.scrollY + window.innerHeight*0.45; let idx=0; sections.forEach((section,i)=>{ if(marker>=section.offsetTop) idx=i;}); return idx; }
+    window.addEventListener('keydown', (e)=>{ const tag=document.activeElement && document.activeElement.tagName; if(tag==='INPUT' || tag==='TEXTAREA') return; const idx=currentSectionIndex(); if((e.key==='ArrowDown' || e.key==='PageDown' || e.key==='ArrowRight' || e.key===' ') && !isScrollingProgrammatically){ e.preventDefault(); goToSection(idx+1);} if((e.key==='ArrowUp' || e.key==='PageUp' || e.key==='ArrowLeft') && !isScrollingProgrammatically){ e.preventDefault(); goToSection(idx-1);} if(e.key==='Home'){ e.preventDefault(); goToSection(0);} if(e.key==='End'){ e.preventDefault(); goToSection(sections.length-1);}});
+    
+    window.addEventListener('pointermove', (e)=>{ cursorGlow.style.left = e.clientX + 'px'; cursorGlow.style.top = e.clientY + 'px'; }, { passive:true });
+    document.querySelectorAll('.tilt-card').forEach(card=>{ card.addEventListener('pointermove', (e)=>{ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const rect=card.getBoundingClientRect(); const x=e.clientX - rect.left; const y=e.clientY - rect.top; const rx=((y / rect.height) - 0.5) * -6; const ry=((x / rect.width) - 0.5) * 7; card.style.transform = `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`; card.style.setProperty('--mx', `${(x / rect.width) * 100}%`); card.style.setProperty('--my', `${(y / rect.height) * 100}%`);}); card.addEventListener('pointerleave', ()=>{ card.style.transform=''; });});
+    const directionCards=document.querySelectorAll('.feature-card'); const detailKicker=document.getElementById('detailKicker'); const detailTitle=document.getElementById('detailTitle'); const detailText=document.getElementById('detailText'); directionCards.forEach(card=>{ const activate=()=>{ directionCards.forEach(c=>c.classList.remove('active')); card.classList.add('active'); detailKicker.textContent=card.dataset.kicker; detailTitle.textContent=card.dataset.title; detailText.textContent=card.dataset.text; }; card.addEventListener('click', activate); });
+    const flagshipItems=document.querySelectorAll('.flagship-item'); const flagshipKicker=document.getElementById('flagshipKicker'); const flagshipTitle=document.getElementById('flagshipTitle'); const flagshipText=document.getElementById('flagshipText'); flagshipItems.forEach(item=>{ const activate=()=>{ flagshipItems.forEach(i=>i.classList.remove('active')); item.classList.add('active'); flagshipKicker.textContent=item.dataset.kicker; flagshipTitle.textContent=item.dataset.title; flagshipText.textContent=item.dataset.text; }; item.addEventListener('click', activate); });
+    const stageWord=document.getElementById('stageWord'); const stageDesc=document.getElementById('stageDesc'); const stageData=[{word:'ЛІДЕРСТВО', desc:'Молодь не чекає запрошення в майбутнє — вона вчиться бути тією силою, яка це майбутнє формує.'},{word:'ДІЯ', desc:'Ідеї тут не зависають у повітрі: вони переходять у форуми, табори, партнерства, проєкти та конкретні дії.'},{word:'ЄДНАННЯ', desc:'Солідарність — це не абстракція. Це жива спільнота, де поруч є знання, підтримка і люди, з якими ростеш.'},{word:'ЗАХИСТ', desc:'Права моряка, правова обізнаність і реальні інструменти захисту стають частиною професійної зрілості.'},{word:'РОЗВИТОК', desc:'Від першого інтересу до лідерства — Молодіжна рада ПРМТУ допомагає молоді рухатись по сильній траєкторії розвитку.'}]; let stageIndex=0; stageWord.style.transition='opacity .35s ease, transform .35s ease'; stageDesc.style.transition='opacity .35s ease, transform .35s ease'; setInterval(()=>{ stageIndex=(stageIndex+1)%stageData.length; stageWord.style.opacity='0'; stageDesc.style.opacity='0'; stageWord.style.transform='translateY(10px)'; stageDesc.style.transform='translateY(10px)'; setTimeout(()=>{ stageWord.textContent=stageData[stageIndex].word; stageDesc.textContent=stageData[stageIndex].desc; stageWord.style.opacity='1'; stageDesc.style.opacity='1'; stageWord.style.transform='translateY(0)'; stageDesc.style.transform='translateY(0)'; },220); },2800);
+    const mapNodes=document.querySelectorAll('.node'); const mapTitle=document.getElementById('mapTitle'); const mapText=document.getElementById('mapText'); const routeLines=document.querySelectorAll('.route-line'); mapNodes.forEach(node=>{ const activate=()=>{ mapNodes.forEach(n=>n.classList.remove('active')); routeLines.forEach(line=>line.classList.remove('active')); node.classList.add('active'); const route=document.getElementById(node.dataset.route); if(route) route.classList.add('active'); mapTitle.textContent=node.dataset.title; mapText.textContent=node.dataset.text; }; node.addEventListener('click', activate); });
   </script>
 </body>
 </html>
